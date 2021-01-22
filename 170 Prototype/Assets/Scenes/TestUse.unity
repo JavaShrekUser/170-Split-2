@@ -239,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 360848819}
   - component: {fileID: 360848820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestAirWall2
   m_TagString: Air_Wall
   m_Icon: {fileID: 0}
@@ -484,6 +484,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 550801119511591543, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 550801119941301768, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: cam
@@ -559,6 +564,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 550801119941301774, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37f1b5ddbbe8f412380fd7fb29b42b16, type: 3}
 --- !u!1 &556403159 stripped
@@ -600,7 +610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 657476222}
   - component: {fileID: 657476223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestAirWall1
   m_TagString: Air_Wall
   m_Icon: {fileID: 0}
@@ -1196,7 +1206,7 @@ GameObject:
   - component: {fileID: 1022850991}
   - component: {fileID: 1022850990}
   - component: {fileID: 1022850992}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1329,6 +1339,8 @@ MonoBehaviour:
   rb: {fileID: 1022850990}
   enemySpeed: 3
   horizontalDirection: 1
+  canMove: 1
+  stunTimer: 5
 --- !u!1 &1168799691
 GameObject:
   m_ObjectHideFlags: 0

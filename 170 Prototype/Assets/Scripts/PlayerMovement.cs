@@ -82,9 +82,11 @@ public class PlayerMovement : MonoBehaviour
 
   private void FixedUpdate() {
 
+    //normal x movement setting
     float horizontalVelocity = rb.velocity.x * movementSpeed;
     horizontalVelocity += Input.GetAxisRaw("Horizontal");
 
+    //x movement with different damping conditions
     if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f){
       horizontalVelocity *= Mathf.Pow(1f - horizontalDampWhenStopping, Time.deltaTime * 10f);
     }
@@ -98,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
     rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
   }
 
+  //check for if touch ground
   public bool IsGrounded(){
     Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(3.5f, 1f), 0f, groundLayers);
 

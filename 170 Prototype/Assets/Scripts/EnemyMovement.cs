@@ -9,14 +9,20 @@ public class EnemyMovement : MonoBehaviour
 
     public int enemySpeed = 3;
     public int horizontalDirection;
+    public bool canMove = true;
+    public float stunTimer = 5f;
     //public float bounceDistance = 0.7f;
 
     // Update is called once per frame
     void Update()
     {
         /*RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(horizontalDirection, 0));*/
-        rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
+        if(canMove == true)
+        {
+            rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
 
+        }
+            
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -24,6 +30,14 @@ public class EnemyMovement : MonoBehaviour
         // if collide with Air Wall
         if(col.tag == "Air_Wall"){
             Flip();
+        }
+
+        
+        if(col.gameObject.layer == 10){
+
+            Debug.Log("stunable");
+
+
         }
 
     }
