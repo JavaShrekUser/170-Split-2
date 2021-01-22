@@ -20,7 +20,10 @@ public class EnemyMovement : MonoBehaviour
         if(canMove == true)
         {
             rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
-
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
         }
             
     }
