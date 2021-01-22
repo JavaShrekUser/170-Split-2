@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SwitchAppear : MonoBehaviour {
   public GameObject hidedObj;
-  private float timer;
+  public float timer = 1f;
+  private float cdTimer;
 
   // timer to set hidedObj back to false when not
   // colliding with pressure plate
   private void Update() {
-    if (timer <= 0f) {
+    if (cdTimer <= 0f) {
       hidedObj.SetActive(false);
     }
-    if (timer > 0) {
-      timer -= Time.deltaTime;
+    if (cdTimer > 0) {
+      cdTimer -= Time.deltaTime;
     }
   }
 
@@ -22,7 +23,7 @@ public class SwitchAppear : MonoBehaviour {
   private void OnTriggerEnter2D (Collider2D col) {
     if (col.tag == "Player" || col.tag == "Enemy") {
       //Debug.Log("pressure plate working");
-      timer = 1f;
+      cdTimer = timer;
       hidedObj.SetActive(true);
     }
   }
@@ -30,7 +31,7 @@ public class SwitchAppear : MonoBehaviour {
   // check if the collison is still hapening
   private void OnTriggerStay2D (Collider2D col) {
     if (col.tag == "Player" || col.tag == "Enemy") {
-      timer = 1f;
+      cdTimer = timer;
     }
   }
 

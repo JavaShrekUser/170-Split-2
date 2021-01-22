@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class SwitchHide : MonoBehaviour {
   public GameObject showObj;
-  private float timer;
-
+  public float timer = 1f;
+  private float cdTimer;
   // timer to set showObj back to true when not
   // colliding with pressure plate
   private void Update() {
-    if (timer > 0) {
-      timer -= Time.deltaTime;
-      if (timer <= 0f) {
+    if (cdTimer > 0) {
+      cdTimer -= Time.deltaTime;
+      if (cdTimer <= 0f) {
         showObj.SetActive(true);
       }
     }
@@ -29,7 +29,7 @@ public class SwitchHide : MonoBehaviour {
   // check if the collison is still hapening
   private void OnTriggerStay2D (Collider2D col) {
    if (col.tag == "Player" || col.tag == "Enemy") {
-     timer = 1f;
+     cdTimer = timer;
    }
   }
 
