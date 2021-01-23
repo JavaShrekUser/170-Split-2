@@ -28,14 +28,21 @@ public class PlayerMovement : MonoBehaviour
   public Transform feet;
   public LayerMask groundLayers;
   public Collider2D player;
+  public GameObject dialogueBox;
   public GameObject collectible;
   public GameObject collectible2;
   public GameObject collectible3;
-  public GameObject dialogueBox;
+  
+  //comment out for future need --- Access from playerMovement code to enemyMovement variable
+  //public GameObject monster;
+  //private EnemyMovement monsterCanMove;
 
   private void Start() {
 
     rb = GetComponent<Rigidbody2D>();
+
+    //comment out for future need --- Access from playerMovement code to enemyMovement variable
+    //monsterCanMove = monster.GetComponent<EnemyMovement>();
 
   }
 
@@ -45,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
     if(Input.GetButtonDown("Jump") && IsGrounded()){
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
       groundCheck2 = false;
+      
+      //comment out for future need --- Access from playerMovement code to enemyMovement variable
+      //monsterCanMove.canMove = !(monsterCanMove.canMove);
     }
     else if(groundCheck2 == false){
       groundCheck2 = (Physics2D.OverlapBox(feet.position, new Vector2(0.25f, .5f), 0f, groundLayers) != null);

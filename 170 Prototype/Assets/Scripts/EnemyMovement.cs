@@ -9,22 +9,35 @@ public class EnemyMovement : MonoBehaviour
 
     public int enemySpeed = 3;
     public int horizontalDirection;
-    public bool canMove = true;
+    public bool isStun = false;
     public float stunTimer = 5f;
-    //public float bounceDistance = 0.7f;
 
     // Update is called once per frame
     void Update()
     {
+        //comment out for raycast code, maybe needed for future movement
         /*RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(horizontalDirection, 0));*/
-        if(canMove == true)
+            
+        if(isStun == false)
         {
             rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
         }
         else
         {
+
+            stunTimer -= Time.deltaTime;
+
             rb.velocity = new Vector2(0, 0);
+
+            if(stunTimer <= 0)
+            {
+                isStun = false;
+                stunTimer = 5f;
+            }
+
         }
+
+
             
     }
 
@@ -36,12 +49,11 @@ public class EnemyMovement : MonoBehaviour
         }
 
         
-        if(col.gameObject.layer == 10){
+        /*if(col.gameObject.layer == 10){
 
             Debug.Log("stunable");
 
-
-        }
+        }*/
 
     }
 
