@@ -5,14 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
-
+    //rigid body is rigid body
     public Rigidbody2D rb;
 
+    //enemy movement variable
     public int enemySpeed = 3;
     public int horizontalDirection;
+
+    //condition and timer
     public bool isStun = false;
-    public bool isHarmful = true;
     public float stunTimer = 5f;
+    public bool isHarmful = true;
+
+    //hitbox for collision
+    public Transform head;
+    public LayerMask stunCollide;
+    public bool collisionCheck;
+    
 
     // Update is called once per frame
     void Update()
@@ -42,8 +51,12 @@ public class EnemyMovement : MonoBehaviour
 
         }
 
-        //EnemyRaycast();
+        collisionCheck = Physics2D.OverlapBox(head.position, new Vector2(0.25f, .5f), 0f, stunCollide);
 
+        if(collisionCheck == true)
+        {
+            isStun = true;
+        }
 
             
     }
@@ -60,7 +73,7 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col) 
     {
         
-        if(col.gameObject.name == "Player" && isHarmful == true)
+        if(col.gameObject.name == "Player" && isHarmful == true && collisionCheck == false)
         {
 
             // reload the scene
