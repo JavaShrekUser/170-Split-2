@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;//for playtest purpose
 
 public class SubLayerMove6 : MonoBehaviour
 {
@@ -17,9 +18,27 @@ public class SubLayerMove6 : MonoBehaviour
     float move1 = 0f;
     float move2 = 0f;
 
+    private int nextScene;//for playtest purpose
+    private int lastScene;//for playtest purpose
+
+    private void Start()//for playtest purpose
+    {
+        nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
+        lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
+    }
+
     // Update is called once per frame
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))//for playtest purpose
+        {
+            SceneManager.LoadScene(nextScene);//for playtest purpose
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))//for playtest purpose
+        {
+            SceneManager.LoadScene(lastScene);//for playtest purpose
+        }
+
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
