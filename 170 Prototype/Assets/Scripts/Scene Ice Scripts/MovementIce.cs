@@ -7,11 +7,9 @@ public class MovementIce : MonoBehaviour
 {
     public Rigidbody2D rb;      // Rigidbody variable
     public float speed;         // player movement speed 
-    public bool touchIce;       // Helps to determine in playermovement
 
     void Update()
     {
-        Debug.Log("touchIce status1 = " + touchIce);
         //Movement();
     }
 
@@ -19,7 +17,7 @@ public class MovementIce : MonoBehaviour
         // Get One Direction^^
         float horizontalmove;
         horizontalmove = Input.GetAxis("Horizontal");
-        touchIce = false;
+        Debug.Log("horizontalmove = " + horizontalmove);
 
         // PlayerMovement method
         if(horizontalmove != 0){
@@ -28,18 +26,49 @@ public class MovementIce : MonoBehaviour
         }
     }
 
+    void MovementAfterIceR(){
+        float horizontalmove;
+        horizontalmove = Input.GetAxisRaw("Horizontal");
+        Debug.Log("horizontalmove right ice = " + horizontalmove);
+        // PlayerMovement Method
+        if(horizontalmove == -1){
+            speed *= -1;
+        }
+    }
+
+    void MovementAfterIceL(){
+        float horizontalmove;
+        horizontalmove = Input.GetAxisRaw("Horizontal");
+        Debug.Log("horizontalmove left ice = " + horizontalmove);
+        // PlayerMovement Method
+        if(horizontalmove == 1){
+            speed *= -1;
+        }
+    }
+
     // Collision detector, returns true while player keep coliding the ice
     private void OnCollisionStay2D(Collision2D col){
         // if collide with ice do sliding
         if(col.gameObject.tag == "Ice"){
-            Debug.Log("Collision detected = "+touchIce);
             rb.velocity = new Vector2(speed, -10);
-            touchIce = true;
-            Debug.Log("touchIce status2 = "+touchIce);
         // if not collide do normal movement
+        }else if(col.gameObject.tag == "WallR"){
+            MovementAfterIceR();
+        }else if(col.gameObject.tag == "WallL"){
+            MovementAfterIceL();
         }else{
             Movement();
         }
   }
+
+    /*private void OnCollisionEnter2D(Collision2D col){
+        if(col.gameObject.tag == "WallR"){
+            Debug.Log("Touching right wall");
+            MovementAfterIce();
+        }
+        if(col.gameObject.tag == "WallL"){
+            Debug.Log("Touching left wall");
+        }
+    }*/
 }
 
