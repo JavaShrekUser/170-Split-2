@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 45514227}
   m_Layer: 0
   m_Name: Monster3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,8 @@ MonoBehaviour:
   rb: {fileID: 45514228}
   enemySpeed: 3
   horizontalDirection: 1
-  canMove: 1
+  isStun: 0
+  isHarmful: 1
   stunTimer: 5
 --- !u!50 &45514228
 Rigidbody2D:
@@ -174,10 +175,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 26473f8418b954ffe86d4f850626d36d, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &45514229
 BoxCollider2D:
@@ -657,15 +658,20 @@ PrefabInstance:
       propertyPath: monster
       value: 
       objectReference: {fileID: 1022850987}
+    - target: {fileID: 550801119941301771, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.43
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.87
+      value: -4.42
       objectReference: {fileID: 0}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
@@ -720,7 +726,7 @@ PrefabInstance:
     - target: {fileID: 550801119941301774, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37f1b5ddbbe8f412380fd7fb29b42b16, type: 3}
@@ -1420,7 +1426,7 @@ GameObject:
   - component: {fileID: 1022850992}
   m_Layer: 0
   m_Name: Monster1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1483,7 +1489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022850987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.9, y: -2.81, z: 0}
+  m_LocalPosition: {x: 7.18, y: -5.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1505,10 +1511,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 26473f8418b954ffe86d4f850626d36d, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1022850991
 BoxCollider2D:
@@ -1551,7 +1557,8 @@ MonoBehaviour:
   rb: {fileID: 1022850990}
   enemySpeed: 3
   horizontalDirection: 1
-  canMove: 1
+  isStun: 0
+  isHarmful: 1
   stunTimer: 5
 --- !u!1 &1152617242
 GameObject:
@@ -1625,7 +1632,7 @@ GameObject:
   - component: {fileID: 1164667381}
   m_Layer: 0
   m_Name: Monster2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1645,7 +1652,8 @@ MonoBehaviour:
   rb: {fileID: 1164667382}
   enemySpeed: 3
   horizontalDirection: 1
-  canMove: 1
+  isStun: 0
+  isHarmful: 1
   stunTimer: 5
 --- !u!50 &1164667382
 Rigidbody2D:
@@ -1663,10 +1671,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 26473f8418b954ffe86d4f850626d36d, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1164667383
 BoxCollider2D:
@@ -2192,7 +2200,7 @@ GameObject:
   - component: {fileID: 1813527925}
   m_Layer: 0
   m_Name: Monster4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2212,7 +2220,8 @@ MonoBehaviour:
   rb: {fileID: 1813527926}
   enemySpeed: 3
   horizontalDirection: 1
-  canMove: 1
+  isStun: 0
+  isHarmful: 1
   stunTimer: 5
 --- !u!50 &1813527926
 Rigidbody2D:
@@ -2230,10 +2239,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 26473f8418b954ffe86d4f850626d36d, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1813527927
 BoxCollider2D:

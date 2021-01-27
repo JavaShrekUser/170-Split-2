@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     {
       collectible3.SetActive(false);
     }
+
   }
 
   private void OnTriggerEnter2D(Collider2D col){
@@ -116,5 +117,6 @@ public class PlayerMovement : MonoBehaviour
 
     return (groundCheck != null && groundCheck2 != false);
   }
+
 
 }
