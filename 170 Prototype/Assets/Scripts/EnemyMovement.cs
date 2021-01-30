@@ -26,14 +26,12 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //comment out for raycast code, maybe needed for future movement
-        /*RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(horizontalDirection, 0));*/
-            
+        //what to do if the monster is not stunned
         if(isStun == false)
         {
             rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
         }
-        else
+        else //what if it's in stunned state
         {
 
             stunTimer -= Time.deltaTime;
@@ -42,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
             isHarmful = false;
 
+            //reactive all the condition and refresh timer once going out the state
             if(stunTimer <= 0)
             {
                 isStun = false;
@@ -51,8 +50,9 @@ public class EnemyMovement : MonoBehaviour
 
         }
 
+        //check of monster "head" colliding with player
         collisionCheck = Physics2D.OverlapBox(head.position, new Vector2(0.25f, .5f), 0f, stunCollide);
-
+        //stun condition met
         if(collisionCheck == true)
         {
             isStun = true;
@@ -60,7 +60,7 @@ public class EnemyMovement : MonoBehaviour
 
             
     }
-
+    // trigger event
     void OnTriggerEnter2D(Collider2D col)
     {
         // if collide with Air Wall
@@ -69,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
     }
-
+    // actual colliding event
     void OnCollisionEnter2D(Collision2D col) 
     {
         
@@ -100,17 +100,4 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    // void EnemyRaycast()
-    // {
-
-    //     Debug.Log();
-
-    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up);
-
-    //     if(hit.collider.name == "Player")
-    //     {
-    //         Debug.Log("Touched player");
-    //     }
-
-    // }
 }
