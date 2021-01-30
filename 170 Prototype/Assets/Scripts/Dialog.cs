@@ -10,10 +10,10 @@ public class Dialog : MonoBehaviour
     private int index;
     public float typingSpeed;
 
-    public GameObject continueButton;
     public GameObject Dialogbox;
     public Rigidbody2D rb;
     public GameObject Door;
+    private bool next = false;
 
     void Start()
     {
@@ -22,10 +22,13 @@ public class Dialog : MonoBehaviour
 
     private void Update()
     {
-        if (textDisplay.text == sentences[index])
+        if (rb.constraints == RigidbodyConstraints2D.FreezePosition && next)
         {
-            continueButton.SetActive(true);
-            
+            if (Input.anyKey)
+            {
+              NextSentence();
+            }
+
         }
     }
 
@@ -36,24 +39,23 @@ public class Dialog : MonoBehaviour
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+        next = true;
     }
 
     public void NextSentence()
     {
-        continueButton.SetActive(false);
-        
+        next = false;
+
         if (index < sentences.Length - 1)
         {
 
             index++;
             textDisplay.text = "";
             StartCoroutine(Type());
-            rb.constraints = RigidbodyConstraints2D.FreezePosition;
         }
         else{
             textDisplay.text = "";
-            continueButton.SetActive(false);
-            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             Dialogbox.SetActive(false);
             Door.SetActive(true);
         }

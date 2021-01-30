@@ -7,7 +7,7 @@ public class DialogueTrigger : MonoBehaviour
   public int collect_num = 0;
   public GameObject Canvas;
   public GameObject Dialogbox;
-  public Rigidbody2D rb;
+  public Rigidbody2D Player;
   void OnTriggerEnter2D(Collider2D other){
 
     if (other.gameObject.layer == 9){
@@ -17,7 +17,7 @@ public class DialogueTrigger : MonoBehaviour
     if (collect_num == 3){
         Canvas.SetActive(true);
         Dialogbox.SetActive(true);
-        //rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        Player.constraints = RigidbodyConstraints2D.FreezePosition;
       }
   }
 
