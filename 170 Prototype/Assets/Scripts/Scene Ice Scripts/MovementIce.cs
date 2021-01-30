@@ -65,32 +65,42 @@ public class MovementIce : MonoBehaviour
             rb.velocity = new Vector2(horizontalmove, rb.velocity.y);
         }else if(onIce){                                                            // if on ice, do sliding movement
             Debug.Log("On Ice");
-            rb.velocity = new Vector2(speedOnIce, rb.velocity.y);
+            
+            // Player movement direction on ice after jumping from a ground platform
+            if(horizontalmove > 0){                                                 // If jumping from ground to ice towards right, keep sliding to the right
+                while(speedOnIce < 0){
+                    speedOnIce *= -1;
+                }
+                rb.velocity = new Vector2(speedOnIce, rb.velocity.y);
+            }else if(horizontalmove > 0){                                           // If jumping from ground to ice towards left, keep sliding to the left
+                while(speedOnIce < 0){
+                    speedOnIce *= -1;
+                }
+                rb.velocity = new Vector2(speedOnIce, rb.velocity.y);
+            }
+            // ---------------------------------------------------------------------
+
+            // Test if player touch an obstacle while on ice
             if(onRight&&Direction == -1){                                           
                 speedOnIce *= -1;
                 onRight = false;
-                Debug.Log("in right fun");
             }
             if(onLeft&&Direction == 1){
                 speedOnIce *= -1;
                 onLeft = false;
             }
+            // ---------------------------------------------------------------------
 
             //Check if Space is pressed down and touching the ground at the same time
             if(Input.GetButtonDown("Jump") && IsGrounded()){
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 groundCheck2 = true;
-                
-                //comment out for future need --- Access from playerMovement code to enemyMovement variable
-                //monsterCanMove.canMove = !(monsterCanMove.canMove);
-            }
-            else if(groundCheck2 == false){
+            }else if(groundCheck2 == false){
                 groundCheck2 = (Physics2D.OverlapBox(feet.position, new Vector2(0.25f, .5f), 0f, groundLayers) != null);
             }
+
             //Check if Space is released up before it reached the maximum jump height
-            if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpHeightReduce);
-            }
+            if(Input.GetButtonUp("Jump") && rb.velocity.y > 0) rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpHeightReduce);
         }
     }
 
@@ -116,10 +126,10 @@ public class MovementIce : MonoBehaviour
 
     // Collision detector
     private void OnCollisionStay2D(Collision2D col){
-        // if collide with ice do sliding
+        // If collide turn onIce boolean to true
         if(col.gameObject.tag == "Ice"){
             onIce = true;
-        // if not collide do normal movement
+        // if collide with obstacle do something    
         }else if(col.gameObject.tag == "WallR"){
             Debug.Log("onRight = " + onRight);
             onRight = true;
@@ -138,6 +148,5 @@ public class MovementIce : MonoBehaviour
         Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(3.5f, 1f), 0f, groundLayers);
         return (groundCheck != null && groundCheck2 != false);
   }
-
 }
 
