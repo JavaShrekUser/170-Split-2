@@ -51,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         //check of monster "head" colliding with player
-        collisionCheck = Physics2D.OverlapBox(head.position, new Vector2(0.25f, .5f), 0f, stunCollide);
+        collisionCheck = Physics2D.OverlapBox(head.position, new Vector2(0.9f, .5f), 0f, stunCollide);
         //stun condition met
         if(collisionCheck == true)
         {
