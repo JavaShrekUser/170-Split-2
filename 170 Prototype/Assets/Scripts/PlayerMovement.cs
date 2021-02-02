@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
   public Transform feet;
   public LayerMask groundLayers;
   public Collider2D player;
+  public bool stepOnEnemy = false;
   public GameObject dialogueBox;
   public GameObject collectible;
   public GameObject collectible2;
@@ -50,9 +51,10 @@ public class PlayerMovement : MonoBehaviour
   private void Update(){
 
     //Check if Space is pressed down and touching the ground at the same time
-    if(Input.GetButtonDown("Jump") && IsGrounded()){
+    if(Input.GetButtonDown("Jump") && (IsGrounded() || stepOnEnemy)){
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
       groundCheck2 = false;
+      stepOnEnemy = false;
 
       //comment out for future need --- Access from playerMovement code to enemyMovement variable
       //monsterCanMove.canMove = !(monsterCanMove.canMove);
@@ -88,6 +90,15 @@ public class PlayerMovement : MonoBehaviour
       Scene scene;
       scene = SceneManager.GetActiveScene();
       SceneManager.LoadScene(scene.name);
+    }
+
+  }
+
+  private void OnCollisionEnter2D(Collision2D col) {
+    
+    //check if colliding with object tagged with "Enemy"
+    if(col.gameObject.tag == "Enemy"){
+      stepOnEnemy = true;
     }
 
   }

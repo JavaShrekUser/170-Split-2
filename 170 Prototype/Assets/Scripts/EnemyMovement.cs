@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
 
             stunTimer -= Time.deltaTime;
 
-            rb.velocity = new Vector2(0, 0);
+            rb.velocity = new Vector2(0, rb.velocity.y);
 
             isHarmful = false;
 
