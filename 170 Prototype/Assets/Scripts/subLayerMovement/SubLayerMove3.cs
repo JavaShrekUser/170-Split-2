@@ -14,12 +14,14 @@ public class SubLayerMove3 : MonoBehaviour
     public GameObject subLayer1Sprite2;
     public GameObject subLayer2Sprite1;
     public GameObject subLayer2Sprite2;
-    
+
 
 
     public GameObject collectible;
     public GameObject collectible2;
     public GameObject collectible3;
+
+    public GameObject ButtonCanvas;
 
 
     Vector3 mainScene = new Vector3(0, 0, 0);
@@ -56,9 +58,17 @@ public class SubLayerMove3 : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             cam.orthographicSize = 35f;
-            
+            ButtonCanvas.SetActive(true);
+
         }
-        else if (move1 != 0f)
+        else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            cam.orthographicSize = 10f;
+            ButtonCanvas.SetActive(false);
+        }
+        if (move1 != 0f)
         {
             subLayer1.transform.Translate(0, move1 / 2f, 0);
             if (subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1)
@@ -66,7 +76,7 @@ public class SubLayerMove3 : MonoBehaviour
                 move1 = 0f;
             }
         }
-        else if (move2 != 0f)
+        if (move2 != 0f)
         {
             subLayer2.transform.Translate(0, move2 / 2f, 0);
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
@@ -74,7 +84,7 @@ public class SubLayerMove3 : MonoBehaviour
                 move2 = 0f;
             }
         }
-        else if (subLayer1.transform.position == mainScene && subLayer2.transform.position == mainScene
+        if (subLayer1.transform.position == mainScene && subLayer2.transform.position == mainScene
           && subLayer1Sprite1.activeSelf &&  subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 2
           && subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder == 1)
         {
@@ -96,39 +106,69 @@ public class SubLayerMove3 : MonoBehaviour
                 y.GetComponent<SpriteRenderer>().sortingOrder = 1;
             }
         }
-        else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
-        {
-            rb.constraints = RigidbodyConstraints2D.None;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            cam.orthographicSize = 10f;
-            
-        }
-        else if (cam.orthographicSize == 35f)
-        {
-            if (subLayer1.transform.position == mainScene && Input.GetKeyDown(KeyCode.C))
-            {
-                move1 = -0.25f;
-            }
-            else if (Input.GetKeyDown(KeyCode.C) && (move1 == 0f))
-            {
-                move1 = 0.25f;
-                subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
-                subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
-                subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            }
-            if (subLayer2.transform.position == mainScene && Input.GetKeyDown(KeyCode.X))
-            {
-                move2 = 0.25f;
-            }
-            else if (Input.GetKeyDown(KeyCode.X) && (move2 == 0f))
-            {
-                move2 = -0.25f;
-                subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
-                subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
-                subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            }
-        }
+        // Old movment script using key strokes
+        //
+        //
+        // else if (cam.orthographicSize == 35f)
+        // {
+        //     if (subLayer1.transform.position == mainScene && Input.GetKeyDown(KeyCode.C))
+        //     {
+        //         move1 = -0.25f;
+        //     }
+        //     else if (Input.GetKeyDown(KeyCode.C) && (move1 == 0f))
+        //     {
+        //         move1 = 0.25f;
+        //         subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        //         subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        //         subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        //         subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        //     }
+        //     if (subLayer2.transform.position == mainScene && Input.GetKeyDown(KeyCode.X))
+        //     {
+        //         move2 = 0.25f;
+        //     }
+        //     else if (Input.GetKeyDown(KeyCode.X) && (move2 == 0f))
+        //     {
+        //         move2 = -0.25f;
+        //         subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        //         subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        //         subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        //         subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        //     }
+        // }
     }
+    //new Movement code using mouse clicks
+    public void MoveSubroom1(){
+      if(cam.orthographicSize == 35f){
+        if(subLayer1.transform.position == mainScene)
+        {
+          move1 = -0.25f;
+        }
+        else
+        {
+          move1 = 0.25f;
+          subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
+          subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
+          subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
+          subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
+      }
+    }
+  }
+  public void MoveSubroom2(){
+    if(cam.orthographicSize == 35f){
+      if (subLayer2.transform.position == mainScene)
+      {
+          move2 = 0.25f;
+      }
+      else
+      {
+          move2 = -0.25f;
+          subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
+          subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
+          subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
+          subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
+      }
+    }
+  }
+
 }

@@ -24,6 +24,8 @@ public class SubLayerMove : MonoBehaviour
     private int lastScene;//for playtest purpose
     private void Start()//for playtest purpose
     {
+        subStart1 = subLayer1.transform.position;
+        subStart2 = subLayer2.transform.position;
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
     }
@@ -68,6 +70,9 @@ public class SubLayerMove : MonoBehaviour
           move2 = 0f;
         }
       }
+      // Old key stroke movement
+      //
+      //
       // else if(cam.orthographicSize == 35f){
       //   if(subLayer1.transform.position == mainScene && Input.GetKeyDown(KeyCode.C)){
       //     move1 = -0.25f;
@@ -85,13 +90,13 @@ public class SubLayerMove : MonoBehaviour
       //   }
       // }
     }
+    //New button click movment
     public void MoveSubroom1(){
       if(cam.orthographicSize == 35f){
         if(subLayer1.transform.position == mainScene){
           move1 = -0.25f;
         }
         else{
-          subStart1 =  subLayer1.transform.position;
           move1 = 0.25f;
         }
     }
@@ -102,7 +107,6 @@ public class SubLayerMove : MonoBehaviour
           move2 = 0.25f;
         }
         else{
-          subStart2 =  subLayer2.transform.position;
           move2 = -0.25f;
         }
     }
