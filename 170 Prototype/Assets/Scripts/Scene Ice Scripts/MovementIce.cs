@@ -55,9 +55,9 @@ public class MovementIce : MonoBehaviour
         // Get horizontal velocity
         float horizontalmove = rb.velocity.x*movementSpeed;
         horizontalmove += Input.GetAxisRaw("Horizontal");
-        Debug.Log("horizontalmove = " + horizontalmove);
         // Direction play choose after collide something on ice
         Direction = Input.GetAxisRaw("Horizontal");
+        Debug.Log("Direction = " + Direction);
 
         // PlayerMovement method (Based on if player stand on the ice)
         if(horizontalmove != 0 && !onIce){                                          // If not on ice, do normal movement

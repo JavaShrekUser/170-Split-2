@@ -85,6 +85,10 @@ public class EnemyMovement : MonoBehaviour
             Flip();
         }
 
+        // if enemy falls down into the lava
+        if(col.tag == "Trap"){
+            killPlayer();
+        }
     }
 
     void killPlayer()
