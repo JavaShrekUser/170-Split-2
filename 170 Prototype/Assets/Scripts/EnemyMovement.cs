@@ -15,12 +15,17 @@ public class EnemyMovement : MonoBehaviour
     //condition and timer
     public bool isStun = false;
     public float stunTimer = 5f;
-    public bool isHarmful = true;
 
     //hitbox for collision
     public Transform head;
-    public LayerMask stunCollide;
-    public bool collisionCheck;
+    public Transform leftHand;
+    public Transform rightHand;
+    public LayerMask playerCheck;
+    public bool headHitFeet;
+    public float headSize = 0.8f;
+    public bool harmPlayerLeft;
+    public bool harmPlayerRight;
+    public float harmSize = 0.8f;
     
 
     // Update is called once per frame
@@ -38,24 +43,36 @@ public class EnemyMovement : MonoBehaviour
 
             rb.velocity = new Vector2(0, rb.velocity.y);
 
-            isHarmful = false;
-
             //reactive all the condition and refresh timer once going out the state
             if(stunTimer <= 0)
             {
                 isStun = false;
                 stunTimer = 5f;
-                isHarmful = true;
+
             }
 
         }
 
         //check of monster "head" colliding with player
-        collisionCheck = Physics2D.OverlapBox(head.position, new Vector2(0.9f, .5f), 0f, stunCollide);
+        headHitFeet = Physics2D.OverlapBox(head.position, new Vector2(headSize, .5f), 0f, playerCheck);
         //stun condition met
-        if(collisionCheck == true)
+        if(headHitFeet == true)
         {
             isStun = true;
+        }
+
+        harmPlayerLeft = Physics2D.OverlapBox(leftHand.position, new Vector2(.5f, harmSize), 0f, playerCheck);
+
+        if(harmPlayerLeft == true && isStun == false)
+        {
+            killPlayer();
+        }
+
+        harmPlayerRight = Physics2D.OverlapBox(rightHand.position, new Vector2(.5f, harmSize), 0f, playerCheck);
+
+        if(harmPlayerRight == true && isStun == false)
+        {
+            killPlayer();
         }
 
             
@@ -69,19 +86,15 @@ public class EnemyMovement : MonoBehaviour
         }
 
     }
-    // actual colliding event
-    void OnCollisionEnter2D(Collision2D col) 
-    {
-        
-        if(col.gameObject.name == "Player" && isHarmful == true && collisionCheck == false)
-        {
 
-            // reload the scene
+    void killPlayer()
+    {
+
+        // reload the scene
             Scene scene;
             scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
 
-        }
 
     }
 
