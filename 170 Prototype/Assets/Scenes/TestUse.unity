@@ -495,7 +495,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plat: {fileID: 513104721}
-  hideTimer: 1
+  playerMovement: {fileID: 556403162}
+  hideTimer: 0.5
   showTimer: 2
 --- !u!1 &519420028
 GameObject:
@@ -725,6 +726,18 @@ MonoBehaviour:
   Manual: {fileID: 0}
   Button1: {fileID: 0}
   Button2: {fileID: 0}
+--- !u!114 &556403162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+    type: 3}
+  m_PrefabInstance: {fileID: 556403158}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556403159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d5d09e9848a456592d63de33ed515d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &657476221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +1943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plat: {fileID: 1212582059}
-  hideTimer: 1
+  playerMovement: {fileID: 556403162}
+  hideTimer: 0.5
   showTimer: 2
 --- !u!1 &1323285105
 GameObject:
@@ -2576,7 +2590,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plat: {fileID: 2025035081}
-  hideTimer: 1
+  playerMovement: {fileID: 556403162}
+  hideTimer: 0.5
   showTimer: 2
 --- !u!1 &2035892345
 GameObject:

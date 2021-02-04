@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
   }
 
   private void OnCollisionEnter2D(Collision2D col) {
-    
+
     //check if colliding with object tagged with "Enemy"
     if(col.gameObject.tag == "Enemy"){
       stepOnEnemy = true;

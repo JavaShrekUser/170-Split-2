@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlatHide : MonoBehaviour {
 
   public GameObject plat;
-  public float hideTimer = 1f;
+  public PlayerMovement playerMovement;
+  public float hideTimer = 0.5f;
   public float showTimer = 2f;
 
-
   void OnCollisionEnter2D (Collision2D col) {
-    if (col.gameObject.name.Equals("Player")) {
+    if (playerMovement.IsGrounded() && col.gameObject.tag == "Player") {
       Invoke ("HidePlatform", hideTimer);
     }
   }
 
   void OnCollisionExit2D(Collision2D col) {
-    if (col.gameObject.name.Equals("Player")) {
+    if (col.gameObject.tag == "Player") {
       Invoke ("ShowPlatform", showTimer);
     }
   }
@@ -28,5 +28,6 @@ public class PlatHide : MonoBehaviour {
   void ShowPlatform() {
     plat.SetActive(true);
   }
+
 
 }
