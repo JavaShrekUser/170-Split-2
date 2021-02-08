@@ -21,6 +21,8 @@ public class SubLayerMove6 : MonoBehaviour
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
 
+    private bool onIce = false; //check if player is on Ice for movement purposes
+
     private void Start()//for playtest purpose
     {
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
@@ -41,7 +43,9 @@ public class SubLayerMove6 : MonoBehaviour
 
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+            if(!onIce){
+              rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+            }
             cam.orthographicSize = 35f;
             Manual.SetActive(true);
 
@@ -116,5 +120,16 @@ public class SubLayerMove6 : MonoBehaviour
                 move2 = -0.25f;
             }
         }
+    }
+    private void OnCollisionEnter2D(Collision2D col) {
+
+      // If collide turn onIce boolean to true
+      if(col.gameObject.tag == "Ice"){
+        onIce = true;
+      }
+      else{
+        onIce = false;
+      }
+
     }
 }

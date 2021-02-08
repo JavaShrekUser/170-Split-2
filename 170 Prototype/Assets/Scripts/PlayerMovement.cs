@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
   public GameObject collectible2;
   public GameObject collectible3;
   private int collected = 0;
+  private bool onIce = false;
 
   //comment out for future need --- Access from playerMovement code to enemyMovement variable
   //public GameObject monster;
@@ -100,6 +101,13 @@ public class PlayerMovement : MonoBehaviour
     if(col.gameObject.tag == "Enemy"){
       stepOnEnemy = true;
     }
+    // If collide turn onIce boolean to true
+    if(col.gameObject.tag == "Ice"){
+      onIce = true;
+    }
+    else{
+      onIce = false;
+    }
 
   }
 
@@ -120,7 +128,22 @@ public class PlayerMovement : MonoBehaviour
       horizontalVelocity *= Mathf.Pow(1f - horizontalDampBasic, Time.deltaTime * 10f);
     }
 
-    rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
+    if(onIce){
+      print(rb.velocity.x);
+      if(rb.velocity.x >= 4.5f){
+        horizontalVelocity = 4.5f;
+      }
+      else if(rb.velocity.x <= -4.5f){
+        horizontalVelocity = -4.5f;
+      }
+      else{
+        horizontalVelocity = rb.velocity.x;
+      }
+      rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);;
+    }
+    else{
+      rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);;
+    }
   }
 
   //check for if touch ground
