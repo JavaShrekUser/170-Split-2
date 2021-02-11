@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     //rigid body is rigid body
     public Rigidbody2D rb;
+    public GameObject Lwall;
 
     //enemy movement variable
     public int enemySpeed = 3;
@@ -26,8 +27,11 @@ public class EnemyMovement : MonoBehaviour
     public bool harmPlayerLeft;
     public bool harmPlayerRight;
     public float harmSize = 0.8f;
-    
 
+    private void Start()
+    {
+        Lwall.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -81,13 +85,25 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         // if collide with Air Wall
-        if(col.tag == "Air_Wall"){
+        if(col.tag == "Air_Wall")
+        {
             Flip();
         }
 
         // if enemy falls down into the lava
         if(col.tag == "Trap"){
             killPlayer();
+        }
+
+        if (col.tag == "speair")
+        {
+            Flip();
+        }
+
+        if (col.tag == "speair2")
+        {
+            Flip();
+            Lwall.SetActive(true);
         }
     }
 

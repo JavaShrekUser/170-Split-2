@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,9 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
   //RigidBody
   public Rigidbody2D rb;
-
-  //Animation movements
-  public Animator animator;
 
   //Horizontal Movement Variables
   [Range(0, 2)]
@@ -26,16 +23,9 @@ public class PlayerMovement : MonoBehaviour
   [Range(0,1)]
   public float jumpHeightReduce = 0.5f;
   private bool groundCheck2 = true;
-  private bool ceilCheck = false;
-  public bool crouching = false;
-
-  //Check Box Collider Use
-  public BoxCollider2D stand;
-  public BoxCollider2D crouch;
 
   //Platform Collision Variables
   public Transform feet;
-  public Transform head;
   public LayerMask groundLayers;
   public Collider2D player;
   public bool stepOnEnemy = false;
@@ -54,38 +44,12 @@ public class PlayerMovement : MonoBehaviour
 
     rb = GetComponent<Rigidbody2D>();
 
-    //enable idle sprite
-    stand.enabled = true;
-    crouch.enabled = false;
-
     //comment out for future need --- Access from playerMovement code to enemyMovement variable
     //monsterCanMove = monster.GetComponent<EnemyMovement>();
 
   }
 
   private void Update(){
-
-    //check for if crouch is pressed
-    IsCrouching();
-
-    if(Input.GetAxisRaw("Crouch") != 0){
-      crouching = true;
-    }
-
-    //animation detection for if crouching
-    animator.SetBool("crouchAnimation", crouching);
-
-    //if so, change the collision mask
-    if(crouching == true)
-    {
-      stand.enabled = false;
-      crouch.enabled = true;
-    }
-    else
-    {
-      stand.enabled = true;
-      crouch.enabled = false;
-    }
 
     //Check if Space is pressed down and touching the ground at the same time
     if(Input.GetButtonDown("Jump") && (IsGrounded() || stepOnEnemy)){
@@ -117,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
     {
       collectible3.SetActive(false);
     }
-
 
   }
 
@@ -181,10 +144,6 @@ public class PlayerMovement : MonoBehaviour
     else{
       rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);;
     }
-
-    //check for if head hit the wall
-    ceilCheck = Physics2D.OverlapBox(head.position, new Vector2(0.25f, .5f), 0f, groundLayers);
-
   }
 
   //check for if touch ground
@@ -192,18 +151,6 @@ public class PlayerMovement : MonoBehaviour
     Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(3.5f, 1f), 0f, groundLayers);
 
     return (groundCheck != null && groundCheck2 != false);
-  }
-
-  //check for if key pressing, cannot use get button up/down
-  public void IsCrouching(){
-
-    if(Input.GetAxisRaw("Crouch") != 0){
-      crouching = true;
-    }
-    else if(Input.GetAxisRaw("Crouch") == 0 && ceilCheck == false){
-      crouching = false;
-    }
-
   }
 
 
