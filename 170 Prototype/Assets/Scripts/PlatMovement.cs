@@ -11,10 +11,21 @@ public class PlatMovement : MonoBehaviour
     //enemy movement variable
     public int enemySpeed = 3;
     public int horizontalDirection;
+    public GameObject LeftWall;
+    public GameObject MidWall;
+    public GameObject RightWall;
+    public GameObject DoorPad;
+    public GameObject LastWall;
 
     //condition and timer
+    private void Start()
+    {
+        LeftWall.SetActive(true);
+        MidWall.SetActive(true);
+        RightWall.SetActive(false);
+        LastWall.SetActive(false);
 
-
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,7 +35,10 @@ public class PlatMovement : MonoBehaviour
 
         rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
         //rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-
+        if (!DoorPad.activeSelf)
+        {
+            LastWall.SetActive(true);
+        }
 
     }
 
@@ -35,8 +49,21 @@ public class PlatMovement : MonoBehaviour
         {
             Flip();
         }
-
+        if (col.tag == "spetag")
+        {
+            LeftWall.SetActive(false);
+            MidWall.SetActive(false);
+            RightWall.SetActive(true);
+        }
     }
+    /*private void OnTrigger2D(Collider2D col)
+    {
+        if (col.tag == "spetag")
+        {
+            LeftWall.SetActive(false);
+            
+        }
+    }*/
 
 
     //turn the horizontal direction to the other way
