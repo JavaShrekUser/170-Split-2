@@ -22,7 +22,7 @@ public class Dialog : MonoBehaviour
 
     private void Update()
     {
-        if (rb.constraints == RigidbodyConstraints2D.FreezePosition && next)
+        if (rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation) && next)
         {
             if (Input.anyKey)
             {
@@ -30,6 +30,7 @@ public class Dialog : MonoBehaviour
             }
 
         }
+
     }
 
     IEnumerator Type()

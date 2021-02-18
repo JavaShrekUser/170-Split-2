@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
   public float jumpForce = 20f;
   [Range(0,1)]
   public float jumpHeightReduce = 0.5f;
-  private bool groundCheck2 = true;
   private bool ceilCheck = false;
   public bool crouching = false;
 
@@ -45,7 +44,9 @@ public class PlayerMovement : MonoBehaviour
   public GameObject collectible3;
   private int collected = 0;
   private bool onIce = false;
-
+  private float timeCheck = 0;
+  private int jumpCount = 0;
+  public Camera cam;
   //comment out for future need --- Access from playerMovement code to enemyMovement variable
   //public GameObject monster;
   //private EnemyMovement monsterCanMove;
@@ -57,14 +58,12 @@ public class PlayerMovement : MonoBehaviour
     //enable idle sprite
     stand.enabled = true;
     crouch.enabled = false;
-
     //comment out for future need --- Access from playerMovement code to enemyMovement variable
     //monsterCanMove = monster.GetComponent<EnemyMovement>();
 
   }
 
   private void Update(){
-
     //check for if crouch is pressed
     IsCrouching();
 
@@ -84,36 +83,41 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Check if Space is pressed down and touching the ground at the same time
-    if(Input.GetButtonDown("Jump") && (IsGrounded() || stepOnEnemy)){
+    print(timeCheck);
+    if(jumpCount == 0 &&
+      Input.GetButtonDown("Jump") && (IsGrounded() || stepOnEnemy || timeCheck < 0.4f) &&
+      cam.orthographicSize == 10f &&
+       !(rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation))){
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-      groundCheck2 = false;
       stepOnEnemy = false;
-
+      jumpCount++;
       //comment out for future need --- Access from playerMovement code to enemyMovement variable
       //monsterCanMove.canMove = !(monsterCanMove.canMove);
-    }
-    else if(groundCheck2 == false){
-      groundCheck2 = (Physics2D.OverlapBox(feet.position, new Vector2(0.25f, .5f), 0f, groundLayers) != null);
     }
     //Check if Space is released up before it reached the maximum jump height
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
       rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpHeightReduce);
     }
 
-    //Check for collectable
-    if (player.IsTouching(collectible.GetComponent<Collider2D>()))
+    if(IsGrounded())
     {
-      collectible.SetActive(false);
-    }
-    if (player.IsTouching(collectible2.GetComponent<Collider2D>()))
-    {
-      collectible2.SetActive(false);
-    }
-    if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
-    {
-      collectible3.SetActive(false);
+      timeCheck = 0;
+      jumpCount = 0;
     }
 
+    // //Check for collectable
+    // if (player.IsTouching(collectible.GetComponent<Collider2D>()))
+    // {
+    //   collectible.SetActive(false);
+    // }
+    // if (player.IsTouching(collectible2.GetComponent<Collider2D>()))
+    // {
+    //   collectible2.SetActive(false);
+    // }
+    // if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
+    // {
+    //   collectible3.SetActive(false);
+    // }
 
   }
 
@@ -162,7 +166,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     if(onIce){
-      print(rb.velocity.x);
       if(rb.velocity.x >= 4.5f){
         horizontalVelocity = 4.5f;
       }
@@ -181,13 +184,15 @@ public class PlayerMovement : MonoBehaviour
     //check for if head hit the wall
     ceilCheck = Physics2D.OverlapBox(head.position, new Vector2(0.25f, .5f), 0f, groundLayers);
 
+
+    //Time update for jump forgivness
+    timeCheck += Time.fixedDeltaTime;
   }
 
   //check for if touch ground
   public bool IsGrounded(){
-    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(3.5f, 1f), 0f, groundLayers);
-
-    return (groundCheck != null && groundCheck2 != false);
+    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(1f, 0.5f), 0f, groundLayers);
+    return (groundCheck);
   }
 
   //check for if key pressing, cannot use get button up/down

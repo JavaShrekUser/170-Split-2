@@ -11,12 +11,14 @@ public class isSubLayerMoving : MonoBehaviour
     {
       if(layer.transform.position.y != 0f){
         foreach (Transform t in layer.transform) {
-          t.GetComponent<EdgeCollider2D>().enabled = false;
+          if(t.GetComponent<EdgeCollider2D>())
+            t.GetComponent<EdgeCollider2D>().enabled = false;
         }
       }
       else{
         foreach (Transform t in layer.transform) {
-          t.GetComponent<EdgeCollider2D>().enabled = true;
+          if(t.GetComponent<EdgeCollider2D>())
+            t.GetComponent<EdgeCollider2D>().enabled = true;
         }
       }
     }

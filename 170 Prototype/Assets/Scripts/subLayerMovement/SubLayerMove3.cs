@@ -15,11 +15,10 @@ public class SubLayerMove3 : MonoBehaviour
     public GameObject subLayer2Sprite1;
     public GameObject subLayer2Sprite2;
 
-
-
     public GameObject collectible;
     public GameObject collectible2;
     public GameObject collectible3;
+    public GameObject dialogueBox;
 
     public GameObject ButtonCanvas;
 
@@ -54,14 +53,14 @@ public class SubLayerMove3 : MonoBehaviour
             SceneManager.LoadScene(lastScene);//for playtest purpose
         }
 
-        if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
+        if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f && !dialogueBox.activeSelf)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             cam.orthographicSize = 35f;
             ButtonCanvas.SetActive(true);
 
         }
-        else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
+        else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap") && !dialogueBox.activeSelf)
         {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;

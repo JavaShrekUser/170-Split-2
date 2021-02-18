@@ -567,7 +567,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 502878076}
+      objectReference: {fileID: 0}
     - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: collectible
@@ -588,6 +588,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1371597184}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -651,12 +656,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 550801119941301768, guid: 37f1b5ddbbe8f412380fd7fb29b42b16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37f1b5ddbbe8f412380fd7fb29b42b16, type: 3}
---- !u!61 &502878076 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 550801119941301770, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
-    type: 3}
-  m_PrefabInstance: {fileID: 502878075}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &502878077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 550801119941301774, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
@@ -3250,6 +3249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1443883359}
+  Lwall: {fileID: 0}
   enemySpeed: 3
   horizontalDirection: 1
   isStun: 0

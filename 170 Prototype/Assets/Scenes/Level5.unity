@@ -2176,6 +2176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 890605871}
+  Lwall: {fileID: 0}
   enemySpeed: 3
   horizontalDirection: 1
   isStun: 0
@@ -2726,6 +2727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 986256035}
+  Lwall: {fileID: 0}
   enemySpeed: 3
   horizontalDirection: 1
   isStun: 0
@@ -3986,12 +3988,6 @@ MonoBehaviour:
   Canvas: {fileID: 1524228619}
   Dialogbox: {fileID: 0}
   Player: {fileID: 550801120162309472}
---- !u!61 &1493243887 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 550801119941301770, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
-    type: 3}
-  m_PrefabInstance: {fileID: 550801120162309471}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1493487245
 GameObject:
   m_ObjectHideFlags: 0
@@ -5001,7 +4997,12 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1493243887}
+      objectReference: {fileID: 0}
+    - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 550801119941301770, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_Size.x
