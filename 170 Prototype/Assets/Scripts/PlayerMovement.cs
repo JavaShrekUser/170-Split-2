@@ -83,9 +83,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Check if Space is pressed down and touching the ground at the same time
-    print(timeCheck);
     if(jumpCount == 0 &&
-      Input.GetButtonDown("Jump") && (IsGrounded() || stepOnEnemy || timeCheck < 0.4f) &&
+      Input.GetButtonDown("Jump") && (IsGrounded() || stepOnEnemy || timeCheck < 0.2f) &&
       cam.orthographicSize == 10f &&
        !(rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation))){
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -173,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalVelocity = -4.5f;
       }
       else{
-        horizontalVelocity = rb.velocity.x;
+        horizontalVelocity = rb.velocity.x + Input.GetAxisRaw("Horizontal");
       }
       rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);;
     }
