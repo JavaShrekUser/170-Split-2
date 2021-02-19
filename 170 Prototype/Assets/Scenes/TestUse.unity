@@ -757,6 +757,16 @@ PrefabInstance:
       propertyPath: head
       value: 
       objectReference: {fileID: 785769864}
+    - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 556403166}
+    - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 550801119941301770, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -931,6 +941,12 @@ MonoBehaviour:
 --- !u!95 &556403163 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4700254549719431081, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+    type: 3}
+  m_PrefabInstance: {fileID: 556403158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &556403166 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7347695654931689909, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
     type: 3}
   m_PrefabInstance: {fileID: 556403158}
   m_PrefabAsset: {fileID: 0}
@@ -2440,7 +2456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plat: {fileID: 1212582059}
   playerMovement: {fileID: 556403162}
-  hideTimer: 0.5
+  hideTimer: 1
   showTimer: 2
 --- !u!1 &1294860935
 GameObject:

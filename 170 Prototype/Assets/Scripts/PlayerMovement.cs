@@ -105,18 +105,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // //Check for collectable
-    // if (player.IsTouching(collectible.GetComponent<Collider2D>()))
-    // {
-    //   collectible.SetActive(false);
-    // }
-    // if (player.IsTouching(collectible2.GetComponent<Collider2D>()))
-    // {
-    //   collectible2.SetActive(false);
-    // }
-    // if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
-    // {
-    //   collectible3.SetActive(false);
-    // }
+     if (player.IsTouching(collectible.GetComponent<Collider2D>()))
+     {
+       collectible.SetActive(false);
+     }
+     if (player.IsTouching(collectible2.GetComponent<Collider2D>()))
+     {
+       collectible2.SetActive(false);
+     }
+     if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
+     {
+       collectible3.SetActive(false);
+     }
 
   }
 
