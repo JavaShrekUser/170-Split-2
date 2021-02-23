@@ -20,7 +20,7 @@ public class SwitchHide : MonoBehaviour {
   // when pressure plate collide with enemy or Player
   // set showObj to false
   private void OnTriggerEnter2D (Collider2D col) {
-    if (col.tag == "Player" || col.tag == "Enemy") {
+    if (col.tag == "Player" || col.tag == "Enemy" || col.tag == "Trap") {
       // Debug.Log("pressure plate working");
       showObj.SetActive(false);
     }
@@ -28,7 +28,7 @@ public class SwitchHide : MonoBehaviour {
 
   // check if the collison is still hapening
   private void OnTriggerStay2D (Collider2D col) {
-   if (col.tag == "Player" || col.tag == "Enemy") {
+   if (col.tag == "Player" || col.tag == "Enemy" || col.tag == "Trap") {
      cdTimer = timer;
    }
   }
