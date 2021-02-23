@@ -14,6 +14,7 @@ public class Dialog : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject Door;
     private bool next = false;
+    private bool holding = false;
 
     void Start()
     {
@@ -24,9 +25,18 @@ public class Dialog : MonoBehaviour
     {
         if (rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation) && next)
         {
-            if (Input.anyKey)
+            if (Input.anyKey && !holding)
             {
               NextSentence();
+              holding = true;
+            }
+            else if(Input.anyKey)
+            {
+              holding = true;
+            }
+            else
+            {
+              holding = false;
             }
 
         }
