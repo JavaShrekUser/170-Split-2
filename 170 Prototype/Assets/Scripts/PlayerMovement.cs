@@ -153,6 +153,17 @@ public class PlayerMovement : MonoBehaviour
     float horizontalVelocity = rb.velocity.x * movementSpeed;
     horizontalVelocity += Input.GetAxisRaw("Horizontal");
 
+    //flip character
+    Vector3 characterScale = transform.localScale;
+    if(Input.GetAxisRaw("Horizontal") > 0){
+      characterScale.x = -0.55f;
+    }
+    else if(Input.GetAxisRaw("Horizontal") < 0){
+      characterScale.x = 0.55f;
+    }
+    transform.localScale = characterScale;
+
+
     //x movement with different damping conditions
     if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f){
       horizontalVelocity *= Mathf.Pow(1f - horizontalDampWhenStopping, Time.deltaTime * 10f);
