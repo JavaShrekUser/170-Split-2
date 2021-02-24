@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;//for playtest purpose
 
 public class SubLayerMove3 : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    public GameObject player;
+    Rigidbody2D rb;
     public Camera cam;
     public GameObject subLayer1;
     public GameObject subLayer2;
@@ -35,6 +36,7 @@ public class SubLayerMove3 : MonoBehaviour
 
     private void Start()
     {
+      rb = player.GetComponent<Rigidbody2D>();
       subStart1 = subLayer1.transform.position;
       subStart2 = subLayer2.transform.position;
       nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
@@ -94,15 +96,15 @@ public class SubLayerMove3 : MonoBehaviour
             collectible3.SetActive(true);
             collectible.SetActive(true);
             foreach (Transform t in collectible.transform) {
-              t.GetComponent<SpriteRenderer>().sortingOrder = 4;
+              t.GetComponent<SpriteRenderer>().sortingOrder = 3;
             }
             foreach (Transform x in collectible2.transform)
             {
-                x.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                x.GetComponent<SpriteRenderer>().sortingOrder = 3;
             }
             foreach (Transform y in collectible3.transform)
             {
-                y.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                y.GetComponent<SpriteRenderer>().sortingOrder = 3;
             }
         }
         // Old movment script using key strokes
@@ -138,7 +140,7 @@ public class SubLayerMove3 : MonoBehaviour
     }
     //new Movement code using mouse clicks
     public void MoveSubroom1(){
-      if(cam.orthographicSize == 35f){
+      if(cam.orthographicSize == 35f && !IsGrounded(subLayer1)){
         if(subLayer1.transform.position == mainScene)
         {
           move1 = -0.25f;
@@ -154,7 +156,7 @@ public class SubLayerMove3 : MonoBehaviour
     }
   }
   public void MoveSubroom2(){
-    if(cam.orthographicSize == 35f){
+    if(cam.orthographicSize == 35f && !IsGrounded(subLayer2)){
       if (subLayer2.transform.position == mainScene)
       {
           move2 = 0.25f;
@@ -168,6 +170,18 @@ public class SubLayerMove3 : MonoBehaviour
           subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
       }
     }
+  }
+
+  public bool IsGrounded(GameObject subLayer){
+    Collider2D playerCol = player.GetComponent<Collider2D>();
+    foreach (Transform t in subLayer.transform){
+      if(t.GetComponent<EdgeCollider2D>()){
+        if(Physics2D.IsTouching(t.GetComponent<EdgeCollider2D>(), playerCol)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
 }

@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;//for playtest purpose
 
 public class SubLayerMove4 : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    public GameObject player;
+    Rigidbody2D rb;
     public Camera cam;
     public GameObject subLayer1;
     public GameObject subLayer2;
@@ -27,6 +28,7 @@ public class SubLayerMove4 : MonoBehaviour
 
     private void Start()
     {
+        rb = player.GetComponent<Rigidbody2D>();
         subStart1 = subLayer1.transform.position;
         subStart2 = subLayer2.transform.position;
         subStart3 = subLayer3.transform.position;
@@ -113,32 +115,48 @@ public class SubLayerMove4 : MonoBehaviour
     }
     public void MoveSubroom1(){
       if(cam.orthographicSize == 35f){
-        if(subLayer1.transform.position == mainScene){
+        if(subLayer1.transform.position == mainScene && !IsGrounded(subLayer1)){
           move1 = -0.25f;
         }
-        else{
+        else if(subLayer1.transform.position == subStart1){
           move1 = 0.25f;
         }
       }
     }
     public void MoveSubroom2(){
       if(cam.orthographicSize == 35f){
-        if(subLayer2.transform.position == mainScene){
+        if(subLayer2.transform.position == mainScene && !IsGrounded(subLayer2)){
           move2 = 0.25f;
         }
-        else{
+        else if(subLayer2.transform.position == subStart2){
           move2 = -0.25f;
         }
       }
     }
     public void MoveSubroom3(){
       if(cam.orthographicSize == 35f){
-        if(subLayer3.transform.position == mainScene){
+        if(subLayer3.transform.position == mainScene && !IsGrounded(subLayer3)){
           move3 = 0.25f;
         }
-        else{
+        else if(subLayer3.transform.position == subStart3){
           move3 = -0.25f;
         }
       }
     }
+    public bool IsGrounded(GameObject subLayer){
+      Collider2D playerCol = player.GetComponent<Collider2D>();
+      foreach (Transform t in subLayer.transform){
+        if(t.GetComponent<EdgeCollider2D>()){
+          if(Physics2D.IsTouching(t.GetComponent<EdgeCollider2D>(), playerCol)) {
+            return true;
+          }
+        }
+        if(t.GetComponent<BoxCollider2D>()){
+          if(Physics2D.IsTouching(t.GetComponent<BoxCollider2D>(), playerCol)) {
+            return true;
+          }
+      }
+    }
+    return false;
+  }
 }

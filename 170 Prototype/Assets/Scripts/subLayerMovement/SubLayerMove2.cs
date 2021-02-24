@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;//for playtest purpose
 
 public class SubLayerMove2 : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    public GameObject player;
     public Camera mainCam;
     public Camera effectCam;
     public GameObject subLayer1;
@@ -22,12 +22,14 @@ public class SubLayerMove2 : MonoBehaviour
     float move1 = 0f;
     float move2 = 0f;
     float move3 = 0f;
+    Rigidbody2D rb;
 
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
 
     private void Start()
     {
+      rb = player.GetComponent<Rigidbody2D>();
       subStart1 = subLayer1.transform.position;
       subStart2 = subLayer2.transform.position;
       subStart3 = subLayer3.transform.position;
@@ -105,7 +107,7 @@ public class SubLayerMove2 : MonoBehaviour
     // }
   }
   public void MoveSubroom1(){
-    if(mainCam.orthographicSize == 35f){
+    if(mainCam.orthographicSize == 35f && !IsGrounded(subLayer1)){
       if(subLayer1.transform.position == mainScene){
         move1 = -0.25f;
       }
@@ -115,7 +117,7 @@ public class SubLayerMove2 : MonoBehaviour
     }
   }
   public void MoveSubroom2(){
-    if(mainCam.orthographicSize == 35f){
+    if(mainCam.orthographicSize == 35f && !IsGrounded(subLayer2)){
       if(subLayer2.transform.position == mainScene){
         move2 = 0.25f;
       }
@@ -125,7 +127,7 @@ public class SubLayerMove2 : MonoBehaviour
     }
   }
   public void MoveSubroom3(){
-    if(mainCam.orthographicSize == 35f){
+    if(mainCam.orthographicSize == 35f && !IsGrounded(subLayer3)){
       if(subLayer3.transform.position == mainScene){
         move3 = 0.25f;
       }
@@ -134,4 +136,17 @@ public class SubLayerMove2 : MonoBehaviour
       }
     }
   }
+
+  public bool IsGrounded(GameObject subLayer){
+    Collider2D playerCol = player.GetComponent<Collider2D>();
+    foreach (Transform t in subLayer.transform){
+      if(t.GetComponent<EdgeCollider2D>()){
+        if(Physics2D.IsTouching(t.GetComponent<EdgeCollider2D>(), playerCol)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
 }

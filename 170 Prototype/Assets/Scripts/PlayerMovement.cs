@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
   //RigidBody
+  public SpriteRenderer sr;
   public Rigidbody2D rb;
 
   //Animation movements
@@ -102,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
     {
       timeCheck = 0;
       jumpCount = 0;
+      onIce = IsIce();
     }
 
     // //Check for collectable
@@ -137,14 +139,10 @@ public class PlayerMovement : MonoBehaviour
     if(col.gameObject.tag == "Enemy"){
       stepOnEnemy = true;
     }
-    // If collide turn onIce boolean to true
-    if(col.gameObject.tag == "Ice"){
-      onIce = true;
-    }
-    else{
+    if(col.gameObject.tag != "Ice"){
       onIce = false;
+      print("here");
     }
-
   }
 
   private void FixedUpdate() {
@@ -153,6 +151,10 @@ public class PlayerMovement : MonoBehaviour
     float horizontalVelocity = rb.velocity.x * movementSpeed;
     horizontalVelocity += Input.GetAxisRaw("Horizontal");
 
+    if(Input.GetAxisRaw("Horizontal") < 0)
+      sr.flipX = false;
+    else if(Input.GetAxisRaw("Horizontal") > 0)
+      sr.flipX = true;
     //x movement with different damping conditions
     if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f){
       horizontalVelocity *= Mathf.Pow(1f - horizontalDampWhenStopping, Time.deltaTime * 10f);
@@ -165,19 +167,25 @@ public class PlayerMovement : MonoBehaviour
     }
 
     if(onIce){
-      if(rb.velocity.x >= 4.5f){
-        horizontalVelocity = 4.5f;
+      if(rb.velocity.x >= 10f){
+        horizontalVelocity = 10f;
       }
-      else if(rb.velocity.x <= -4.5f){
-        horizontalVelocity = -4.5f;
+      else if(rb.velocity.x <= -10f){
+        horizontalVelocity = -10f;
+      }
+      else if(rb.velocity.x > 0.5f){
+        horizontalVelocity = rb.velocity.x + Time.deltaTime * 5f;
+      }
+      else if(rb.velocity.x < -0.5f){
+        horizontalVelocity = rb.velocity.x - Time.deltaTime * 5f;
       }
       else{
-        horizontalVelocity = rb.velocity.x + Input.GetAxisRaw("Horizontal");
+        horizontalVelocity = Input.GetAxisRaw("Horizontal");
       }
-      rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);;
+      rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
     else{
-      rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);;
+      rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
 
     //check for if head hit the wall
@@ -205,6 +213,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
   }
+
+  public bool IsIce(){
+    foreach(GameObject g in (GameObject.FindGameObjectsWithTag("Ice"))) {
+      if(stand.IsTouching(g.GetComponent<EdgeCollider2D>())){
+        print("oops");
+        return true;
+      }
+    }
+    return false;
+  }
+
 
 
 }

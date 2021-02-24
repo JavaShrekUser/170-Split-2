@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;//for playtest purpose
 
 public class SubLayerMove : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    public GameObject player;
     public Camera cam;
     public GameObject subLayer1;
     public GameObject subLayer2;
@@ -19,11 +19,14 @@ public class SubLayerMove : MonoBehaviour
 
     float move1 = 0f;
     float move2 = 0f;
+    Rigidbody2D rb;
 
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
     private void Start()//for playtest purpose
     {
+        rb = player.GetComponent<Rigidbody2D>();
+
         subStart1 = subLayer1.transform.position;
         subStart2 = subLayer2.transform.position;
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
@@ -93,22 +96,33 @@ public class SubLayerMove : MonoBehaviour
     //New button click movment
     public void MoveSubroom1(){
       if(cam.orthographicSize == 35f){
-        if(subLayer1.transform.position == mainScene){
+        if(subLayer1.transform.position == mainScene && !IsGrounded(subLayer1)){
           move1 = -0.25f;
         }
-        else{
+        else if(subLayer1.transform.position == subStart1){
           move1 = 0.25f;
         }
     }
   }
     public void MoveSubroom2(){
       if(cam.orthographicSize == 35f){
-        if(subLayer2.transform.position == mainScene){
+        if(subLayer2.transform.position == mainScene && !IsGrounded(subLayer2)){
           move2 = 0.25f;
         }
-        else{
+        else if(subLayer2.transform.position == subStart2){
           move2 = -0.25f;
         }
     }
+  }
+  public bool IsGrounded(GameObject subLayer){
+    Collider2D playerCol = player.GetComponent<Collider2D>();
+    foreach (Transform t in subLayer.transform){
+      if(t.GetComponent<EdgeCollider2D>()){
+        if(Physics2D.IsTouching(t.GetComponent<EdgeCollider2D>(), playerCol)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }
