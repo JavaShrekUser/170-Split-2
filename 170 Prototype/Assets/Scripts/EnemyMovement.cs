@@ -138,10 +138,12 @@ public class EnemyMovement : MonoBehaviour
         if(horizontalDirection > 0)
         {
             horizontalDirection = -1;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         else
         {
             horizontalDirection = 1;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
