@@ -8,6 +8,8 @@ public class EnemyMovement : MonoBehaviour
     //rigid body is rigid body
     public Rigidbody2D rb;
     public GameObject Lwall;
+    public GameObject dubplat;
+    public GameObject ghost;
 
     //enemy movement variable
     public int enemySpeed = 3;
@@ -118,6 +120,13 @@ public class EnemyMovement : MonoBehaviour
         {
             Flip();
             Lwall.SetActive(true);
+        }
+
+        if (col.tag == "Switch")
+        {
+            
+            dubplat.SetActive(false);
+            ghost.SetActive(false);
         }
     }
 
