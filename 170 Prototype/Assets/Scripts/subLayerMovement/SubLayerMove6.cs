@@ -10,6 +10,7 @@ public class SubLayerMove6 : MonoBehaviour
     public GameObject subLayer1;
     public GameObject subLayer2;
     public GameObject Manual;
+    public GameObject ButtonCanvas;
 
     Vector3 mainScene = new Vector3(0, 0, 0);
     Vector3 subStart1;
@@ -47,6 +48,7 @@ public class SubLayerMove6 : MonoBehaviour
               rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             }
             cam.orthographicSize = 35f;
+            ButtonCanvas.SetActive(true);
             Manual.SetActive(true);
 
         }
@@ -55,6 +57,7 @@ public class SubLayerMove6 : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             cam.orthographicSize = 10f;
+            ButtonCanvas.SetActive(false);
             Manual.SetActive(false);
 
         }
