@@ -317,41 +317,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &171354535
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 1470
-  m_Height: 348
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &249102537
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249102537}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.57, y: -4.25, z: 12.857581}
+  m_LocalPosition: {x: -9.57, y: -3.97, z: 12.857581}
   m_LocalScale: {x: 0.6944405, y: 0.652773, z: 1}
   m_Children: []
   m_Father: {fileID: 29725538}
@@ -2542,6 +2507,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!84 &1233677681
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 1469
+  m_Height: 366
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1253590193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,9 +3192,9 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!61 &1731561454
-BoxCollider2D:
+  m_IsActive: 1
+--- !u!68 &1731561454
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3206,19 +3206,27 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09445763, y: -0.7001296}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 40, y: 22.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 35.36498, y: 2.8483455}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -18.503292, y: -0.8454637}
+  - {x: -17.804678, y: 0.36832088}
+  - {x: -17.401827, y: 0.5382582}
+  - {x: 16.2885, y: 0.55353165}
+  - {x: 17.165546, y: 0.54314464}
+  - {x: 17.837816, y: 0.03822124}
+  - {x: 18.06131, y: -0.93002594}
+  - {x: 17.739244, y: -1.2638211}
+  - {x: 15.861828, y: -1.738858}
+  - {x: 12.099724, y: -2.0205436}
+  - {x: 7.584204, y: -1.8183928}
+  - {x: 2.990076, y: -1.6681314}
+  - {x: -1.5769634, y: -1.7148333}
+  - {x: -5.336478, y: -1.830982}
+  - {x: -9.031929, y: -2.395309}
+  - {x: -16.580608, y: -2.1955078}
+  - {x: -18.410957, y: -1.130048}
+  - {x: -18.56906, y: -0.817281}
 --- !u!212 &1731561455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3277,7 +3285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731561453}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.111, y: -4.85, z: 0}
+  m_LocalPosition: {x: 0.11, y: -4.85, z: 0}
   m_LocalScale: {x: 0.22615536, y: 0.4620545, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

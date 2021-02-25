@@ -52,6 +52,13 @@ public class PlayerMovement : MonoBehaviour
   //public GameObject monster;
   //private EnemyMovement monsterCanMove;
 
+  // Checkpoint variables 
+  // Respawn positions
+  public Transform respawnPoint1;
+  public Transform respawnPoint2;
+  public Transform respawnPoint3;
+  private int checkPointActive = 0;
+
   private void Start() {
 
     rb = GetComponent<Rigidbody2D>();
@@ -123,12 +130,27 @@ public class PlayerMovement : MonoBehaviour
   }
 
   private void OnTriggerEnter2D(Collider2D col){
+    // testing which check point player last saved
+    if(col.tag == "checkP1") checkPointActive = 1;
+    if(col.tag == "checkP2") checkPointActive = 2;
+    if(col.tag == "checkP3") checkPointActive = 3;
+
     // if collide with trap
     if(col.tag == "Trap"){
-      // reload the scene
-      Scene scene;
-      scene = SceneManager.GetActiveScene();
-      SceneManager.LoadScene(scene.name);
+      Debug.Log("CPA = "+ checkPointActive);
+      if(checkPointActive == 0 || respawnPoint1 == null){           
+        // if no checkpoint activated                                           
+        // reload the scene when dead
+        Scene scene;
+        scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+      }else if(checkPointActive == 1){    // respawn to the lastest saved check point 
+        Instantiate(this.gameObject, respawnPoint1.position, Quaternion.identity);
+      }else if(checkPointActive == 2){
+        Instantiate(this.gameObject, respawnPoint2.position, Quaternion.identity);
+      }else if(checkPointActive == 3){
+        Instantiate(this.gameObject, respawnPoint3.position, Quaternion.identity);
+      }
     }
 
   }
@@ -141,8 +163,8 @@ public class PlayerMovement : MonoBehaviour
     }
     if(col.gameObject.tag != "Ice"){
       onIce = false;
-      print("here");
     }
+    if(col.gameObject.tag == "Enemy") Debug.Log("touching enemy test");
   }
 
   private void FixedUpdate() {
