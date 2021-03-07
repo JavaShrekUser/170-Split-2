@@ -10,9 +10,11 @@ public class Dialog : MonoBehaviour
     private int index;
     public float typingSpeed;
 
-    public GameObject Dialogbox;
+    public GameObject Dialogbox1;
     public Rigidbody2D rb;
-    public GameObject Door;
+    public GameObject Cat;
+
+
     private bool next = false;
     private bool holding = false;
 
@@ -67,8 +69,8 @@ public class Dialog : MonoBehaviour
         else{
             textDisplay.text = "";
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            Dialogbox.SetActive(false);
-            Door.SetActive(true);
+            Dialogbox1.SetActive(false);
+            Cat.SetActive(false);
         }
     }
 
