@@ -26,17 +26,24 @@ public class DialogueTrigger : MonoBehaviour
         collect_num += 1;
         other.gameObject.SetActive(false);
       }
-    else if (other.gameObject.layer == 14)
+    else if (other.gameObject.layer == 13)
         {
             collect_num += 3;
             other.gameObject.SetActive(false);
+            
+            // Debug.Log(collect_num);
         }
 
+    // Debug.Log("collect num is currently: " + collect_num);
+
     if (collect_num == 3){
+
+        
         Canvas2.SetActive(true);
         Dialogbox2.SetActive(true);
         CK.SetActive(true);
         Player.constraints = (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation);
+        
     }
   }
 
