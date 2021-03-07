@@ -21,24 +21,19 @@ public class Dialog2 : MonoBehaviour
 
     public GameObject CK;
 
-
-
     private bool next = false;
     private bool holding = false;
 
     void Start()
-    {
-        
-        StartCoroutine(Type());
-        
-            
+    {   
+        StartCoroutine(Type());        
     }
 
     private void Update()
     {
         if (rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation) && next)
         {
-            if (!collectable4.activeSelf)
+            if (!collectable4.activeSelf && CK.activeSelf)
             {
                 if (Input.anyKey && !holding)
                 {
@@ -54,25 +49,7 @@ public class Dialog2 : MonoBehaviour
                     holding = false;
                 }
             }
-            else if (CK.activeSelf)
-            {
-                if (Input.anyKey && !holding)
-                {
-                    NextSentence();
-                    holding = true;
-                }
-                else if (Input.anyKey)
-                {
-                    holding = true;
-                }
-                else
-                {
-                    holding = false;
-                }
-            }
-
         }
-
     }
 
 
@@ -90,7 +67,6 @@ public class Dialog2 : MonoBehaviour
     {
         next = false;
         
-            
             if (index < sentences.Length - 1)
             {
 

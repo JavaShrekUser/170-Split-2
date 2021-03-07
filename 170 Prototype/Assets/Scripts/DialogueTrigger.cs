@@ -36,9 +36,8 @@ public class DialogueTrigger : MonoBehaviour
         Canvas2.SetActive(true);
         Dialogbox2.SetActive(true);
         CK.SetActive(true);
-        //collect_num = 0;
         Player.constraints = (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation);
-      }
+    }
   }
 
 }
