@@ -8,9 +8,9 @@ public class SwitchAnimation : MonoBehaviour
     //Animation movements
     public Animator animator;
 
-    public float timer = .1f;
-    private float cdTimer;
-    private bool buttonTouch = false;
+    public float timer = 1f;
+    public float cdTimer = 0f;
+    public bool buttonTouch = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +21,16 @@ public class SwitchAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        animator.SetBool("Touching", buttonTouch);
+
         if (cdTimer > 0) 
         {
-            cdTimer -= .1f;
+            cdTimer -= 0.1f;
             if (cdTimer <= 0f) {
                 buttonTouch = false;
             }
         }
-
-        animator.SetBool("Touching", buttonTouch);
 
     }
 
