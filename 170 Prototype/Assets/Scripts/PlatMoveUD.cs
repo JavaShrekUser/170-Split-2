@@ -25,7 +25,7 @@ public class PlatMoveUD : MonoBehaviour
         rb.velocity = new Vector2(verticalDirection * enemySpeed, rb.velocity.x);
         //rb.constraints = RigidbodyConstraints2D.FreezePositionX;
 
-
+        //Debug.Log(rb.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -34,6 +34,20 @@ public class PlatMoveUD : MonoBehaviour
         if (col.tag == "Air_Wall")
         {
             Flip();
+        }
+        
+        if(col.tag == "Player")
+        {
+            col.GetComponent<Rigidbody2D>().transform.SetParent(transform);
+        }
+
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if(col.tag == "Player")
+        {
+            col.GetComponent<Rigidbody2D>().transform.SetParent(null);
         }
 
     }
