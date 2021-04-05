@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
   public float jumpHeightReduce = 0.5f;
   private bool ceilCheck = false;
   public bool crouching = false;
+  bool isMoving = false;
 
   //Check Box Collider Use
   public BoxCollider2D stand;
@@ -59,21 +60,43 @@ public class PlayerMovement : MonoBehaviour
   public Transform respawnPoint3;
   private int checkPointActive = 0;
 
+  public AudioSource Jumping;
+  public AudioSource WalkGress;
+
   private void Start() {
 
     rb = GetComponent<Rigidbody2D>();
+    WalkGress = GetComponent<AudioSource>();
 
     //enable idle sprite
     stand.enabled = true;
     crouch.enabled = false;
+
+    
     //comment out for future need --- Access from playerMovement code to enemyMovement variable
     //monsterCanMove = monster.GetComponent<EnemyMovement>();
 
   }
 
+  
+
   private void Update(){
     //check for if crouch is pressed
     IsCrouching();
+
+    if (rb.velocity.x != 0){
+      isMoving = true;
+    }else{
+      isMoving = false;
+    }
+
+    if (isMoving){
+      if (!WalkGress.isPlaying){
+        WalkGress.Play();
+      }else{
+        WalkGress.Stop();
+      }
+    }
 
     //animation detection for if crouching
     animator.SetBool("crouchAnimation", crouching);
@@ -96,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
       cam.orthographicSize == 10f &&
        !(rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation))){
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+      Jumping.Play();
       stepOnEnemy = false;
       jumpCount++;
       //comment out for future need --- Access from playerMovement code to enemyMovement variable
@@ -104,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
     //Check if Space is released up before it reached the maximum jump height
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
       rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpHeightReduce);
+      Jumping.Play();
     }
 
     if(IsGrounded())
@@ -128,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
      }
 
   }
+
 
   private void OnTriggerEnter2D(Collider2D col){
     // testing which check point player last saved

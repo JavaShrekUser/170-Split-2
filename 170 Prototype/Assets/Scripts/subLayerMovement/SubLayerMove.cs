@@ -13,6 +13,7 @@ public class SubLayerMove : MonoBehaviour
     public GameObject Button1;
     public GameObject Button2;
 
+
     Vector3 mainScene = new Vector3(0,0,0);
     Vector3 subStart1;
     Vector3 subStart2;
