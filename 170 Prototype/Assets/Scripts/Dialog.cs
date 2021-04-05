@@ -14,6 +14,8 @@ public class Dialog : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject Cat;
 
+    public AudioSource Typing;
+
 
     private bool next = false;
     private bool holding = false;
@@ -21,6 +23,7 @@ public class Dialog : MonoBehaviour
     void Start()
     {
         StartCoroutine(Type());
+        Typing.Play();
     }
 
     private void Update()
@@ -30,6 +33,7 @@ public class Dialog : MonoBehaviour
             if (Input.anyKey && !holding)
             {
               NextSentence();
+              Typing.Play();
               holding = true;
             }
             else if(Input.anyKey)

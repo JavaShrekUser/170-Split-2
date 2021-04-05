@@ -13,6 +13,8 @@ public class SubLayerMove : MonoBehaviour
     public GameObject Button1;
     public GameObject Button2;
 
+    public AudioSource Starting;
+
 
     Vector3 mainScene = new Vector3(0,0,0);
     Vector3 subStart1;

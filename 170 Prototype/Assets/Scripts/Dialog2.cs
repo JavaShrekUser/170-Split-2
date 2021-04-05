@@ -21,6 +21,8 @@ public class Dialog2 : MonoBehaviour
 
     public GameObject CK;
 
+    public AudioSource Typing;
+
     private bool next = false;
     private bool holding = false;
 
@@ -38,6 +40,7 @@ public class Dialog2 : MonoBehaviour
                 if (Input.anyKey && !holding)
                 {
                     NextSentence();
+                    Typing.Play();
                     holding = true;
                 }
                 else if (Input.anyKey)
