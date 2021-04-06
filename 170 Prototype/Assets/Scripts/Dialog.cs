@@ -30,7 +30,12 @@ public class Dialog : MonoBehaviour
     {
         if (rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation) && next)
         {
-            if (Input.anyKey && !holding)
+            if(Input.GetKey("return")){
+              for(int i = 0; i < sentences.Length; i++){
+                NextSentence();
+              }
+            }
+            else if (Input.anyKey && !holding)
             {
               NextSentence();
               Typing.Play();

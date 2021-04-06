@@ -44,14 +44,13 @@ public class EnemyMovement : MonoBehaviour
         //what to do if the monster is not stunned
         if(isStun == false)
         {
+            rb.constraints = RigidbodyConstraints2D.None;
             rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
         }
         else //what if it's in stunned state
         {
 
             stunTimer -= Time.deltaTime;
-
-            rb.velocity = new Vector2(0, rb.velocity.y);
 
             //reactive all the condition and refresh timer once going out the state
             if(stunTimer <= 0)
@@ -64,10 +63,11 @@ public class EnemyMovement : MonoBehaviour
         }
 
         //check of monster "head" colliding with player
-        headHitFeet = Physics2D.OverlapBox(head.position, new Vector2(headSize, .5f), 0f, playerCheck);
+        headHitFeet = Physics2D.OverlapBox(head.position, new Vector2(headSize, .85f), 0f, playerCheck);
         //stun condition met
         if(headHitFeet == true)
         {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
             isStun = true;
         }
 
@@ -124,7 +124,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (col.tag == "Switch")
         {
-            
+
             dubplat.SetActive(false);
             ghost.SetActive(false);
         }
@@ -158,9 +158,9 @@ public class EnemyMovement : MonoBehaviour
 
     public bool nearEdge(){
       Vector3 temp = feet.position;
-      temp.x = feet.position.x - 0.65f;
+      temp.x = feet.position.x - 0.75f;
       Collider2D groundCheckLeft = Physics2D.OverlapBox(temp, new Vector2(0.2f, 2f), 0f, groundLayers);
-      temp.x = feet.position.x + 0.65f;
+      temp.x = feet.position.x + 0.75f;
       Collider2D groundCheckRight = Physics2D.OverlapBox(temp, new Vector2(0.2f, 2f), 0f, groundLayers);
       return (!groundCheckLeft || !groundCheckRight);
     }
