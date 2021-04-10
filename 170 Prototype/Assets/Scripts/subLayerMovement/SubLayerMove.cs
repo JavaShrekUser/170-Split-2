@@ -14,6 +14,12 @@ public class SubLayerMove : MonoBehaviour
     public GameObject Button2;
 
     public AudioSource Starting;
+    public AudioSource OpenMap;
+    public AudioSource CloseMap;
+    public AudioSource MoveRoom;
+    public AudioSource PickUp;
+    public AudioSource SomethingHappen; // pick up apple sound for now 
+    public AudioSource ChangeScene; // open door 
 
 
     Vector3 mainScene = new Vector3(0,0,0);
@@ -28,6 +34,7 @@ public class SubLayerMove : MonoBehaviour
     private int lastScene;//for playtest purpose
     private void Start()//for playtest purpose
     {
+        Starting.Play();
         rb = player.GetComponent<Rigidbody2D>();
 
         subStart1 = subLayer1.transform.position;
@@ -49,6 +56,7 @@ public class SubLayerMove : MonoBehaviour
         }
 
       if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f){
+        OpenMap.Play();
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         cam.orthographicSize = 35f;
         Manual.SetActive(true);
@@ -56,6 +64,7 @@ public class SubLayerMove : MonoBehaviour
         Button2.SetActive(true);
       }
       else if(cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap")){
+        CloseMap.Play();
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         cam.orthographicSize = 10f;
@@ -68,12 +77,14 @@ public class SubLayerMove : MonoBehaviour
         subLayer1.transform.Translate(0,move1/2f,0);
         if(subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1){
           move1 = 0f;
+          MoveRoom.Stop();
         }
       }
       if(move2 != 0f){
         subLayer2.transform.Translate(0,move2/2f,0);
         if(subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2){
           move2 = 0f;
+          MoveRoom.Stop();
         }
       }
       // Old key stroke movement
@@ -100,9 +111,11 @@ public class SubLayerMove : MonoBehaviour
     public void MoveSubroom1(){
       if(cam.orthographicSize == 35f){
         if(subLayer1.transform.position == mainScene && !IsGrounded(subLayer1)){
+          MoveRoom.Play();
           move1 = -0.25f;
         }
         else if(subLayer1.transform.position == subStart1){
+          MoveRoom.Play();
           move1 = 0.25f;
         }
     }
@@ -110,9 +123,11 @@ public class SubLayerMove : MonoBehaviour
     public void MoveSubroom2(){
       if(cam.orthographicSize == 35f){
         if(subLayer2.transform.position == mainScene && !IsGrounded(subLayer2)){
+          MoveRoom.Play();
           move2 = 0.25f;
         }
         else if(subLayer2.transform.position == subStart2){
+          MoveRoom.Play();
           move2 = -0.25f;
         }
     }

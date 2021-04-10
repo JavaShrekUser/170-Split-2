@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -63,6 +63,7 @@ public class Dialog : MonoBehaviour
 
   public void SkipButton()
   {
+    Typing.Stop();
     if (rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation) && next)
     {
       for(int i = 0; i < sentences.Length; i++){

@@ -68,6 +68,7 @@ public class Dialog2 : MonoBehaviour
 
     public void SkipButton()
     {
+      Typing.Stop();
       if (rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation) && next)
       {
         if (!collectable4.activeSelf && CK.activeSelf)
