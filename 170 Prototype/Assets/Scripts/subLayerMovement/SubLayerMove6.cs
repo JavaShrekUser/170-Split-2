@@ -16,6 +16,12 @@ public class SubLayerMove6 : MonoBehaviour
     Vector3 subStart1;
     Vector3 subStart2;
 
+    public AudioSource Starting;
+    public AudioSource OpenMap;
+    public AudioSource CloseMap;
+    public AudioSource MoveRoom;
+    public AudioSource PickUp;
+
     float move1 = 0f;
     float move2 = 0f;
 
@@ -26,6 +32,7 @@ public class SubLayerMove6 : MonoBehaviour
 
     private void Start()//for playtest purpose
     {
+        Starting.Play();
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
     }
@@ -44,6 +51,7 @@ public class SubLayerMove6 : MonoBehaviour
 
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
+            OpenMap.Play();
             if(!onIce){
               rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             }
@@ -54,6 +62,7 @@ public class SubLayerMove6 : MonoBehaviour
         }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
         {
+            CloseMap.Play();
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             cam.orthographicSize = 10f;
@@ -67,6 +76,7 @@ public class SubLayerMove6 : MonoBehaviour
             if (subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1)
             {
                 move1 = 0f;
+                MoveRoom.Stop();
             }
         }
         if (move2 != 0f)
@@ -75,6 +85,7 @@ public class SubLayerMove6 : MonoBehaviour
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
             {
                 move2 = 0f;
+                MoveRoom.Stop();
             }
         }
         else if(cam.orthographicSize == 35f){
@@ -100,10 +111,12 @@ public class SubLayerMove6 : MonoBehaviour
         {
             if (subLayer1.transform.position == mainScene)
             {
+                MoveRoom.Play();
                 move1 = -0.25f;
             }
             else
             {
+                MoveRoom.Play();
                 subStart1 = subLayer1.transform.position;
                 move1 = 0.25f;
             }
@@ -115,10 +128,12 @@ public class SubLayerMove6 : MonoBehaviour
         {
             if (subLayer2.transform.position == mainScene)
             {
+                MoveRoom.Play();
                 move2 = 0.25f;
             }
             else
             {
+                MoveRoom.Play();
                 subStart2 = subLayer2.transform.position;
                 move2 = -0.25f;
             }

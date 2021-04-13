@@ -22,6 +22,13 @@ public class SubLayerMove5 : MonoBehaviour
     Vector3 subStart1;
     Vector3 subStart2;
 
+    public AudioSource Starting;
+    public AudioSource OpenMap;
+    public AudioSource CloseMap;
+    public AudioSource MoveRoom;
+    public AudioSource PickUp;
+    public AudioSource lava;
+
     float move1 = 0f;
     float move2 = 0f;
 
@@ -30,6 +37,8 @@ public class SubLayerMove5 : MonoBehaviour
 
     private void Start()//for playtest purpose
     {
+        Starting.Play();
+        lava.Play();
         rb = player.GetComponent<Rigidbody2D>();
         subStart1 = subLayer1.transform.position;
         subStart2 = subLayer2.transform.position;
@@ -50,12 +59,14 @@ public class SubLayerMove5 : MonoBehaviour
         }
 
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f){
+        OpenMap.Play();
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         cam.orthographicSize = 35f;
         Manual.SetActive(true);
         ButtonCanvas.SetActive(true);
       }
       else if(cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap")){
+        CloseMap.Play();
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         cam.orthographicSize = 10f;
@@ -68,12 +79,14 @@ public class SubLayerMove5 : MonoBehaviour
         subLayer1.transform.Translate(0,move1/2f,0);
         if(subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1){
           move1 = 0f;
+          MoveRoom.Stop();
         }
       }
       if(move2 != 0f){
         subLayer2.transform.Translate(0,move2/2f,0);
         if(subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2){
           move2 = 0f;
+          MoveRoom.Stop();
         }
       }
     }
@@ -110,10 +123,12 @@ public class SubLayerMove5 : MonoBehaviour
       if(cam.orthographicSize == 35f && !IsGrounded(subLayer1)){
         if(subLayer1.transform.position == mainScene)
         {
+          MoveRoom.Play();
           move1 = -0.25f;
         }
         else
         {
+          MoveRoom.Play();
           move1 = 0.25f;
           subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
           subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
@@ -126,10 +141,12 @@ public class SubLayerMove5 : MonoBehaviour
     if(cam.orthographicSize == 35f && !IsGrounded(subLayer2)){
       if (subLayer2.transform.position == mainScene)
       {
+          MoveRoom.Play();
           move2 = 0.25f;
       }
       else
       {
+          MoveRoom.Play();
           move2 = -0.25f;
           subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
           subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;

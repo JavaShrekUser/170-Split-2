@@ -23,6 +23,14 @@ public class SubLayerMove3 : MonoBehaviour
 
     public GameObject ButtonCanvas;
 
+    public AudioSource Starting;
+    public AudioSource OpenMap;
+    public AudioSource CloseMap;
+    public AudioSource MoveRoom;
+    public AudioSource PickUp;
+    public AudioSource SomethingHappen; // pick up apple sound for now 
+    public AudioSource ChangeScene; // open door 
+
 
     Vector3 mainScene = new Vector3(0, 0, 0);
     Vector3 subStart1;
@@ -36,6 +44,7 @@ public class SubLayerMove3 : MonoBehaviour
 
     private void Start()
     {
+      Starting.Play();
       rb = player.GetComponent<Rigidbody2D>();
       subStart1 = subLayer1.transform.position;
       subStart2 = subLayer2.transform.position;
@@ -57,6 +66,7 @@ public class SubLayerMove3 : MonoBehaviour
 
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f && !dialogueBox.activeSelf)
         {
+            OpenMap.Play();
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             cam.orthographicSize = 35f;
             ButtonCanvas.SetActive(true);
@@ -64,6 +74,7 @@ public class SubLayerMove3 : MonoBehaviour
         }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap") && !dialogueBox.activeSelf)
         {
+            CloseMap.Play();
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             cam.orthographicSize = 10f;
@@ -75,6 +86,7 @@ public class SubLayerMove3 : MonoBehaviour
             if (subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1)
             {
                 move1 = 0f;
+                MoveRoom.Stop();
             }
         }
         if (move2 != 0f)
@@ -83,6 +95,7 @@ public class SubLayerMove3 : MonoBehaviour
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
             {
                 move2 = 0f;
+                MoveRoom.Stop();
             }
         }
         if (subLayer1.transform.position == mainScene && subLayer2.transform.position == mainScene
@@ -107,6 +120,8 @@ public class SubLayerMove3 : MonoBehaviour
                 y.GetComponent<SpriteRenderer>().sortingOrder = 3;
             }
         }
+
+        
         // Old movment script using key strokes
         //
         //
@@ -143,10 +158,12 @@ public class SubLayerMove3 : MonoBehaviour
       if(cam.orthographicSize == 35f && !IsGrounded(subLayer1)){
         if(subLayer1.transform.position == mainScene)
         {
+          MoveRoom.Play();
           move1 = -0.25f;
         }
         else
         {
+          MoveRoom.Play();
           move1 = 0.25f;
           subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
           subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
@@ -159,10 +176,12 @@ public class SubLayerMove3 : MonoBehaviour
     if(cam.orthographicSize == 35f && !IsGrounded(subLayer2)){
       if (subLayer2.transform.position == mainScene)
       {
+          MoveRoom.Play();
           move2 = 0.25f;
       }
       else
       {
+          MoveRoom.Play();
           move2 = -0.25f;
           subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
           subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
