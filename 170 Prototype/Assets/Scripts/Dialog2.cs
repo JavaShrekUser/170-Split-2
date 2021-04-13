@@ -22,6 +22,7 @@ public class Dialog2 : MonoBehaviour
     public GameObject CK;
 
     public AudioSource Typing;
+    public AudioSource PickUp;
     public bool dialog2 = true;
     private bool next = false;
     // private bool holding = false;
@@ -29,6 +30,7 @@ public class Dialog2 : MonoBehaviour
     void Start()
     {
       StartCoroutine(Type());
+      Typing.Play();
     }
 
     // private void Update()
@@ -75,6 +77,7 @@ public class Dialog2 : MonoBehaviour
         {
           for(int i = 0; i < sentences.Length; i++){
             NextSentence();
+            Typing.Stop();
           }
         }
       }

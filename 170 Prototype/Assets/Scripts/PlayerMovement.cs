@@ -63,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
   public AudioSource Jumping;
   public AudioSource WalkGress;
 
+  public AudioSource PickUp;
+  public AudioSource StepOnMonsta;
+  public AudioSource hitIceSound;   
+
+
   private void Start() {
 
     rb = GetComponent<Rigidbody2D>();
@@ -128,11 +133,12 @@ public class PlayerMovement : MonoBehaviour
     //Check if Space is released up before it reached the maximum jump height
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
       rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpHeightReduce);
-      Jumping.Play();
+      //Jumping.Play();
     }
 
     if(IsGrounded())
     {
+      
       timeCheck = 0;
       jumpCount = 0;
       onIce = IsIce();
@@ -141,14 +147,17 @@ public class PlayerMovement : MonoBehaviour
     // //Check for collectable
      if (player.IsTouching(collectible.GetComponent<Collider2D>()))
      {
+       PickUp.Play();
        collectible.SetActive(false);
      }
      if (player.IsTouching(collectible2.GetComponent<Collider2D>()))
      {
+       PickUp.Play();
        collectible2.SetActive(false);
      }
      if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
      {
+       PickUp.Play();
        collectible3.SetActive(false);
      }
 
@@ -185,10 +194,14 @@ public class PlayerMovement : MonoBehaviour
 
     //check if colliding with object tagged with "Enemy"
     if(col.gameObject.tag == "Enemy"){
+      StepOnMonsta.Play();
       stepOnEnemy = true;
     }
     if(col.gameObject.tag != "Ice"){
       onIce = false;
+    }
+    if(col.gameObject.tag == "Ice"){
+      hitIceSound.Play();
     }
     if(col.gameObject.tag == "Enemy") Debug.Log("touching enemy test");
   }

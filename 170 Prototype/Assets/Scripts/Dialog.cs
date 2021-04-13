@@ -68,6 +68,7 @@ public class Dialog : MonoBehaviour
     {
       for(int i = 0; i < sentences.Length; i++){
         NextSentence();
+        Typing.Stop();
       }
     }
   }

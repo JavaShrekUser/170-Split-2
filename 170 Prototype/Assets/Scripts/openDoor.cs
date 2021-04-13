@@ -8,6 +8,7 @@ public class openDoor : MonoBehaviour
   public GameObject icePlat1;
   public int touched_water = 0;
 
+
   private void OnTriggerEnter2D(Collider2D col){
 
     if(col.gameObject.layer == 4){

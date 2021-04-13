@@ -41,17 +41,6 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(nearEdge() && timeCheck > 0.2f)
-        {
-          timeCheck = 0;
-          Flip();
-        }
-        //check of monster "head" colliding with the ground layers to flip
-        if(timeCheck > 0.2f && rb.velocity.magnitude < 0.5) {
-          Flip();
-          timeCheck = 0;
-        }
-        timeCheck += Time.deltaTime;
         //what to do if the monster is not stunned
         if(isStun == false)
         {
@@ -95,6 +84,18 @@ public class EnemyMovement : MonoBehaviour
         {
             killPlayer();
         }
+
+        if(nearEdge() && timeCheck > 0.2f)
+        {
+          timeCheck = 0;
+          Flip();
+        }
+        //check of monster "head" colliding with player
+        if(timeCheck > 0.2f && Physics2D.OverlapBox(head.position, new Vector2(headSize, .5f), 0f, groundLayers)) {
+          Flip();
+          timeCheck = 0;
+        }
+        timeCheck += Time.deltaTime;
     }
     // trigger event
     void OnTriggerEnter2D(Collider2D col)
@@ -157,9 +158,9 @@ public class EnemyMovement : MonoBehaviour
 
     public bool nearEdge(){
       Vector3 temp = feet.position;
-      temp.x = feet.position.x - 0.65f;
+      temp.x = feet.position.x - 0.75f;
       Collider2D groundCheckLeft = Physics2D.OverlapBox(temp, new Vector2(0.2f, 2f), 0f, groundLayers);
-      temp.x = feet.position.x + 0.65f;
+      temp.x = feet.position.x + 0.75f;
       Collider2D groundCheckRight = Physics2D.OverlapBox(temp, new Vector2(0.2f, 2f), 0f, groundLayers);
       return (!groundCheckLeft || !groundCheckRight);
     }
