@@ -12,6 +12,8 @@ public class SwitchAnimation : MonoBehaviour
     public float cdTimer = 0f;
     public bool buttonTouch = false;
 
+    public AudioSource switchSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class SwitchAnimation : MonoBehaviour
     {
         if (col.tag == "Player" || col.tag == "Enemy" || col.tag == "Trap") 
         {
+            switchSound.Play();
             buttonTouch = true;
             cdTimer = timer;
         }
