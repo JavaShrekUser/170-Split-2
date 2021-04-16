@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 89623662}
   - component: {fileID: 89623664}
   - component: {fileID: 89623663}
+  - component: {fileID: 89623665}
   m_Layer: 8
   m_Name: Plat1
   m_TagString: Untagged
@@ -371,6 +372,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &89623665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89623661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6f19b0a438ab1459bce7ccd9926be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsGrounded: {fileID: 1493243884}
+  layer: {fileID: 707175532}
+  touch: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &101291643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1032,7 @@ GameObject:
   - component: {fileID: 243200913}
   - component: {fileID: 243200915}
   - component: {fileID: 243200914}
+  - component: {fileID: 243200916}
   m_Layer: 8
   m_Name: Plat2
   m_TagString: Untagged
@@ -1122,6 +1141,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &243200916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243200912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6f19b0a438ab1459bce7ccd9926be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsGrounded: {fileID: 1493243884}
+  layer: {fileID: 707175532}
+  touch: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &245790001
 GameObject:
   m_ObjectHideFlags: 0
@@ -4436,7 +4472,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5a71f692e7cf9234db117b5e8c58a954, type: 3}
   m_Color: {r: 0.9716981, g: 0.4995995, b: 0.5194773, a: 0.50980395}
   m_FlipX: 0
@@ -4603,6 +4639,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   SomethingHappen: {fileID: 0}
   ChangeScene: {fileID: 0}
+  changeColor: 0
 --- !u!114 &1493243885
 MonoBehaviour:
   m_ObjectHideFlags: 0
