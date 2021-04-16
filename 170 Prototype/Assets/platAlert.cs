@@ -5,8 +5,7 @@ using UnityEngine;
 public class platAlert : MonoBehaviour
 {
 
-    public SubLayerMove IsGrounded;
-    public GameObject layer;
+    //public GameObject layer;
     // public test CheckGround;
     public bool touch = false;
 
@@ -18,22 +17,30 @@ public class platAlert : MonoBehaviour
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        IsGrounded = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>();
+        touch = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().changeColor;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        touch = IsGrounded.IsGrounded(layer);
-        Debug.Log(IsGrounded.IsGrounded(layer));
+        touch = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().changeColor;
+        //touch = IsGrounded.IsGrounded(layer);
+        Debug.Log(touch);
         if(touch == true)
         {
             rend.material.color = alertColor;
         }
-        else
+        for(int i = 3; i > 0; i--)
         {
-            rend.material.color = initColor;
+            for(float j = 1f; j > 0; j -= 0.1f)
+            {
+                rend.material.color = initColor;
+            }
+            for(float k = 1f; k > 0; k -= 0.1f)
+            {
+                rend.material.color = alertColor;
+            }
         }
     }
 
