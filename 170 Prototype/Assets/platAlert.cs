@@ -5,7 +5,8 @@ using UnityEngine;
 public class platAlert : MonoBehaviour
 {
 
-    //public GameObject layer;
+    public SubLayerMove subMove;
+    public GameObject subRoomSet;
     // public test CheckGround;
     public bool touch = false;
 
@@ -17,39 +18,51 @@ public class platAlert : MonoBehaviour
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        touch = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().changeColor;
+        subMove = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        touch = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().changeColor;
-        //touch = IsGrounded.IsGrounded(layer);
+        //touch = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().changeColor;
+        touch = subMove.IsGrounded(subRoomSet);
         Debug.Log(touch);
+
         if(touch == true)
         {
             rend.material.color = alertColor;
         }
-        for(int i = 3; i > 0; i--)
+        else
         {
-            for(float j = 1f; j > 0; j -= 0.1f)
-            {
-                rend.material.color = initColor;
-            }
-            for(float k = 1f; k > 0; k -= 0.1f)
-            {
-                rend.material.color = alertColor;
-            }
+            rend.material.color = initColor;
         }
+
+        // for(int i = 3; i > 0; i--)
+        // {
+        //     for(float j = 1f; j > 0; j -= 0.1f)
+        //     {
+        //         rend.material.color = initColor;
+        //     }
+        //     for(float k = 1f; k > 0; k -= 0.1f)
+        //     {
+        //         rend.material.color = alertColor;
+        //     }
+        // }
     }
 
     // private void OnCollisionEnter2D(Collision2D col) {
 
-    //     if(col.gameObject.tag == "Player")
+    //     if(col.gameObject.tag == "Player" && touch == true)
     //     {
-    //         rend.material.color = AlertColor;
+    //         rend.material.color = alertColor;
     //     }
 
+    // }
+
+    // private void OnCollisionExit(Collision col) {
+
+    //     rend.material.color = initColor;
+        
     // }
 }
