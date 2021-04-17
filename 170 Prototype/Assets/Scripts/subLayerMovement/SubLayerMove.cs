@@ -21,7 +21,7 @@ public class SubLayerMove : MonoBehaviour
     public AudioSource SomethingHappen; // pick up apple sound for now 
     public AudioSource ChangeScene; // open door \
 
-    public bool changeColor;
+    public bool colorChange = false;
 
 
     Vector3 mainScene = new Vector3(0,0,0);
@@ -44,7 +44,6 @@ public class SubLayerMove : MonoBehaviour
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
 
-        changeColor = false;
     }
 
     // Update is called once per frame
@@ -110,8 +109,6 @@ public class SubLayerMove : MonoBehaviour
       //     move2 = -0.25f;
       //   }
       // }
-
-      changeColor = false;
     }
     //New button click movment
     public void MoveSubroom1(){
@@ -123,6 +120,9 @@ public class SubLayerMove : MonoBehaviour
         else if(subLayer1.transform.position == subStart1){
           MoveRoom.Play();
           move1 = 0.25f;
+        }
+        else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer1)){
+          colorChange = true;
         }
     }
   }
@@ -143,9 +143,6 @@ public class SubLayerMove : MonoBehaviour
     foreach (Transform t in subLayer.transform){
       if(t.GetComponent<EdgeCollider2D>()){
         if(Physics2D.IsTouching(t.GetComponent<EdgeCollider2D>(), playerCol)) {
-
-          changeColor = true;
-          
           return true;
         }
       }

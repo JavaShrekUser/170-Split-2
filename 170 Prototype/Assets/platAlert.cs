@@ -9,6 +9,7 @@ public class platAlert : MonoBehaviour
     public GameObject subRoomSet;
     public bool touch = false;
     public bool standOn = false;
+    public bool changeNow = false;
 
     public int blinkTime = 5;
     public float blinkDuration = .25f;
@@ -28,52 +29,11 @@ public class platAlert : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //touch = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().changeColor;
+        changeNow = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().colorChange;
         touch = subMove.IsGrounded(subRoomSet);
 
-        if(touch == true && standOn == true)
-        {
-            rend.material.color = alertColor;
-            //AlertChange();
-            if(blinkTime <= 0)
-            {
-                blinkTime = 5;
-            }
-        }
-        else
-        {
-            rend.material.color = initColor;
-
-
-        }
-
-        //Debug.Log(blinkTime);
-
         AlertChange();
-
-        // if(blinkTime > 0)
-        // {
-        //     if(blinkTime % 2 != 0)
-        //     {
-        //         rend.material.color = initColor;
-        //     }
-        //     else
-        //     {
-        //         rend.material.color = alertColor;
-        //     }
-        //     if(blinkDuration > 0)
-        //     {
-        //         blinkDuration -= Time.deltaTime;
-        //         if(blinkDuration <= 0)
-        //         {
-        //             Debug.Log("Done");
-        //             blinkDuration = .25f;
-        //             blinkTime--;
-        //         }
-                
-        //     }
             
-        // }
         
     }
 
@@ -95,29 +55,45 @@ public class platAlert : MonoBehaviour
     public void AlertChange()
     {
         
-        if(blinkTime > 0)
+        if(touch == true && standOn == true && changeNow == true)
         {
-            if(blinkTime % 2 != 0)
+
+            if(blinkTime > 0)
             {
-                rend.material.color = initColor;
-            }
-            else
-            {
-                rend.material.color = alertColor;
-            }
-            if(blinkDuration > 0)
-            {
-                blinkDuration -= Time.deltaTime;
-                if(blinkDuration <= 0)
+                if(blinkTime % 2 != 0)
                 {
-                    Debug.Log("Done");
-                    blinkDuration = .25f;
-                    blinkTime--;
+                    rend.material.color = initColor;
+                }
+                else
+                {
+                    rend.material.color = alertColor;
+                }
+                if(blinkDuration > 0)
+                {
+                    blinkDuration -= Time.deltaTime;
+                    if(blinkDuration <= 0)
+                    {
+                        blinkDuration = .25f;
+                        blinkTime--;
+                    }
+                    
                 }
                 
             }
-            
+
         }
+        else
+        {
+            
+            if(blinkTime != 5 || blinkDuration != .25f)
+            {
+                blinkTime = 5;
+                blinkDuration = .25f;
+                changeNow = false;
+            }
+            rend.material.color = initColor;
+        }
+        
     }
 
 }
