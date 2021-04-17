@@ -11,8 +11,8 @@ public class platAlert : MonoBehaviour
     public bool standOn = false;
     public bool changeNow = false;
 
-    public int blinkTime = 5;
-    public float blinkDuration = .25f;
+    public int blinkTimePlat;
+    public float blinkDurationPlat;
 
     public Color initColor = Color.white;
     public Color alertColor = Color.white;
@@ -23,6 +23,8 @@ public class platAlert : MonoBehaviour
     {
         rend = GetComponent<SpriteRenderer>();
         subMove = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>();
+        blinkTimePlat = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().blinkTime;
+        blinkDurationPlat = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().blinkDuration;
         
     }
 
@@ -30,9 +32,14 @@ public class platAlert : MonoBehaviour
     void Update()
     {
         changeNow = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().colorChange;
+        // blinkTimePlat = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().blinkTime;
+        // blinkDurationPlat = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().blinkDuration;
+        
         touch = subMove.IsGrounded(subRoomSet);
 
         AlertChange();
+
+        changeNow = false;
             
         
     }
@@ -58,9 +65,9 @@ public class platAlert : MonoBehaviour
         if(touch == true && standOn == true && changeNow == true)
         {
 
-            if(blinkTime > 0)
+            if(blinkTimePlat > 0)
             {
-                if(blinkTime % 2 != 0)
+                if(blinkTimePlat % 2 != 0)
                 {
                     rend.material.color = initColor;
                 }
@@ -68,13 +75,13 @@ public class platAlert : MonoBehaviour
                 {
                     rend.material.color = alertColor;
                 }
-                if(blinkDuration > 0)
+                if(blinkDurationPlat > 0)
                 {
-                    blinkDuration -= Time.deltaTime;
-                    if(blinkDuration <= 0)
+                    blinkDurationPlat -= Time.deltaTime;
+                    if(blinkDurationPlat <= 0)
                     {
-                        blinkDuration = .25f;
-                        blinkTime--;
+                        blinkDurationPlat = .25f;
+                        blinkTimePlat--;
                     }
                     
                 }
@@ -85,10 +92,10 @@ public class platAlert : MonoBehaviour
         else
         {
             
-            if(blinkTime != 5 || blinkDuration != .25f)
+            if(blinkTimePlat != 5 || blinkDurationPlat != .25f)
             {
-                blinkTime = 5;
-                blinkDuration = .25f;
+                blinkTimePlat = 5;
+                blinkDurationPlat = .25f;
                 changeNow = false;
             }
             rend.material.color = initColor;

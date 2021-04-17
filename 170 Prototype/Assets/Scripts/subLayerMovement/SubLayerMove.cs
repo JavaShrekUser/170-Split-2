@@ -22,6 +22,8 @@ public class SubLayerMove : MonoBehaviour
     public AudioSource ChangeScene; // open door \
 
     public bool colorChange = false;
+    public int blinkTime = 5;
+    public float blinkDuration = .25f;
 
 
     Vector3 mainScene = new Vector3(0,0,0);
@@ -109,6 +111,8 @@ public class SubLayerMove : MonoBehaviour
       //     move2 = -0.25f;
       //   }
       // }
+
+      //colorChange = false;
     }
     //New button click movment
     public void MoveSubroom1(){
@@ -116,12 +120,16 @@ public class SubLayerMove : MonoBehaviour
         if(subLayer1.transform.position == mainScene && !IsGrounded(subLayer1)){
           MoveRoom.Play();
           move1 = -0.25f;
+          colorChange = false;
         }
         else if(subLayer1.transform.position == subStart1){
           MoveRoom.Play();
           move1 = 0.25f;
+          colorChange = false;
         }
         else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer1)){
+          blinkTime = 5;
+          blinkDuration = .25f;
           colorChange = true;
         }
     }
