@@ -7,8 +7,11 @@ public class platAlert : MonoBehaviour
 
     public SubLayerMove subMove;
     public GameObject subRoomSet;
-    // public test CheckGround;
     public bool touch = false;
+    public bool standOn = false;
+
+    public int blinkTime = 5;
+    public float blinkDuration = .25f;
 
     public Color initColor = Color.white;
     public Color alertColor = Color.white;
@@ -27,42 +30,94 @@ public class platAlert : MonoBehaviour
     {
         //touch = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().changeColor;
         touch = subMove.IsGrounded(subRoomSet);
-        Debug.Log(touch);
 
-        if(touch == true)
+        if(touch == true && standOn == true)
         {
             rend.material.color = alertColor;
+            //AlertChange();
+            if(blinkTime <= 0)
+            {
+                blinkTime = 5;
+            }
         }
         else
         {
             rend.material.color = initColor;
+
+
         }
 
-        // for(int i = 3; i > 0; i--)
+        //Debug.Log(blinkTime);
+
+        AlertChange();
+
+        // if(blinkTime > 0)
         // {
-        //     for(float j = 1f; j > 0; j -= 0.1f)
+        //     if(blinkTime % 2 != 0)
         //     {
         //         rend.material.color = initColor;
         //     }
-        //     for(float k = 1f; k > 0; k -= 0.1f)
+        //     else
         //     {
         //         rend.material.color = alertColor;
         //     }
+        //     if(blinkDuration > 0)
+        //     {
+        //         blinkDuration -= Time.deltaTime;
+        //         if(blinkDuration <= 0)
+        //         {
+        //             Debug.Log("Done");
+        //             blinkDuration = .25f;
+        //             blinkTime--;
+        //         }
+                
+        //     }
+            
         // }
+        
     }
 
-    // private void OnCollisionEnter2D(Collision2D col) {
+    private void OnCollisionEnter2D(Collision2D col) {
 
-    //     if(col.gameObject.tag == "Player" && touch == true)
-    //     {
-    //         rend.material.color = alertColor;
-    //     }
+        if(col.gameObject.tag == "Player")
+        {
+            standOn = true;
+        }
 
-    // }
+    }
 
-    // private void OnCollisionExit(Collision col) {
+    private void OnCollisionExit2D(Collision2D col) {
 
-    //     rend.material.color = initColor;
+            standOn = false;
         
-    // }
+    }
+
+    public void AlertChange()
+    {
+        
+        if(blinkTime > 0)
+        {
+            if(blinkTime % 2 != 0)
+            {
+                rend.material.color = initColor;
+            }
+            else
+            {
+                rend.material.color = alertColor;
+            }
+            if(blinkDuration > 0)
+            {
+                blinkDuration -= Time.deltaTime;
+                if(blinkDuration <= 0)
+                {
+                    Debug.Log("Done");
+                    blinkDuration = .25f;
+                    blinkTime--;
+                }
+                
+            }
+            
+        }
+    }
+
 }
