@@ -128,6 +128,7 @@ public class SubLayerMove : MonoBehaviour
           colorChange = false;
         }
         else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer1)){
+          //if standing on and try clicking, reset the blink timer
           blinkTime = 5;
           blinkDuration = .25f;
           colorChange = true;
@@ -139,10 +140,18 @@ public class SubLayerMove : MonoBehaviour
         if(subLayer2.transform.position == mainScene && !IsGrounded(subLayer2)){
           MoveRoom.Play();
           move2 = 0.25f;
+          colorChange = false;
         }
         else if(subLayer2.transform.position == subStart2){
           MoveRoom.Play();
           move2 = -0.25f;
+          colorChange = false;
+        }
+        else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer2)){ 
+          //if standing on and try clicking, reset the blink timer
+          blinkTime = 5;
+          blinkDuration = .25f;
+          colorChange = true;
         }
     }
   }

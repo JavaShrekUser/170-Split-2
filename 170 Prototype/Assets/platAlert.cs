@@ -5,15 +5,20 @@ using UnityEngine;
 public class platAlert : MonoBehaviour
 {
 
+    //get class object used for calling variables
     public SubLayerMove subMove;
     public GameObject subRoomSet;
+
+    //boolean detection condition
     public bool touch = false;
     public bool standOn = false;
-    public bool changeNow = false;
 
-    public int blinkTimePlat;
-    public float blinkDurationPlat;
+    //failed variables save for example
+    // public bool changeNow = false;
+    // public int blinkTimePlat;
+    // public float blinkDurationPlat;
 
+    //initial plat color and later alert changed color
     public Color initColor = Color.white;
     public Color alertColor = Color.white;
     SpriteRenderer rend;
@@ -23,27 +28,31 @@ public class platAlert : MonoBehaviour
     {
         rend = GetComponent<SpriteRenderer>();
         subMove = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>();
-        blinkTimePlat = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().blinkTime;
-        blinkDurationPlat = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().blinkDuration;
+
+        //failed tried save for example
+        // blinkTimePlat = subMove.blinkTime;
+        // blinkDurationPlat = subMove.blinkDuration;
+        // changeNow = subMove.colorChange;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        changeNow = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().colorChange;
+        //failed tried save for example
+        //changeNow = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().colorChange;
         // blinkTimePlat = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().blinkTime;
         // blinkDurationPlat = GameObject.FindGameObjectWithTag("Player").GetComponent<SubLayerMove>().blinkDuration;
         
+        //touch sub platform condition
         touch = subMove.IsGrounded(subRoomSet);
 
+        //run every frame so it response upon condition met
         AlertChange();
-
-        changeNow = false;
             
-        
     }
 
+    //check for condition upon enter and exit
     private void OnCollisionEnter2D(Collision2D col) {
 
         if(col.gameObject.tag == "Player")
@@ -59,15 +68,17 @@ public class platAlert : MonoBehaviour
         
     }
 
+    //check condition and excecute once meet requirement
     public void AlertChange()
     {
         
-        if(touch == true && standOn == true && changeNow == true)
+        if(touch == true && standOn == true && subMove.colorChange == true)
         {
-
-            if(blinkTimePlat > 0)
+            //blink x amount of time
+            if(subMove.blinkTime > 0)
             {
-                if(blinkTimePlat % 2 != 0)
+                //change color based on even or odd number
+                if(subMove.blinkTime % 2 != 0)
                 {
                     rend.material.color = initColor;
                 }
@@ -75,13 +86,15 @@ public class platAlert : MonoBehaviour
                 {
                     rend.material.color = alertColor;
                 }
-                if(blinkDurationPlat > 0)
+                //alert color change duration
+                if(subMove.blinkDuration > 0)
                 {
-                    blinkDurationPlat -= Time.deltaTime;
-                    if(blinkDurationPlat <= 0)
+                    subMove.blinkDuration -= Time.deltaTime;
+                    //once finished reset the timer and decrease 1 change time
+                    if(subMove.blinkDuration <= 0)
                     {
-                        blinkDurationPlat = .25f;
-                        blinkTimePlat--;
+                        subMove.blinkDuration = .25f;
+                        subMove.blinkTime--;
                     }
                     
                 }
@@ -89,15 +102,8 @@ public class platAlert : MonoBehaviour
             }
 
         }
-        else
+        else //change the color back to normal incase color difference
         {
-            
-            if(blinkTimePlat != 5 || blinkDurationPlat != .25f)
-            {
-                blinkTimePlat = 5;
-                blinkDurationPlat = .25f;
-                changeNow = false;
-            }
             rend.material.color = initColor;
         }
         
