@@ -21,6 +21,7 @@ public class SubLayerMove : MonoBehaviour
     public AudioSource SomethingHappen; // pick up apple sound for now 
     public AudioSource ChangeScene; // open door \
 
+    //for standing on platform alert use
     public bool colorChange = false;
     public int blinkTime = 5;
     public float blinkDuration = .25f;
@@ -112,7 +113,6 @@ public class SubLayerMove : MonoBehaviour
       //   }
       // }
 
-      //colorChange = false;
     }
     //New button click movment
     public void MoveSubroom1(){

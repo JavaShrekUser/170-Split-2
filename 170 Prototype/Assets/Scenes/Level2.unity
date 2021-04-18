@@ -985,6 +985,7 @@ GameObject:
   - component: {fileID: 431668530}
   - component: {fileID: 431668532}
   - component: {fileID: 431668531}
+  - component: {fileID: 431668533}
   m_Layer: 8
   m_Name: Plat1
   m_TagString: Untagged
@@ -1097,6 +1098,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &431668533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431668529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a68671b5cbfeb14cbef2a9611b892a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1946722654}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &465237459
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,8 +2749,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889198656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.2, y: -1.57, z: 0}
-  m_LocalScale: {x: 0.7412558, y: 0.5766, z: 1}
+  m_LocalPosition: {x: 4.523909, y: -1.8634224, z: 0}
+  m_LocalScale: {x: 0.39112115, y: 0.50337404, z: 1}
   m_Children: []
   m_Father: {fileID: 749935648}
   m_RootOrder: 0
@@ -2778,7 +2795,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 241decbe45d381641a64f9f021505305, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70a01251f22b7f345b7b4527edd3b78a, type: 3}
   m_Color: {r: 0.5030705, g: 0.5030705, b: 0.8018868, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
@@ -4239,6 +4256,7 @@ GameObject:
   - component: {fileID: 1388797206}
   - component: {fileID: 1388797208}
   - component: {fileID: 1388797207}
+  - component: {fileID: 1388797209}
   m_Layer: 8
   m_Name: Plat1
   m_TagString: Untagged
@@ -4339,7 +4357,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 70a01251f22b7f345b7b4527edd3b78a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4351,6 +4369,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1388797209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388797205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a68671b5cbfeb14cbef2a9611b892a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1946722654}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.5019608, g: 0.5019608, b: 0.8, a: 0.50980395}
 --- !u!1 &1415842107
 GameObject:
   m_ObjectHideFlags: 0
@@ -6486,6 +6520,9 @@ MonoBehaviour:
   PickUp: {fileID: 1415842109}
   SomethingHappen: {fileID: 0}
   ChangeScene: {fileID: 0}
+  colorChange: 0
+  blinkTime: 5
+  blinkDuration: 0.25
 --- !u!82 &1946722655
 AudioSource:
   m_ObjectHideFlags: 0

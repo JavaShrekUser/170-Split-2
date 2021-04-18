@@ -31,6 +31,11 @@ public class SubLayerMove3 : MonoBehaviour
     public AudioSource SomethingHappen; // pick up apple sound for now 
     public AudioSource ChangeScene; // open door 
 
+    //for standing on platform alert use
+    public bool colorChange = false;
+    public int blinkTime = 5;
+    public float blinkDuration = .25f;
+
 
     Vector3 mainScene = new Vector3(0, 0, 0);
     Vector3 subStart1;
@@ -169,9 +174,15 @@ public class SubLayerMove3 : MonoBehaviour
           subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
           subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
           subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        }
+      }
+      else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer1)){
+          //if standing on and try clicking, reset the blink timer
+          blinkTime = 5;
+          blinkDuration = .25f;
+          colorChange = true;
       }
     }
-  }
   public void MoveSubroom2(){
     if(cam.orthographicSize == 35f && !IsGrounded(subLayer2)){
       if (subLayer2.transform.position == mainScene)
@@ -188,6 +199,12 @@ public class SubLayerMove3 : MonoBehaviour
           subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
           subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
       }
+    }
+    else if(subLayer2.transform.position == mainScene && IsGrounded(subLayer2)){
+          //if standing on and try clicking, reset the blink timer
+          blinkTime = 5;
+          blinkDuration = .25f;
+          colorChange = true;
     }
   }
 
