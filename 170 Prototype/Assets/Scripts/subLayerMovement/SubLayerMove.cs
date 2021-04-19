@@ -9,7 +9,6 @@ public class SubLayerMove : MonoBehaviour
     public Camera cam;
     public GameObject subLayer1;
     public GameObject subLayer2;
-    public GameObject Manual;
     public GameObject Button1;
     public GameObject Button2;
 
@@ -34,6 +33,8 @@ public class SubLayerMove : MonoBehaviour
     float move1 = 0f;
     float move2 = 0f;
     Rigidbody2D rb;
+    bool zoomOut = false;
+    bool zoomIn = false;
 
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
@@ -60,23 +61,36 @@ public class SubLayerMove : MonoBehaviour
         {
             SceneManager.LoadScene(lastScene);//for playtest purpose
         }
-
-      if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f){
+      if(zoomOut){
+        if(cam.orthographicSize == 35f){
+          Button1.SetActive(true);
+          Button2.SetActive(true);
+          zoomOut = false;
+        }
+        else{
+          cam.orthographicSize += 0.5f;
+        }
+      }
+      else if(zoomIn){
+        if(cam.orthographicSize == 10f){
+          zoomIn = false;
+        }
+        else{
+          Button1.SetActive(false);
+          Button2.SetActive(false);
+          cam.orthographicSize -= 0.5f;
+        }
+      }
+      else if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f){
         OpenMap.Play();
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-        cam.orthographicSize = 35f;
-        Manual.SetActive(true);
-        Button1.SetActive(true);
-        Button2.SetActive(true);
+        zoomOut = true;
       }
       else if(cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap")){
         CloseMap.Play();
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        cam.orthographicSize = 10f;
-        Manual.SetActive(false);
-        Button1.SetActive(false);
-        Button2.SetActive(false);
+        zoomIn = true;
       }
       if(move1 != 0f)
       {

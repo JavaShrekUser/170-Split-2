@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
   //public GameObject monster;
   //private EnemyMovement monsterCanMove;
 
-  // Checkpoint variables 
+  // Checkpoint variables
   // Respawn positions
   public Transform respawnPoint1;
   public Transform respawnPoint2;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
   public AudioSource PickUp;
   public AudioSource StepOnMonsta;
-  public AudioSource hitIceSound;   
+  public AudioSource hitIceSound;
 
 
   private void Start() {
@@ -77,13 +77,13 @@ public class PlayerMovement : MonoBehaviour
     stand.enabled = true;
     crouch.enabled = false;
 
-    
+
     //comment out for future need --- Access from playerMovement code to enemyMovement variable
     //monsterCanMove = monster.GetComponent<EnemyMovement>();
 
   }
 
-  
+
 
   private void Update(){
     //check for if crouch is pressed
@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
     if(IsGrounded())
     {
-      
+
       timeCheck = 0;
       jumpCount = 0;
       onIce = IsIce();
@@ -173,13 +173,13 @@ public class PlayerMovement : MonoBehaviour
     // if collide with trap
     if(col.tag == "Trap"){
       Debug.Log("CPA = "+ checkPointActive);
-      if(checkPointActive == 0 || respawnPoint1 == null){           
-        // if no checkpoint activated                                           
+      if(checkPointActive == 0 || respawnPoint1 == null){
+        // if no checkpoint activated
         // reload the scene when dead
         Scene scene;
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-      }else if(checkPointActive == 1){    // respawn to the lastest saved check point 
+      }else if(checkPointActive == 1){    // respawn to the lastest saved check point
         Instantiate(this.gameObject, respawnPoint1.position, Quaternion.identity);
       }else if(checkPointActive == 2){
         Instantiate(this.gameObject, respawnPoint2.position, Quaternion.identity);
@@ -212,9 +212,9 @@ public class PlayerMovement : MonoBehaviour
     float horizontalVelocity = rb.velocity.x * movementSpeed;
     horizontalVelocity += Input.GetAxisRaw("Horizontal");
 
-    if(Input.GetAxisRaw("Horizontal") < 0)
+    if(horizontalVelocity < 0 && cam.orthographicSize == 10f)
       sr.flipX = false;
-    else if(Input.GetAxisRaw("Horizontal") > 0)
+    else if(horizontalVelocity > 0 && cam.orthographicSize == 10f)
       sr.flipX = true;
     //x movement with different damping conditions
     if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f){
