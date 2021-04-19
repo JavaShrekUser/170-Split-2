@@ -18,7 +18,7 @@ public class SubLayerMove : MonoBehaviour
     public AudioSource CloseMap;
     public AudioSource MoveRoom;
     public AudioSource PickUp;
-    public AudioSource SomethingHappen; // pick up apple sound for now 
+    public AudioSource SomethingHappen; // pick up apple sound for now
     public AudioSource ChangeScene; // open door \
 
     //for standing on platform alert use
@@ -147,7 +147,7 @@ public class SubLayerMove : MonoBehaviour
           move2 = -0.25f;
           colorChange = false;
         }
-        else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer2)){ 
+        else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer2)){
           //if standing on and try clicking, reset the blink timer
           blinkTime = 5;
           blinkDuration = .25f;
