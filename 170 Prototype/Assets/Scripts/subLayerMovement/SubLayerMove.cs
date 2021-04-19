@@ -8,7 +8,9 @@ public class SubLayerMove : MonoBehaviour
     public GameObject player;
     public Camera cam;
     public GameObject subLayer1;
+    public GameObject subLayer1Edge;
     public GameObject subLayer2;
+    public GameObject subLayer2Edge;
     public GameObject Button1;
     public GameObject Button2;
 
@@ -95,6 +97,7 @@ public class SubLayerMove : MonoBehaviour
       if(move1 != 0f)
       {
         subLayer1.transform.Translate(0,move1/2f,0);
+        subLayer1Edge.transform.Translate(0,move1/2f,0);
         if(subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1){
           move1 = 0f;
           MoveRoom.Stop();
@@ -102,6 +105,7 @@ public class SubLayerMove : MonoBehaviour
       }
       if(move2 != 0f){
         subLayer2.transform.Translate(0,move2/2f,0);
+        subLayer2Edge.transform.Translate(0,move2/2f,0);
         if(subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2){
           move2 = 0f;
           MoveRoom.Stop();
