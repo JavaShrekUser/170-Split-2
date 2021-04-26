@@ -281,6 +281,10 @@ public class PlayerMovement : MonoBehaviour
         print("oops");
         return true;
       }
+      if(crouch.IsTouching(g.GetComponent<EdgeCollider2D>())){
+        print("oops");
+        return true;
+      }
     }
     return false;
   }

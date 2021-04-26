@@ -12,6 +12,11 @@ public class SubLayerMove6 : MonoBehaviour
     public GameObject Manual;
     public GameObject ButtonCanvas;
 
+    //for standing on platform alert use
+    public bool colorChange = false;
+    public int blinkTime = 5;
+    public float blinkDuration = .25f;
+
     Vector3 mainScene = new Vector3(0, 0, 0);
     Vector3 subStart1;
     Vector3 subStart2;
