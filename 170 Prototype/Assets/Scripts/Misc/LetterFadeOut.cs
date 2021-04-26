@@ -18,6 +18,7 @@ public class LetterFadeOut : MonoBehaviour
     {
       if(Fragment.activeSelf == false){
         anim.SetTrigger("Active");
+        return;
       }
     }
 }
