@@ -29,7 +29,7 @@ public class SwitchStop : MonoBehaviour
     // set showObj to false
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Player" || col.tag == "Enemy")
         {
             // Debug.Log("pressure plate working");
             //rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -42,7 +42,7 @@ public class SwitchStop : MonoBehaviour
     // check if the collison is still hapening
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Player" || col.tag == "Enemy")
         {
             cdTimer = timer;
         }
