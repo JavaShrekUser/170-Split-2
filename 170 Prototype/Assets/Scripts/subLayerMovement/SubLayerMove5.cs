@@ -15,8 +15,13 @@ public class SubLayerMove5 : MonoBehaviour
     public GameObject subLayer1Sprite2;
     public GameObject subLayer2Sprite1;
     public GameObject subLayer2Sprite2;
-    public GameObject Manual;
+    //public GameObject Manual;
     public GameObject ButtonCanvas;
+
+    //for standing on platform alert use
+    public bool colorChange = false;
+    public int blinkTime = 5;
+    public float blinkDuration = .25f;
 
     Vector3 mainScene = new Vector3(0,0,0);
     Vector3 subStart1;
@@ -62,7 +67,7 @@ public class SubLayerMove5 : MonoBehaviour
         OpenMap.Play();
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         cam.orthographicSize = 35f;
-        Manual.SetActive(true);
+        //Manual.SetActive(true);
         ButtonCanvas.SetActive(true);
       }
       else if(cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap")){
@@ -70,7 +75,7 @@ public class SubLayerMove5 : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         cam.orthographicSize = 10f;
-        Manual.SetActive(false);
+        //Manual.SetActive(false);
         ButtonCanvas.SetActive(false);
       }
 
@@ -134,8 +139,14 @@ public class SubLayerMove5 : MonoBehaviour
           subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
           subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
           subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        }
       }
-    }
+      else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer1)){
+          //if standing on and try clicking, reset the blink timer
+          blinkTime = 5;
+          blinkDuration = .25f;
+          colorChange = true;
+      }
   }
   public void MoveSubroom2(){
     if(cam.orthographicSize == 35f && !IsGrounded(subLayer2)){
@@ -153,6 +164,12 @@ public class SubLayerMove5 : MonoBehaviour
           subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
           subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
       }
+    }
+    else if(subLayer2.transform.position == mainScene && IsGrounded(subLayer2)){
+          //if standing on and try clicking, reset the blink timer
+          blinkTime = 5;
+          blinkDuration = .25f;
+          colorChange = true;
     }
   }
 
