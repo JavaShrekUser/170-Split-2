@@ -277,12 +277,13 @@ public class PlayerMovement : MonoBehaviour
 
   public bool IsIce(){
     foreach(GameObject g in (GameObject.FindGameObjectsWithTag("Ice"))) {
+      if(!g.GetComponent<EdgeCollider2D>()){
+        return false;
+      }
       if(stand.IsTouching(g.GetComponent<EdgeCollider2D>())){
-        print("oops");
         return true;
       }
       if(crouch.IsTouching(g.GetComponent<EdgeCollider2D>())){
-        print("oops");
         return true;
       }
     }

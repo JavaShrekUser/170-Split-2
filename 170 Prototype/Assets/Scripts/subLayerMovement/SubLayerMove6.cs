@@ -8,7 +8,9 @@ public class SubLayerMove6 : MonoBehaviour
     public Rigidbody2D rb;
     public Camera cam;
     public GameObject subLayer1;
+    public GameObject subLayer1Edge;
     public GameObject subLayer2;
+    public GameObject subLayer2Edge;
     public GameObject Manual;
     public GameObject ButtonCanvas;
 
@@ -29,6 +31,8 @@ public class SubLayerMove6 : MonoBehaviour
 
     float move1 = 0f;
     float move2 = 0f;
+    bool zoomOut = false;
+    bool zoomIn = false;
 
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
@@ -53,6 +57,24 @@ public class SubLayerMove6 : MonoBehaviour
         {
             SceneManager.LoadScene(lastScene);//for playtest purpose
         }
+        if(zoomOut){
+          if(cam.orthographicSize == 35f){
+            ButtonCanvas.SetActive(true);
+            zoomOut = false;
+          }
+          else{
+            cam.orthographicSize += 0.5f;
+          }
+        }
+        else if(zoomIn){
+          if(cam.orthographicSize == 10f){
+            zoomIn = false;
+          }
+          else{
+            ButtonCanvas.SetActive(false);
+            cam.orthographicSize -= 0.5f;
+          }
+        }
 
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
@@ -60,9 +82,8 @@ public class SubLayerMove6 : MonoBehaviour
             if(!onIce){
               rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             }
-            cam.orthographicSize = 35f;
-            ButtonCanvas.SetActive(true);
-            Manual.SetActive(true);
+            zoomOut = true;
+
 
         }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
@@ -70,14 +91,14 @@ public class SubLayerMove6 : MonoBehaviour
             CloseMap.Play();
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            cam.orthographicSize = 10f;
-            ButtonCanvas.SetActive(false);
-            Manual.SetActive(false);
+            zoomIn = true;
+
 
         }
         if (move1 != 0f)
         {
             subLayer1.transform.Translate(0, move1 / 2f, 0);
+            subLayer1Edge.transform.Translate(0,move1/2f,0);
             if (subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1)
             {
                 move1 = 0f;
@@ -87,6 +108,7 @@ public class SubLayerMove6 : MonoBehaviour
         if (move2 != 0f)
         {
             subLayer2.transform.Translate(0, move2 / 2f, 0);
+            subLayer2Edge.transform.Translate(0,move2/2f,0);
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
             {
                 move2 = 0f;
