@@ -90,11 +90,6 @@ public class EnemyMovement : MonoBehaviour
           timeCheck = 0;
           Flip();
         }
-        //check of monster "head" colliding with player
-        if(timeCheck > 0.2f && Physics2D.OverlapBox(head.position, new Vector2(headSize, .5f), 0f, groundLayers)) {
-          Flip();
-          timeCheck = 0;
-        }
         timeCheck += Time.deltaTime;
     }
     // trigger event
