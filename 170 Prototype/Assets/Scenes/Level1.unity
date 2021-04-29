@@ -1195,8 +1195,6 @@ GameObject:
   m_Component:
   - component: {fileID: 328920709}
   - component: {fileID: 328920712}
-  - component: {fileID: 328920711}
-  - component: {fileID: 328920710}
   m_Layer: 8
   m_Name: Plat1Edge2
   m_TagString: subPlatform
@@ -1218,55 +1216,6 @@ Transform:
   m_Father: {fileID: 454221174}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &328920710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328920708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6f19b0a438ab1459bce7ccd9926be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  subMove: {fileID: 1493243884}
-  standOn: 0
-  initColor: {r: 1, g: 1, b: 1, a: 1}
-  alertColor: {r: 0.5019608, g: 0.5019608, b: 0.8, a: 0.50980395}
---- !u!68 &328920711
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328920708}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -4.554689, y: -2.1350799}
-  - {x: -12.971985, y: -1.9534577}
-  - {x: -15.002701, y: -0.92328715}
-  - {x: -14.899562, y: -0.3424279}
-  - {x: -14.737822, y: 0.36017823}
-  - {x: -14.647902, y: 0.53065574}
-  - {x: 15.071231, y: 0.5323611}
-  - {x: 15.572381, y: -0.18339841}
-  - {x: 15.517916, y: -1.0186458}
-  - {x: 13.205084, y: -1.7832102}
-  - {x: 8.679421, y: -2.075552}
-  - {x: -1.18871, y: -1.6827694}
-  - {x: -4.5548553, y: -2.142244}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &328920712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7044,8 +6993,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2104378425}
   - component: {fileID: 2104378428}
-  - component: {fileID: 2104378427}
-  - component: {fileID: 2104378426}
   m_Layer: 8
   m_Name: Plat1Edge
   m_TagString: subPlatform
@@ -7067,55 +7014,6 @@ Transform:
   m_Father: {fileID: 454221174}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2104378426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104378424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6f19b0a438ab1459bce7ccd9926be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  subMove: {fileID: 1493243884}
-  standOn: 0
-  initColor: {r: 1, g: 1, b: 1, a: 1}
-  alertColor: {r: 0.5019608, g: 0.5019608, b: 0.8, a: 0.50980395}
---- !u!68 &2104378427
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104378424}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -4.554689, y: -2.1350799}
-  - {x: -12.971985, y: -1.9534577}
-  - {x: -15.002701, y: -0.92328715}
-  - {x: -14.899562, y: -0.3424279}
-  - {x: -14.737822, y: 0.36017823}
-  - {x: -14.647902, y: 0.53065574}
-  - {x: 15.071231, y: 0.5323611}
-  - {x: 15.572381, y: -0.18339841}
-  - {x: 15.517916, y: -1.0186458}
-  - {x: 13.205084, y: -1.7832102}
-  - {x: 8.679421, y: -2.075552}
-  - {x: -1.18871, y: -1.6827694}
-  - {x: -4.5548553, y: -2.142244}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &2104378428
 SpriteRenderer:
   m_ObjectHideFlags: 0
