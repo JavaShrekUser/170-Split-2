@@ -131,23 +131,28 @@ public class SubLayerMove3 : MonoBehaviour
           && subLayer1Sprite1.activeSelf &&  subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 3
           && subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder == 2)
         {
-            subLayer1Sprite1.SetActive(false);
-            subLayer2Sprite2.SetActive(false);
+            subLayer1Sprite1.GetComponent<Animator>().SetTrigger("Active");
+            subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 4;
+        }
+        if(subLayer1Sprite1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+          subLayer1Sprite1.SetActive(false);
+          subLayer2Sprite2.SetActive(false);
 
-            collectible2.SetActive(true);
-            collectible3.SetActive(true);
-            collectible.SetActive(true);
-            foreach (Transform t in collectible.transform) {
-              t.GetComponent<SpriteRenderer>().sortingOrder = 3;
-            }
-            foreach (Transform x in collectible2.transform)
-            {
-                x.GetComponent<SpriteRenderer>().sortingOrder = 3;
-            }
-            foreach (Transform y in collectible3.transform)
-            {
-                y.GetComponent<SpriteRenderer>().sortingOrder = 3;
-            }
+          collectible2.SetActive(true);
+          collectible3.SetActive(true);
+          collectible.SetActive(true);
+          foreach (Transform t in collectible.transform) {
+            t.GetComponent<SpriteRenderer>().sortingOrder = 3;
+          }
+          foreach (Transform x in collectible2.transform)
+          {
+              x.GetComponent<SpriteRenderer>().sortingOrder = 3;
+          }
+          foreach (Transform y in collectible3.transform)
+          {
+              y.GetComponent<SpriteRenderer>().sortingOrder = 3;
+          }
         }
 
     }

@@ -123,12 +123,18 @@ public class PlayerMovement : MonoBehaviour
       Input.GetButtonDown("Jump") && (IsGrounded() || stepOnEnemy || timeCheck < 0.2f) &&
       cam.orthographicSize == 10f &&
        !(rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation))){
+      ++jumpCount;
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
       Jumping.Play();
       stepOnEnemy = false;
-      jumpCount++;
       //comment out for future need --- Access from playerMovement code to enemyMovement variable
       //monsterCanMove.canMove = !(monsterCanMove.canMove);
+    }
+    if(IsGrounded() && timeCheck > 0.1f)
+    {
+      timeCheck = 0;
+      jumpCount = 0;
+      onIce = IsIce();
     }
     //Check if Space is released up before it reached the maximum jump height
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
@@ -136,13 +142,7 @@ public class PlayerMovement : MonoBehaviour
       //Jumping.Play();
     }
 
-    if(IsGrounded())
-    {
 
-      timeCheck = 0;
-      jumpCount = 0;
-      onIce = IsIce();
-    }
 
     // //Check for collectable
      if (player.IsTouching(collectible.GetComponent<Collider2D>()))
@@ -259,7 +259,7 @@ public class PlayerMovement : MonoBehaviour
 
   //check for if touch ground
   public bool IsGrounded(){
-    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(1f, 0.5f), 0f, groundLayers);
+    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(0.5f, 0.25f), 0f, groundLayers);
     return (groundCheck);
   }
 
