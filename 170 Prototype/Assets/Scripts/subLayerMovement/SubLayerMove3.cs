@@ -9,7 +9,9 @@ public class SubLayerMove3 : MonoBehaviour
     Rigidbody2D rb;
     public Camera cam;
     public GameObject subLayer1;
+    public GameObject subLayer1Edge;
     public GameObject subLayer2;
+    public GameObject subLayer2Edge;
     public GameObject subLayer3;
     public GameObject subLayer1Sprite1;
     public GameObject subLayer1Sprite2;
@@ -28,8 +30,8 @@ public class SubLayerMove3 : MonoBehaviour
     public AudioSource CloseMap;
     public AudioSource MoveRoom;
     public AudioSource PickUp;
-    public AudioSource SomethingHappen; // pick up apple sound for now 
-    public AudioSource ChangeScene; // open door 
+    public AudioSource SomethingHappen; // pick up apple sound for now
+    public AudioSource ChangeScene; // open door
 
     //for standing on platform alert use
     public bool colorChange = false;
@@ -43,6 +45,10 @@ public class SubLayerMove3 : MonoBehaviour
 
     float move1 = 0f;
     float move2 = 0f;
+
+    //Used for camera zoom in and out
+    bool zoomOut = false;
+    bool zoomIn = false;
 
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
@@ -69,12 +75,29 @@ public class SubLayerMove3 : MonoBehaviour
             SceneManager.LoadScene(lastScene);//for playtest purpose
         }
 
+        if(zoomOut){
+          if(cam.orthographicSize == 35f){
+            ButtonCanvas.SetActive(true);
+            zoomOut = false;
+          }
+          else{
+            cam.orthographicSize += 0.5f;
+          }
+        }
+        else if(zoomIn){
+          if(cam.orthographicSize == 10f){
+            zoomIn = false;
+          }
+          else{
+            ButtonCanvas.SetActive(false);
+            cam.orthographicSize -= 0.5f;
+          }
+        }
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f && !dialogueBox.activeSelf)
         {
             OpenMap.Play();
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-            cam.orthographicSize = 35f;
-            ButtonCanvas.SetActive(true);
+            zoomOut = true;
 
         }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap") && !dialogueBox.activeSelf)
@@ -82,12 +105,12 @@ public class SubLayerMove3 : MonoBehaviour
             CloseMap.Play();
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            cam.orthographicSize = 10f;
-            ButtonCanvas.SetActive(false);
+            zoomIn = true;
         }
         if (move1 != 0f)
         {
             subLayer1.transform.Translate(0, move1 / 2f, 0);
+            subLayer1Edge.transform.Translate(0,move1/2f,0);
             if (subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1)
             {
                 move1 = 0f;
@@ -97,6 +120,7 @@ public class SubLayerMove3 : MonoBehaviour
         if (move2 != 0f)
         {
             subLayer2.transform.Translate(0, move2 / 2f, 0);
+            subLayer2Edge.transform.Translate(0,move2/2f,0);
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
             {
                 move2 = 0f;
@@ -104,8 +128,8 @@ public class SubLayerMove3 : MonoBehaviour
             }
         }
         if (subLayer1.transform.position == mainScene && subLayer2.transform.position == mainScene
-          && subLayer1Sprite1.activeSelf &&  subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 2
-          && subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder == 1)
+          && subLayer1Sprite1.activeSelf &&  subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 3
+          && subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder == 2)
         {
             subLayer1Sprite1.SetActive(false);
             subLayer2Sprite2.SetActive(false);
@@ -126,37 +150,6 @@ public class SubLayerMove3 : MonoBehaviour
             }
         }
 
-        
-        // Old movment script using key strokes
-        //
-        //
-        // else if (cam.orthographicSize == 35f)
-        // {
-        //     if (subLayer1.transform.position == mainScene && Input.GetKeyDown(KeyCode.C))
-        //     {
-        //         move1 = -0.25f;
-        //     }
-        //     else if (Input.GetKeyDown(KeyCode.C) && (move1 == 0f))
-        //     {
-        //         move1 = 0.25f;
-        //         subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        //         subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        //         subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        //         subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        //     }
-        //     if (subLayer2.transform.position == mainScene && Input.GetKeyDown(KeyCode.X))
-        //     {
-        //         move2 = 0.25f;
-        //     }
-        //     else if (Input.GetKeyDown(KeyCode.X) && (move2 == 0f))
-        //     {
-        //         move2 = -0.25f;
-        //         subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        //         subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        //         subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        //         subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        //     }
-        // }
     }
     //new Movement code using mouse clicks
     public void MoveSubroom1(){
@@ -170,10 +163,10 @@ public class SubLayerMove3 : MonoBehaviour
         {
           MoveRoom.Play();
           move1 = 0.25f;
-          subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
-          subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
-          subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
-          subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
+          subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 3;
+          subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 3;
+          subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
+          subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
         }
       }
       else if(subLayer1.transform.position == mainScene && IsGrounded(subLayer1)){
@@ -194,10 +187,10 @@ public class SubLayerMove3 : MonoBehaviour
       {
           MoveRoom.Play();
           move2 = -0.25f;
-          subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
-          subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
-          subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
-          subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
+          subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 3;
+          subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 3;
+          subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
+          subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
       }
     }
     else if(subLayer2.transform.position == mainScene && IsGrounded(subLayer2)){
