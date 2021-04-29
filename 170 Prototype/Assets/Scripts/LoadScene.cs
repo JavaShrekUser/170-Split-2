@@ -12,9 +12,9 @@ public class LoadScene : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collison){
-        if(collison.tag == "Player") { 
+        if(collison.tag == "Player") {
             ChangeDoor.Play();
             SceneManager.LoadScene(nextScene);
-            }
+          }
     }
 }
