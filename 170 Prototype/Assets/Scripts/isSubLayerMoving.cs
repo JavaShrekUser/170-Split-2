@@ -11,15 +11,24 @@ public class isSubLayerMoving : MonoBehaviour
     {
       if(layer.transform.position.y != 0f){
         foreach (Transform t in layer.transform) {
-          if(t.GetComponent<EdgeCollider2D>())
+          if(t.GetComponent<EdgeCollider2D>()){
             t.GetComponent<EdgeCollider2D>().enabled = false;
+          }
+          if(t.GetComponent<Rigidbody2D>()){
+            t.GetComponent<Rigidbody2D>().isKinematic = false;
+          }
         }
       }
       else{
         foreach (Transform t in layer.transform) {
-          if(t.GetComponent<EdgeCollider2D>())
+          if(t.GetComponent<EdgeCollider2D>()){
             t.GetComponent<EdgeCollider2D>().enabled = true;
+          }
+          if(t.GetComponent<Rigidbody2D>()){
+            t.GetComponent<Rigidbody2D>().isKinematic = true;
+          }
         }
+
       }
     }
 }

@@ -1904,12 +1904,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 502878075}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &502878078 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 550801119941301771, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
-    type: 3}
-  m_PrefabInstance: {fileID: 502878075}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &502878079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1922,13 +1916,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486179df136e6234fb44109e5592e646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 502878078}
+  player: {fileID: 502878077}
   cam: {fileID: 1371597184}
   subLayer1: {fileID: 277111885}
   subLayer1Edge: {fileID: 1308304197}
   subLayer2: {fileID: 964678064}
   subLayer2Edge: {fileID: 718646390}
-  Manual: {fileID: 0}
   ButtonCanvas: {fileID: 727662197}
   colorChange: 0
   blinkTime: 5
@@ -8621,7 +8614,7 @@ PrefabInstance:
     - target: {fileID: 641894726943010225, guid: 091e4cda65f4ff84b878200272905ce2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 641894726943010231, guid: 091e4cda65f4ff84b878200272905ce2,
         type: 3}

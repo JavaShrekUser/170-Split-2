@@ -3795,12 +3795,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 845491328}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &845491330 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 550801119941301771, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
-    type: 3}
-  m_PrefabInstance: {fileID: 845491328}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &845491331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3813,7 +3807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e41d694c9a3244aba0abeb7bdc07a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 845491330}
+  player: {fileID: 845491329}
   cam: {fileID: 596954583}
   subLayer1: {fileID: 923772484}
   subLayer1Edge: {fileID: 1030641565}
@@ -5136,7 +5130,7 @@ PrefabInstance:
     - target: {fileID: 641894726943010225, guid: 091e4cda65f4ff84b878200272905ce2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 641894726943010231, guid: 091e4cda65f4ff84b878200272905ce2,
         type: 3}
@@ -5484,7 +5478,6 @@ GameObject:
   - component: {fileID: 1154297886}
   - component: {fileID: 1154297885}
   - component: {fileID: 1154297884}
-  - component: {fileID: 1154297883}
   m_Layer: 0
   m_Name: Blur
   m_TagString: Untagged
@@ -5492,19 +5485,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1154297883
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154297882}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1154297884
 MeshRenderer:
   m_ObjectHideFlags: 0

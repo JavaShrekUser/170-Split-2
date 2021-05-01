@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
       //comment out for future need --- Access from playerMovement code to enemyMovement variable
       //monsterCanMove.canMove = !(monsterCanMove.canMove);
     }
-    if(IsGrounded() && timeCheck > 0.1f)
+    if(IsGrounded() && timeCheck > 0.05f)
     {
       timeCheck = 0;
       jumpCount = 0;
@@ -227,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
       horizontalVelocity *= Mathf.Pow(1f - horizontalDampBasic, Time.deltaTime * 10f);
     }
 
-    if(onIce){
+    if(onIce && cam.orthographicSize == 10f){
       if(rb.velocity.x >= 10f){
         horizontalVelocity = 10f;
       }
@@ -259,7 +259,7 @@ public class PlayerMovement : MonoBehaviour
 
   //check for if touch ground
   public bool IsGrounded(){
-    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(0.5f, 0.25f), 0f, groundLayers);
+    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(1f, 1f), 0f, groundLayers);
     return (groundCheck);
   }
 

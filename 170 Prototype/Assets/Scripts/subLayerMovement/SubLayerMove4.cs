@@ -24,8 +24,8 @@ public class SubLayerMove4 : MonoBehaviour
     public AudioSource CloseMap;
     public AudioSource MoveRoom;
     public AudioSource PickUp;
-    public AudioSource wind; // 
-     
+    public AudioSource wind; //
+
 
     float move1 = 0f;
     float move2 = 0f;

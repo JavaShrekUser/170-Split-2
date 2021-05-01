@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;//for playtest purpose
 
 public class SubLayerMove9 : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    public GameObject player;
+    Rigidbody2D rb;
     public Camera cam;
     public GameObject subLayer1;
     public GameObject subLayer1Edge;
@@ -16,6 +17,7 @@ public class SubLayerMove9 : MonoBehaviour
     Vector3 mainScene = new Vector3(0, 0, 0);
     Vector3 subStart1;
     Vector3 subStart2;
+    Vector2 saveVelocity;
 
     float move1 = 0f;
     float move2 = 0f;
@@ -34,6 +36,7 @@ public class SubLayerMove9 : MonoBehaviour
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
         subStart1 = subLayer1.transform.position;
         subStart2 = subLayer2.transform.position;
+        rb = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -69,10 +72,8 @@ public class SubLayerMove9 : MonoBehaviour
 
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
-            if (!onIce)
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-            }
+            saveVelocity = rb.velocity;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             zoomOut = true;
 
 
@@ -81,8 +82,9 @@ public class SubLayerMove9 : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb.velocity = saveVelocity;
             zoomIn = true;
-            
+
 
         }
         if (move1 != 0f)
@@ -108,13 +110,12 @@ public class SubLayerMove9 : MonoBehaviour
     {
         if (cam.orthographicSize == 35f)
         {
-            if (subLayer1.transform.position == mainScene)
+            if (subLayer1.transform.position == mainScene && !IsGrounded(subLayer1))
             {
                 move1 = -0.25f;
             }
-            else
+            else if(subLayer1.transform.position == subStart1)
             {
-                subStart1 = subLayer1.transform.position;
                 move1 = 0.25f;
             }
         }
@@ -123,13 +124,12 @@ public class SubLayerMove9 : MonoBehaviour
     {
         if (cam.orthographicSize == 35f)
         {
-            if (subLayer2.transform.position == mainScene)
+            if (subLayer2.transform.position == mainScene && !IsGrounded(subLayer2))
             {
                 move2 = 0.25f;
             }
-            else
+            else if(subLayer2.transform.position == subStart2)
             {
-                subStart2 = subLayer2.transform.position;
                 move2 = -0.25f;
             }
         }
@@ -148,4 +148,20 @@ public class SubLayerMove9 : MonoBehaviour
         }
 
     }
+    public bool IsGrounded(GameObject subLayer){
+      Collider2D playerCol = player.GetComponent<Collider2D>();
+      foreach (Transform t in subLayer.transform){
+        if(t.GetComponent<EdgeCollider2D>()){
+          if(Physics2D.IsTouching(t.GetComponent<EdgeCollider2D>(), playerCol)) {
+            return true;
+          }
+        }
+        if(t.GetComponent<BoxCollider2D>()){
+          if(Physics2D.IsTouching(t.GetComponent<BoxCollider2D>(), playerCol)) {
+            return true;
+          }
+      }
+    }
+    return false;
+  }
 }
