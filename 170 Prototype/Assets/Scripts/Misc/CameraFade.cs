@@ -32,7 +32,7 @@ public class CameraFade : MonoBehaviour
       _texture.SetPixel(0, 0, new Color(0, 0, 0, _alpha));
       _texture.Apply();
 
-      _time += Time.deltaTime;
+      _time += Time.deltaTime/1.5f;
       _alpha = FadeCurve.Evaluate(_time);
       GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), _texture);
 

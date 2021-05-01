@@ -14,8 +14,8 @@ public class isSubLayerMoving : MonoBehaviour
           if(t.GetComponent<EdgeCollider2D>()){
             t.GetComponent<EdgeCollider2D>().enabled = false;
           }
-          if(t.GetComponent<Rigidbody2D>()){
-            t.GetComponent<Rigidbody2D>().isKinematic = false;
+          if(t.GetComponent<BoxCollider2D>()){
+            t.GetComponent<BoxCollider2D>().enabled = false;
           }
         }
       }
@@ -24,8 +24,8 @@ public class isSubLayerMoving : MonoBehaviour
           if(t.GetComponent<EdgeCollider2D>()){
             t.GetComponent<EdgeCollider2D>().enabled = true;
           }
-          if(t.GetComponent<Rigidbody2D>()){
-            t.GetComponent<Rigidbody2D>().isKinematic = true;
+          if(t.GetComponent<BoxCollider2D>()){
+            t.GetComponent<BoxCollider2D>().enabled = true;
           }
         }
 

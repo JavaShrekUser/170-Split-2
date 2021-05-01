@@ -33,6 +33,7 @@ public class EnemyMovementL6 : MonoBehaviour
     public LayerMask groundLayers;
 
     float timeCheck;
+    float parentY;
 
     private void Start()
     {
@@ -42,7 +43,12 @@ public class EnemyMovementL6 : MonoBehaviour
     void Update()
     {
         //what to do if the monster is not stunned
-        if(isStun == false)
+        parentY = gameObject.transform.parent.gameObject.transform.position.y;
+        if(parentY != 0)
+        {
+          rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        }
+        else if(isStun == false)
         {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
