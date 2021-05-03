@@ -14,6 +14,11 @@ public class SubLayerMove9 : MonoBehaviour
     public GameObject subLayer2Edge;
     public GameObject Manual;
 
+    //for standing on platform alert use
+    public bool colorChange = false;
+    public int blinkTime = 5;
+    public float blinkDuration = .25f;
+
     Vector3 mainScene = new Vector3(0, 0, 0);
     Vector3 subStart1;
     Vector3 subStart2;
@@ -118,6 +123,13 @@ public class SubLayerMove9 : MonoBehaviour
             {
                 move1 = 0.25f;
             }
+            else if (subLayer1.transform.position == mainScene && IsGrounded(subLayer1))
+            {
+                //if standing on and try clicking, reset the blink timer
+                blinkTime = 5;
+                blinkDuration = .25f;
+                colorChange = true;
+            }
         }
     }
     public void MoveSubroom2()
@@ -131,6 +143,13 @@ public class SubLayerMove9 : MonoBehaviour
             else if(subLayer2.transform.position == subStart2)
             {
                 move2 = -0.25f;
+            }
+            else if (subLayer2.transform.position == mainScene && IsGrounded(subLayer2))
+            {
+                //if standing on and try clicking, reset the blink timer
+                blinkTime = 5;
+                blinkDuration = .25f;
+                colorChange = true;
             }
         }
     }

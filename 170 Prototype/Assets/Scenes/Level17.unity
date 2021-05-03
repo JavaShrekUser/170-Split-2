@@ -644,6 +644,7 @@ GameObject:
   - component: {fileID: 111308633}
   - component: {fileID: 111308632}
   - component: {fileID: 111308631}
+  - component: {fileID: 111308634}
   m_Layer: 8
   m_Name: Plat3
   m_TagString: Ice
@@ -765,6 +766,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &111308634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111308629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.5019608, g: 0.5019608, b: 0.8, a: 0.50980395}
 --- !u!1 &129103424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,6 +2176,7 @@ GameObject:
   - component: {fileID: 542110203}
   - component: {fileID: 542110205}
   - component: {fileID: 542110204}
+  - component: {fileID: 542110206}
   m_Layer: 8
   m_Name: Plat1 -2
   m_TagString: Ice
@@ -2264,6 +2282,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &542110206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542110202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &550957886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,6 +2419,7 @@ GameObject:
   - component: {fileID: 619839554}
   - component: {fileID: 619839553}
   - component: {fileID: 619839552}
+  - component: {fileID: 619839555}
   m_Layer: 8
   m_Name: Plat1
   m_TagString: Ice
@@ -2506,6 +2541,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &619839555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619839550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &636670034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,6 +2975,7 @@ GameObject:
   - component: {fileID: 688250306}
   - component: {fileID: 688250305}
   - component: {fileID: 688250304}
+  - component: {fileID: 688250307}
   m_Layer: 8
   m_Name: Plat2
   m_TagString: Ice
@@ -3045,6 +3097,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &688250307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688250302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &706328925
 GameObject:
   m_ObjectHideFlags: 0
@@ -4119,6 +4187,7 @@ GameObject:
   - component: {fileID: 897697602}
   - component: {fileID: 897697604}
   - component: {fileID: 897697603}
+  - component: {fileID: 897697605}
   m_Layer: 8
   m_Name: Plat1-1
   m_TagString: Ice
@@ -4224,6 +4293,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &897697605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897697601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &914321682
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,6 +4734,7 @@ GameObject:
   - component: {fileID: 1117278564}
   - component: {fileID: 1117278566}
   - component: {fileID: 1117278565}
+  - component: {fileID: 1117278567}
   m_Layer: 0
   m_Name: Block
   m_TagString: Ice
@@ -4753,6 +4839,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1117278567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117278563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.5019608, g: 0.5019608, b: 0.8, a: 0.50980395}
 --- !u!1 &1130949146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5178,6 +5280,7 @@ GameObject:
   - component: {fileID: 1217975987}
   - component: {fileID: 1217975989}
   - component: {fileID: 1217975988}
+  - component: {fileID: 1217975990}
   m_Layer: 8
   m_Name: Plat2-2
   m_TagString: Ice
@@ -5283,6 +5386,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1217975990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217975986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &1224397769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5937,6 +6056,7 @@ GameObject:
   - component: {fileID: 1313680795}
   - component: {fileID: 1313680797}
   - component: {fileID: 1313680796}
+  - component: {fileID: 1313680798}
   m_Layer: 8
   m_Name: Plat2-1
   m_TagString: Ice
@@ -6042,6 +6162,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1313680798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313680794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &1332729294
 GameObject:
   m_ObjectHideFlags: 0
@@ -6912,6 +7048,7 @@ GameObject:
   - component: {fileID: 1434364344}
   - component: {fileID: 1434364346}
   - component: {fileID: 1434364345}
+  - component: {fileID: 1434364347}
   m_Layer: 8
   m_Name: Plat1
   m_TagString: normalGround
@@ -7023,6 +7160,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1434364347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434364343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.5019608, g: 0.5019608, b: 0.8, a: 0.50980395}
 --- !u!1 &1476937668
 GameObject:
   m_ObjectHideFlags: 0
@@ -7976,6 +8129,7 @@ GameObject:
   - component: {fileID: 1859410859}
   - component: {fileID: 1859410861}
   - component: {fileID: 1859410860}
+  - component: {fileID: 1859410862}
   m_Layer: 0
   m_Name: Block
   m_TagString: Ice
@@ -8080,6 +8234,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1859410862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859410858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 502878079}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
 --- !u!1 &1894690914
 GameObject:
   m_ObjectHideFlags: 0

@@ -151,6 +151,13 @@ public class SubLayerMove6 : MonoBehaviour
                 MoveRoom.Play();
                 move1 = 0.25f;
             }
+            else if (subLayer1.transform.position == mainScene && IsGrounded(subLayer1))
+            {
+                //if standing on and try clicking, reset the blink timer
+                blinkTime = 5;
+                blinkDuration = .25f;
+                colorChange = true;
+            }
         }
     }
     public void MoveSubroom2()
@@ -166,6 +173,13 @@ public class SubLayerMove6 : MonoBehaviour
             {
                 MoveRoom.Play();
                 move2 = -0.25f;
+            }
+            else if (subLayer2.transform.position == mainScene && IsGrounded(subLayer2))
+            {
+                //if standing on and try clicking, reset the blink timer
+                blinkTime = 5;
+                blinkDuration = .25f;
+                colorChange = true;
             }
         }
     }
