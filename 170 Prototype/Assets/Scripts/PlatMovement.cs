@@ -11,72 +11,49 @@ public class PlatMovement : MonoBehaviour
     //enemy movement variable
     public int moveSpeed = 3;
     public int horizontalDirection = 1;
-    public GameObject LeftWall;
-    public GameObject MidWall;
-    //public GameObject RightWall;
-    /*public GameObject DoorPad;
-    public GameObject LastWall;*/
-    public float rightlimit = 3f;
-    public float leftlimit = -3f;
+    public float rightlimit = 13f;
+    public float leftlimit = -1f;
     public float edgelimit;
+    private float move = 0f;
 
-
-    //condition and timer
-    private void Start()
-    {
-        /*LeftWall.SetActive(true);
-        MidWall.SetActive(true);
-        RightWall.SetActive(false);
-        LastWall.SetActive(false);*/
-        LeftWall.SetActive(true);
-        //MidWall.SetActive(false);
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        //comment out for raycast code, maybe needed for future movement
-        /*RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(horizontalDirection, 0));*/
-
-        rb.velocity = new Vector2(horizontalDirection * moveSpeed, rb.velocity.y);
-
-        /*if (!DoorPad.activeSelf)
-        {
-            LastWall.SetActive(true);
-        }*/
-        if (transform.position.x > rightlimit)
-        {
-            horizontalDirection = -1;
+        transform.Translate(move,0,0);
+        if(rb.constraints == RigidbodyConstraints2D.FreezeAll){
+          move = 0f;
+          return;
         }
-        else if (transform.position.x < leftlimit)
+        if (transform.position.x >= rightlimit)
         {
-            horizontalDirection = 1;
+            move = -0.01f;
+        }
+        else if (transform.position.x <= leftlimit)
+        {
+            move = 0.01f;
+        }
+        else if(move == 0f)
+        {
+          move = -0.01f;
         }
 
-        if (transform.position.x > edgelimit)
-        {
-            MidWall.SetActive(false);
-        }
-        //rb.velocity = Vector3.right * horizontalDirection * moveSpeed * Time.deltaTime;
-        //transform.Translate(rb.velocity);
 
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.tag == "spetag")
+        if(col.collider.tag == "Player")
         {
-            LeftWall.SetActive(false);
-            MidWall.SetActive(false);
-            //RightWall.SetActive(true);
+          col.collider.GetComponent<Collider2D>().transform.SetParent(transform);
         }
     }
-    void OnTriggerExit2D(Collider2D col)
+    void OnCollisionExit2D(Collision2D col)
     {
-        LeftWall.SetActive(true);
-        //MidWall.SetActive(true);
-
+        if(col.collider.tag == "Player")
+        {
+          col.collider.GetComponent<Collider2D>().transform.SetParent(null);
+        }
     }
 
 }
