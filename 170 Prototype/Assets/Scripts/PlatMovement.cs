@@ -9,16 +9,17 @@ public class PlatMovement : MonoBehaviour
     public Rigidbody2D rb;
 
     //enemy movement variable
-    public int moveSpeed = 3;
+    public float moveSpeed = 3;
     public int horizontalDirection = 1;
     public float rightlimit = 13f;
     public float leftlimit = -1f;
     public float edgelimit;
     private float move = 0f;
+    private float savem;
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(move,0,0);
         if(rb.constraints == RigidbodyConstraints2D.FreezeAll){
@@ -27,15 +28,20 @@ public class PlatMovement : MonoBehaviour
         }
         if (transform.position.x >= rightlimit)
         {
-            move = -0.01f;
+            move = -moveSpeed;
+            savem = move;
         }
         else if (transform.position.x <= leftlimit)
         {
-            move = 0.01f;
+            move = moveSpeed;
+            savem = move;
         }
         else if(move == 0f)
         {
-          move = -0.01f;
+          move = savem;
+          if(move == 0f){
+            move = moveSpeed;
+          }
         }
 
 

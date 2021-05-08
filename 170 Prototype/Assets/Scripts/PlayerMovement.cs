@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
       //comment out for future need --- Access from playerMovement code to enemyMovement variable
       //monsterCanMove.canMove = !(monsterCanMove.canMove);
     }
-    if(IsGrounded() && timeCheck > 0.05f)
+    if(IsGrounded() && timeCheck > 0.2f)
     {
       timeCheck = 0;
       jumpCount = 0;
