@@ -32,6 +32,9 @@ public class EnemyMovementL6 : MonoBehaviour
     public float harmSize = 0.8f;
     public LayerMask groundLayers;
 
+    //Animation movements
+    public Animator animator;
+
     float timeCheck;
     float parentY;
 
@@ -42,6 +45,8 @@ public class EnemyMovementL6 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //animation detection for if crouching
+        animator.SetBool("stunned", isStun);
         //what to do if the monster is not stunned
         parentY = gameObject.transform.parent.gameObject.transform.position.y;
         if(parentY != 0)

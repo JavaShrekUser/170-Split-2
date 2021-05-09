@@ -1361,6 +1361,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 0}
 --- !u!50 &244955383
 Rigidbody2D:
   serializedVersion: 4
@@ -1675,6 +1676,7 @@ GameObject:
   - component: {fileID: 308585152}
   - component: {fileID: 308585151}
   - component: {fileID: 308585150}
+  - component: {fileID: 308585154}
   m_Layer: 0
   m_Name: Monster1
   m_TagString: Enemy
@@ -1735,6 +1737,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 256
+  animator: {fileID: 308585154}
 --- !u!50 &308585151
 Rigidbody2D:
   serializedVersion: 4
@@ -1833,6 +1836,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &308585154
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308585148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ff47c6fce45bc6479ec2187ca2333cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &323111776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,6 +3043,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 0}
 --- !u!50 &581199761
 Rigidbody2D:
   serializedVersion: 4
@@ -5319,8 +5342,6 @@ MonoBehaviour:
   rb: {fileID: 1204282159}
   moveSpeed: 2
   horizontalDirection: 1
-  LeftWall: {fileID: 1621652910}
-  MidWall: {fileID: 1683169898}
   rightlimit: 9
   leftlimit: 5
   edgelimit: 8.6
@@ -5959,6 +5980,7 @@ GameObject:
   - component: {fileID: 1275869193}
   - component: {fileID: 1275869192}
   - component: {fileID: 1275869191}
+  - component: {fileID: 1275869195}
   m_Layer: 0
   m_Name: Monster2
   m_TagString: Enemy
@@ -6019,6 +6041,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 256
+  animator: {fileID: 1275869195}
 --- !u!50 &1275869192
 Rigidbody2D:
   serializedVersion: 4
@@ -6117,6 +6140,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1275869195
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275869189}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ff47c6fce45bc6479ec2187ca2333cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1286942232
 GameObject:
   m_ObjectHideFlags: 0
@@ -6854,6 +6896,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 0}
 --- !u!50 &1494203078
 Rigidbody2D:
   serializedVersion: 4

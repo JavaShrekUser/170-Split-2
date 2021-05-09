@@ -32,6 +32,9 @@ public class EnemyMovement : MonoBehaviour
     public float harmSize = 0.8f;
     public LayerMask groundLayers;
 
+    //Animation movements
+    public Animator animator;
+
     float timeCheck;
 
     private void Start()
@@ -41,11 +44,14 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //animation detection for if crouching
+        animator.SetBool("stunned", isStun);
         //what to do if the monster is not stunned
         if(isStun == false)
         {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
+            
         }
         else //what if it's in stunned state
         {
