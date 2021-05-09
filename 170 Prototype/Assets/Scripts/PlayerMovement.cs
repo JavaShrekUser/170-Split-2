@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
   public float jumpForce = 20f;
   [Range(0,1)]
   public float jumpHeightReduce = 0.5f;
-  private bool ceilCheck = false;
+  public bool ceilCheck = false;
   public bool crouching = false;
   bool isMoving = false;
 
@@ -89,20 +89,6 @@ public class PlayerMovement : MonoBehaviour
     //check for if crouch is pressed
     IsCrouching();
 
-    if (rb.velocity.x != 0){
-      isMoving = true;
-    }else{
-      isMoving = false;
-    }
-
-    if (isMoving){
-      if (!WalkGress.isPlaying){
-        WalkGress.Play();
-      }else{
-        WalkGress.Stop();
-      }
-    }
-
     //animation detection for if crouching
     animator.SetBool("crouchAnimation", crouching);
 
@@ -116,6 +102,20 @@ public class PlayerMovement : MonoBehaviour
     {
       stand.enabled = true;
       crouch.enabled = false;
+    }
+
+    if (rb.velocity.x != 0){
+      isMoving = true;
+    }else{
+      isMoving = false;
+    }
+
+    if (isMoving){
+      if (!WalkGress.isPlaying){
+        WalkGress.Play();
+      }else{
+        WalkGress.Stop();
+      }
     }
 
     //Check if Space is pressed down and touching the ground at the same time
