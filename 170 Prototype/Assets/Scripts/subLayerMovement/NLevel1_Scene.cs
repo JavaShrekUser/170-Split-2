@@ -11,12 +11,15 @@ public class NLevel1_Scene : MonoBehaviour
     public GameObject door;
 
     public AudioSource Starting;
+    public AudioClip Loop;
     public AudioSource OpenMap;
     public AudioSource CloseMap;
     public AudioSource MoveRoom;
     public AudioSource PickUp;
     public AudioSource SomethingHappen; // pick up apple sound for now
     public AudioSource ChangeScene; // open door \
+
+    
 
     //for standing on platform alert use
     public bool colorChange = false;
@@ -45,6 +48,13 @@ public class NLevel1_Scene : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!Starting.isPlaying)
+        {
+            Starting.clip = Loop;
+            Starting.loop = true;
+            Starting.Play();
+        }
+
         if (Input.GetKeyDown(KeyCode.E))//for playtest purpose
         {
             SceneManager.LoadScene(nextScene);//for playtest purpose
