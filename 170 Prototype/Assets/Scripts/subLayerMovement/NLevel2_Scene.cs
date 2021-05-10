@@ -34,7 +34,7 @@ public class NLevel2_Scene : MonoBehaviour
     private int lastScene;//for playtest purpose
     private void Start()//for playtest purpose
     {
-        Starting.Play();
+        //Starting.Play();
         rb = player.GetComponent<Rigidbody2D>();
 
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose

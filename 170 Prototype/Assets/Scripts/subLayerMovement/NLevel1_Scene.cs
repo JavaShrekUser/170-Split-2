@@ -10,11 +10,11 @@ public class NLevel1_Scene : MonoBehaviour
     public GameObject collect3;
     public GameObject door;
 
-    public AudioSource Starting;
-    public AudioClip Loop;
+    //public AudioSource Starting;
+    //public AudioClip Loop;
 
-    [Range(0, 1)]
-    public float volume_slider = 0.5f;
+    //[Range(0, 1)]
+    //public float volume_slider = 0.5f;
 
     public AudioSource OpenMap;
     public AudioSource CloseMap;
@@ -41,7 +41,7 @@ public class NLevel1_Scene : MonoBehaviour
     private int lastScene;//for playtest purpose
     private void Start()//for playtest purpose
     {
-        Starting.Play();
+        //Starting.Play();
         rb = player.GetComponent<Rigidbody2D>();
 
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
@@ -52,14 +52,14 @@ public class NLevel1_Scene : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Starting.volume = volume_slider;
+        //Starting.volume = volume_slider;
 
-        if (!Starting.isPlaying)
-        {
-            Starting.clip = Loop;
-            Starting.loop = true;
-            Starting.Play();
-        }
+        //if (!Starting.isPlaying)
+        //{
+            //Starting.clip = Loop;
+            //Starting.loop = true;
+            //Starting.Play();
+        //}
 
         if (Input.GetKeyDown(KeyCode.E))//for playtest purpose
         {

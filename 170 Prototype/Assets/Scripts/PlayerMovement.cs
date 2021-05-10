@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
   //Animation movements
   public Animator animator;
 
+  public AudioSource Starting;
+  public AudioClip Loop;
+
+  [Range(0, 1)]
+  public float volume_slider = 0.5f;
+
   //Horizontal Movement Variables
   [Range(0, 2)]
   public float movementSpeed = 1f;
@@ -70,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
   private void Start() {
 
+    //Starting.Play();
     rb = GetComponent<Rigidbody2D>();
     WalkGress = GetComponent<AudioSource>();
 
@@ -86,6 +93,14 @@ public class PlayerMovement : MonoBehaviour
 
 
   private void Update(){
+    //Starting.volume = volume_slider;
+
+    //if (!Starting.isPlaying)
+    //{
+       //Starting.clip = Loop;
+       //Starting.loop = true;
+       //Starting.Play();
+    //}
     //check for if crouch is pressed
     IsCrouching();
 
