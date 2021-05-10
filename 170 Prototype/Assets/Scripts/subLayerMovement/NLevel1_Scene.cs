@@ -12,6 +12,10 @@ public class NLevel1_Scene : MonoBehaviour
 
     public AudioSource Starting;
     public AudioClip Loop;
+
+    [Range(0, 1)]
+    public float volume_slider = 0.5f;
+
     public AudioSource OpenMap;
     public AudioSource CloseMap;
     public AudioSource MoveRoom;
@@ -48,6 +52,8 @@ public class NLevel1_Scene : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Starting.volume = volume_slider;
+
         if (!Starting.isPlaying)
         {
             Starting.clip = Loop;
