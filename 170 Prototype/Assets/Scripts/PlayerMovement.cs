@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
   public float horizontalDampWhenStopping = 0.5f;
   [Range(0, 1)]
   public float horizontalDampWhenTurning = 0.5f;
+  bool movingNow = false;
 
   //Vertical Movement Variables
   public float jumpForce = 20f;
@@ -107,6 +108,9 @@ public class PlayerMovement : MonoBehaviour
     //animation detection for if crouching
     animator.SetBool("crouchAnimation", crouching);
 
+    //animation detection for if crouching
+    animator.SetBool("movingAnimation", movingNow);
+
     //if so, change the collision mask
     if(crouching == true)
     {
@@ -124,6 +128,16 @@ public class PlayerMovement : MonoBehaviour
     }else{
       isMoving = false;
     }
+
+    if(Input.GetAxisRaw("Horizontal") != 0)
+    {
+      movingNow = true;
+    }
+    else
+    {
+      movingNow = false;
+    }
+    Debug.Log(movingNow);
 
     if (isMoving){
       if (!WalkGress.isPlaying){
