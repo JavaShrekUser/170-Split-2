@@ -13,6 +13,7 @@ public class NLevel3_Scene : MonoBehaviour
     public GameObject Button2;
     public GameObject collect3;
     public GameObject door;
+    public GameObject tutorial;
 
     public AudioSource Starting;
     public AudioSource OpenMap;
@@ -77,6 +78,7 @@ public class NLevel3_Scene : MonoBehaviour
             if (cam.orthographicSize == 10f)
             {
                 zoomIn = false;
+                tutorial.SetActive(true);
             }
             else
             {
@@ -86,6 +88,7 @@ public class NLevel3_Scene : MonoBehaviour
         }
         else if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
+            tutorial.SetActive(false);
             OpenMap.Play();
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             zoomOut = true;
