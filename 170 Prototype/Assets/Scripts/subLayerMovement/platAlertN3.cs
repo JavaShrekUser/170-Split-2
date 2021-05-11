@@ -28,7 +28,7 @@ public class platAlertN3 : MonoBehaviour
         //run every frame so it response upon condition met
         AlertChange();
         //Debug.Log(subMove.colorChange);
-        //Debug.Log(standOn);
+        Debug.Log(standOn);
     }
 
     //check for condition upon enter and exit

@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
     //animation detection for if crouching
     animator.SetBool("crouchAnimation", crouching);
 
-    //animation detection for if crouching
+    //animation detection for if moving
     animator.SetBool("movingAnimation", movingNow);
 
     //if so, change the collision mask
@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     {
       movingNow = false;
     }
-    Debug.Log(movingNow);
+    //Debug.Log(movingNow);
 
     if (isMoving){
       if (!WalkGress.isPlaying){
