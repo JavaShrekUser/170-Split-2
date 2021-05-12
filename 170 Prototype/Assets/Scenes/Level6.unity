@@ -2987,6 +2987,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 0}
 --- !u!50 &917849492
 Rigidbody2D:
   serializedVersion: 4
@@ -3161,10 +3162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 941295483}
-  moveSpeed: 3
+  moveSpeed: 0.08
   horizontalDirection: 1
-  LeftWall: {fileID: 0}
-  MidWall: {fileID: 0}
   rightlimit: 9
   leftlimit: 4
   edgelimit: 8.6
@@ -4178,10 +4177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1281371557}
-  moveSpeed: 3
+  moveSpeed: 0.05
   horizontalDirection: 1
-  LeftWall: {fileID: 0}
-  MidWall: {fileID: 0}
   rightlimit: -7
   leftlimit: -11
   edgelimit: 8.6
