@@ -15,6 +15,7 @@ public class DialogNew : MonoBehaviour
 
   private bool next = false;
   private bool start = true;
+  private bool end = false;
 
   void Update()
   {
@@ -22,10 +23,10 @@ public class DialogNew : MonoBehaviour
       start = false;
       StartCoroutine(Type());
     }
-    if(Input.anyKeyDown && next){
+    if(Input.anyKeyDown && next && !end){
       NextSentence();
     }
-    else if (Input.anyKeyDown){
+    else if (Input.anyKeyDown && !end){
       textDisplay.text = sentences[index];
       next = true;
     }
@@ -49,15 +50,16 @@ public class DialogNew : MonoBehaviour
   public void NextSentence()
   {
     next = false;
-    if (index < sentences.Length - 1)
+    if(index == sentences.Length - 1){
+      end = true;
+      textDisplay.text = "";
+      cam.GetComponent<CameraFadeOut>().Reset();
+    }
+    else if (index < sentences.Length - 1)
     {
       index++;
       textDisplay.text = "";
       StartCoroutine(Type());
-    }
-    else{
-      textDisplay.text = "";
-      cam.GetComponent<CameraFadeOut>().Reset();
     }
   }
 

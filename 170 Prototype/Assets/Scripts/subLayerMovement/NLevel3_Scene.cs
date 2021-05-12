@@ -78,7 +78,6 @@ public class NLevel3_Scene : MonoBehaviour
             if (cam.orthographicSize == 10f)
             {
                 zoomIn = false;
-                tutorial.SetActive(true);
             }
             else
             {
