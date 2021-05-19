@@ -148,9 +148,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Check if Space is pressed down and touching the ground at the same time
-    if(jumpCount == 0 &&
-      Input.GetButtonDown("Jump") && (IsGrounded() || stepOnEnemy || timeCheck < 0.2f) &&
-      cam.orthographicSize == 10f &&
+    if((stepOnEnemy || jumpCount == 0) &&
+      Input.GetButtonDown("Jump") && cam.orthographicSize == 10f &&
        !(rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation))){
       ++jumpCount;
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -163,7 +162,6 @@ public class PlayerMovement : MonoBehaviour
     {
       timeCheck = 0;
       jumpCount = 0;
-      onIce = IsIce();
     }
     //Check if Space is released up before it reached the maximum jump height
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
@@ -226,13 +224,19 @@ public class PlayerMovement : MonoBehaviour
       StepOnMonsta.Play();
       stepOnEnemy = true;
     }
-    if(col.gameObject.tag != "Ice"){
-      onIce = false;
-    }
     if(col.gameObject.tag == "Ice"){
       hitIceSound.Play();
     }
+    else if(IsGrounded()){
+      onIce = false;
+    }
     if(col.gameObject.tag == "Enemy") Debug.Log("touching enemy test");
+  }
+  void OnCollisionStay2D(Collision2D col)
+  {
+    if(col.gameObject.tag == "Ice"){
+      onIce = true;
+    }
   }
 
   private void FixedUpdate() {
@@ -276,6 +280,7 @@ public class PlayerMovement : MonoBehaviour
       rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
     else{
+      print("not on ice");
       rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
 
@@ -305,20 +310,7 @@ public class PlayerMovement : MonoBehaviour
 
   }
 
-  public bool IsIce(){
-    foreach(GameObject g in (GameObject.FindGameObjectsWithTag("Ice"))) {
-      if(!g.GetComponent<EdgeCollider2D>()){
-        return false;
-      }
-      if(stand.IsTouching(g.GetComponent<EdgeCollider2D>())){
-        return true;
-      }
-      if(crouch.IsTouching(g.GetComponent<EdgeCollider2D>())){
-        return true;
-      }
-    }
-    return false;
-  }
+
 
 
 
