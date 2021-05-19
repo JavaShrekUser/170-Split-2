@@ -241,9 +241,10 @@ public class PlayerMovement : MonoBehaviour
     float horizontalVelocity = rb.velocity.x * movementSpeed;
     horizontalVelocity += Input.GetAxisRaw("Horizontal");
 
-    if(horizontalVelocity < 0 && cam.orthographicSize == 10f)
+    //character turning sprite facing & turning damping
+    if(Input.GetAxisRaw("Horizontal") < 0 && cam.orthographicSize == 10f)
       sr.flipX = false;
-    else if(horizontalVelocity > 0 && cam.orthographicSize == 10f)
+    else if(Input.GetAxisRaw("Horizontal") > 0 && cam.orthographicSize == 10f)
       sr.flipX = true;
     //x movement with different damping conditions
     if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f){
