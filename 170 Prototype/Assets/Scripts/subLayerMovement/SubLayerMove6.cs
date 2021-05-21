@@ -85,7 +85,7 @@ public class SubLayerMove6 : MonoBehaviour
         {
             OpenMap.Play();
             saveVelocity = rb.velocity;
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             rb.velocity = saveVelocity;
             zoomOut = true;
 

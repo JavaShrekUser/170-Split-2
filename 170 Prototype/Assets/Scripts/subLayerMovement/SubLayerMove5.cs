@@ -88,7 +88,7 @@ public class SubLayerMove5 : MonoBehaviour
 
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f){
         OpenMap.Play();
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         zoomOut = true;
 
       }

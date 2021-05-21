@@ -89,7 +89,7 @@ public class NLevel3_Scene : MonoBehaviour
         {
             tutorial.SetActive(false);
             OpenMap.Play();
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             zoomOut = true;
         }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))

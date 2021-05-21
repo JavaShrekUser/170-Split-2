@@ -49,7 +49,7 @@ public class SubLayerMove7 : MonoBehaviour
         {
             if (!onIce)
             {
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             }
             cam.orthographicSize = 35f;
             Manual.SetActive(true);
