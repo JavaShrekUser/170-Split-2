@@ -74,12 +74,11 @@ public class PlayerMovement : MonoBehaviour
   public AudioSource StepOnMonsta;
   public AudioSource hitIceSound;
 
-
   private void Start() {
 
     //Starting.Play();
     rb = GetComponent<Rigidbody2D>();
-    WalkGress = GetComponent<AudioSource>();
+    //WalkGress = GetComponent<AudioSource>();
 
     //enable idle sprite
     stand.enabled = true;
@@ -122,12 +121,16 @@ public class PlayerMovement : MonoBehaviour
       stand.enabled = true;
       crouch.enabled = false;
     }
+    //*************************************************************************************************************
 
-    if (rb.velocity.x != 0){
-      isMoving = true;
-    }else{
-      isMoving = false;
+    if (isMoving){
+      if (!WalkGress.isPlaying){
+        WalkGress.Play();
+      }else{
+        WalkGress.Stop();
+      }
     }
+    //***************************************************************************************************************
 
     if(Input.GetAxisRaw("Horizontal") != 0)
     {
@@ -136,14 +139,15 @@ public class PlayerMovement : MonoBehaviour
     else
     {
       movingNow = false;
+      WalkGress.Stop();
     }
-    //Debug.Log(movingNow);
 
-    if (isMoving){
+    if (movingNow)
+        {
       if (!WalkGress.isPlaying){
         WalkGress.Play();
       }else{
-        WalkGress.Stop();
+        //WalkGress.Stop();
       }
     }
 
@@ -189,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
      }
 
   }
+
 
 
   private void OnTriggerEnter2D(Collider2D col){
