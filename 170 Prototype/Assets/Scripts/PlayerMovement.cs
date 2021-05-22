@@ -204,6 +204,11 @@ public class PlayerMovement : MonoBehaviour
     if(col.tag == "checkP2") checkPointActive = 2;
     if(col.tag == "checkP3") checkPointActive = 3;
 
+
+    if(col.tag == "Collect"){
+      PickUp.Play();
+    }
+
     // if collide with trap
     if(col.tag == "Trap"){
       Debug.Log("CPA = "+ checkPointActive);
