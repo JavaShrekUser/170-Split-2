@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
   private int checkPointActive = 0;
 
   public AudioSource Jumping;
-  public AudioSource WalkGress;
+  public AudioSource WalkGrass;
 
   public AudioSource PickUp;
   public AudioSource StepOnMonsta;
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Starting.Play();
     rb = GetComponent<Rigidbody2D>();
-    //WalkGress = GetComponent<AudioSource>();
+    //WalkGrass = GetComponent<AudioSource>();
 
     //enable idle sprite
     stand.enabled = true;
@@ -125,10 +125,10 @@ public class PlayerMovement : MonoBehaviour
     //*************************************************************************************************************
 
     if (isMoving){
-      if (!WalkGress.isPlaying){
-        WalkGress.Play();
+      if (!WalkGrass.isPlaying){
+        WalkGrass.Play();
       }else{
-        WalkGress.Stop();
+        WalkGrass.Stop();
       }
     }
     //***************************************************************************************************************
@@ -140,17 +140,17 @@ public class PlayerMovement : MonoBehaviour
     else
     {
       movingNow = false;
-      WalkGress.Stop();
+      WalkGrass.Stop();
     }
 
     if (movingNow)
         {
-      if (!WalkGress.isPlaying){
-        WalkGress.Play();
+      if (!WalkGrass.isPlaying){
+        WalkGrass.Play();
       }
       if (!IsGrounded())
             {
-                WalkGress.Stop();
+                WalkGrass.Stop();
             }
     }
 
