@@ -146,9 +146,11 @@ public class PlayerMovement : MonoBehaviour
         {
       if (!WalkGress.isPlaying){
         WalkGress.Play();
-      }else{
-        //WalkGress.Stop();
       }
+      if (!IsGrounded())
+            {
+                WalkGress.Stop();
+            }
     }
 
     //Check if Space is pressed down and touching the ground at the same time

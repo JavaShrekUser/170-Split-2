@@ -1585,6 +1585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a75ca6a6f987540b60814436d11550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Starting: {fileID: 0}
+  Loop: {fileID: 0}
+  volume_slider: 0.5
 --- !u!82 &916782159
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2886,7 +2889,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 429e7b57c00d64b4dbe17b81acc40a84, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7f59940af3c06104f9bf5d43a095106f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3823,7 +3826,7 @@ PrefabInstance:
         type: 3}
       propertyPath: WalkGress
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1538347117}
     - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: jumpForce
@@ -4243,7 +4246,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7891307a3460784418c70601fa08c356, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4e27f8f89522685458a22319bf015c51, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
