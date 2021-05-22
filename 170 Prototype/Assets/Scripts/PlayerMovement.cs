@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
   public AudioSource PickUp;
   public AudioSource StepOnMonsta;
   public AudioSource hitIceSound;
+  public AudioSource OpenDoor;
 
   private void Start() {
 
@@ -207,6 +208,10 @@ public class PlayerMovement : MonoBehaviour
 
     if(col.tag == "Collect"){
       PickUp.Play();
+    }
+
+    if(col.tag == "door"){
+      OpenDoor.Play();
     }
 
     // if collide with trap
