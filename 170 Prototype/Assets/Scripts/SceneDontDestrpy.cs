@@ -22,9 +22,9 @@ public class SceneDontDestrpy : MonoBehaviour
             return;
         }
         else
-        {
-            instance = this;
-        }
+        
+        instance = this;
+        
         DontDestroyOnLoad(this.gameObject);
     }
 }
