@@ -504,7 +504,6 @@ GameObject:
   - component: {fileID: 87682438}
   - component: {fileID: 87682441}
   - component: {fileID: 87682440}
-  - component: {fileID: 87682439}
   m_Layer: 8
   m_Name: Plat3
   m_TagString: Ice
@@ -526,22 +525,6 @@ Transform:
   m_Father: {fileID: 1377534429}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &87682439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87682437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b76fbd3810324f41a2f5dc2d54362ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plat: {fileID: 87682437}
-  playerMovement: {fileID: 0}
-  hideTimer: 1
-  showTimer: 2
 --- !u!68 &87682440
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1395,7 +1378,6 @@ GameObject:
   - component: {fileID: 209643920}
   - component: {fileID: 209643924}
   - component: {fileID: 209643923}
-  - component: {fileID: 209643922}
   - component: {fileID: 209643921}
   m_Layer: 8
   m_Name: Plat3
@@ -1434,22 +1416,6 @@ MonoBehaviour:
   standOn: 0
   initColor: {r: 1, g: 1, b: 1, a: 1}
   alertColor: {r: 0.972549, g: 0.49803922, b: 0.5176471, a: 0.50980395}
---- !u!114 &209643922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209643919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b76fbd3810324f41a2f5dc2d54362ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plat: {fileID: 209643919}
-  playerMovement: {fileID: 0}
-  hideTimer: 1
-  showTimer: 2
 --- !u!68 &209643923
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -9838,7 +9804,6 @@ GameObject:
   - component: {fileID: 1755782536}
   - component: {fileID: 1755782540}
   - component: {fileID: 1755782539}
-  - component: {fileID: 1755782538}
   m_Layer: 8
   m_Name: Plat3
   m_TagString: Ice
@@ -9860,22 +9825,6 @@ Transform:
   m_Father: {fileID: 845404133}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1755782538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755782535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b76fbd3810324f41a2f5dc2d54362ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plat: {fileID: 1755782535}
-  playerMovement: {fileID: 0}
-  hideTimer: 1
-  showTimer: 2
 --- !u!68 &1755782539
 EdgeCollider2D:
   m_ObjectHideFlags: 0
