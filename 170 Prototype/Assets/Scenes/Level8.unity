@@ -2494,6 +2494,9 @@ MonoBehaviour:
   subLayer1: {fileID: 334488813}
   subLayer2: {fileID: 336149524}
   Manual: {fileID: 355634763}
+  OpenMap: {fileID: 312057265}
+  CloseMap: {fileID: 1099882031}
+  MoveRoom: {fileID: 345081217}
 --- !u!82 &391969387
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4510,7 +4513,7 @@ MonoBehaviour:
   timer: 1
   cdTimer: 0
   buttonTouch: 0
-  switchSound: {fileID: 0}
+  switchSound: {fileID: 1264989989}
 --- !u!95 &1253332818
 Animator:
   serializedVersion: 3
@@ -4663,7 +4666,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 51d2ef1b85804f0468a5782ba0ba49e9, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
