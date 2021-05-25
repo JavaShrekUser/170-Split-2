@@ -120,22 +120,6 @@ public class SubLayerMove6 : MonoBehaviour
                 MoveRoom.Stop();
             }
         }
-        else if(cam.orthographicSize == 35f){
-            if(subLayer1.transform.position == mainScene && Input.GetKeyDown(KeyCode.C)){
-             move1 = -0.25f;
-            }
-            else if(Input.GetKeyDown(KeyCode.C)){
-             subStart1 =  subLayer1.transform.position;
-             move1 = 0.25f;
-            }
-            if(subLayer2.transform.position == mainScene && Input.GetKeyDown(KeyCode.X)){
-             move2 = 0.25f;
-            }
-            else if(Input.GetKeyDown(KeyCode.X)){
-             subStart2 =  subLayer2.transform.position;
-             move2 = -0.25f;
-            }
-        }
     }
     public void MoveSubroom1()
     {

@@ -24,8 +24,8 @@ public class SubLayerMove2 : MonoBehaviour
     public AudioSource CloseMap;
     public AudioSource MoveRoom;
     public AudioSource PickUp;
-    public AudioSource water; // 
-    public AudioSource lava; // 
+    public AudioSource water; //
+    public AudioSource lava; //
 
     float move1 = 0f;
     float move2 = 0f;
@@ -97,30 +97,6 @@ public class SubLayerMove2 : MonoBehaviour
           MoveRoom.Stop();
         }
       }
-    //   Old movement using keystrokes
-    //
-    //
-    //   else if(mainCam.orthographicSize == 35f){
-    //     if(subLayer1.transform.position.y == mainScene.y && Input.GetKeyDown(KeyCode.C)){
-    //       move1 = -0.25f;
-    //     }
-    //     else if(Input.GetKeyDown(KeyCode.C)){
-    //       move1 = 0.25f;
-    //     }
-    //     if(subLayer2.transform.position.y == mainScene.y && Input.GetKeyDown(KeyCode.X)){
-    //       move2 = 0.25f;
-    //     }
-    //     else if(Input.GetKeyDown(KeyCode.X)){
-    //       move2 = -0.25f;
-    //     }
-    //     if(subLayer3.transform.position.x == mainScene.x && Input.GetKeyDown(KeyCode.Z)){
-    //       move3 = 0.25f;
-    //     }
-    //     else if(Input.GetKeyDown(KeyCode.Z)){
-    //       move3 = -0.25f;
-    //     }
-    //   }
-    // }
   }
   public void MoveSubroom1(){
     if(mainCam.orthographicSize == 35f && !IsGrounded(subLayer1)){
