@@ -216,6 +216,8 @@ public class PlayerMovement : MonoBehaviour
       ButtonPress.Play();
     }
 
+
+
     // if collide with trap
     if(col.tag == "Trap"){
       Debug.Log("CPA = "+ checkPointActive);
@@ -242,18 +244,14 @@ public class PlayerMovement : MonoBehaviour
     if(col.gameObject.tag == "Enemy"){
       StepOnMonsta.Play();
       stepOnEnemy = true;
-    }
-    if(col.gameObject.tag == "Ice"){
-      hitIceSound.Play();
-            if(col.gameObject.layer == 14)
-            {
-                IceCrack.Play();
-            }
-    }
-    else if(IsGrounded()){
+    }else if(IsGrounded()){
       onIce = false;
     }
     if(col.gameObject.tag == "Enemy") Debug.Log("touching enemy test");
+
+    if(col.gameObject.tag == "Ice"){
+      hitIceSound.Play();
+    }
   }
   void OnCollisionStay2D(Collision2D col)
   {
