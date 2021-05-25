@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
   public AudioSource StepOnMonsta;
   public AudioSource hitIceSound;
   public AudioSource OpenDoor;
+  public AudioSource ButtonPress;
 
   private void Start() {
 
@@ -210,9 +211,9 @@ public class PlayerMovement : MonoBehaviour
       PickUp.Play();
     }
 
-    //if(col.tag == "door"){
-      //OpenDoor.Play();
-    //}
+    if(col.tag == "Switch"){
+      ButtonPress.Play();
+    }
 
     // if collide with trap
     if(col.tag == "Trap"){
