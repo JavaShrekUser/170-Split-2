@@ -37,8 +37,8 @@ public class SubLayerMove2 : MonoBehaviour
 
     private void Start()
     {
-      Starting.Play();
-      water.Play();
+      //Starting.Play();
+      //water.Play();
       //lava.Play();
       rb = player.GetComponent<Rigidbody2D>();
       subStart1 = subLayer1.transform.position;

@@ -42,7 +42,7 @@ public class SubLayerMove6 : MonoBehaviour
 
     private void Start()//for playtest purpose
     {
-        Starting.Play();
+        //Starting.Play();
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
         rb = player.GetComponent<Rigidbody2D>();

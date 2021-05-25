@@ -34,7 +34,7 @@ public class NLevel5_Scene : MonoBehaviour
 
     private void Start()//for playtest purpose
     {
-        Starting.Play();
+        //Starting.Play();
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
                                                                  //rb2.constraints =

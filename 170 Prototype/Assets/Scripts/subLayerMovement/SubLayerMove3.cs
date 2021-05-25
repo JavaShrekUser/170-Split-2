@@ -55,7 +55,7 @@ public class SubLayerMove3 : MonoBehaviour
 
     private void Start()
     {
-      Starting.Play();
+      //Starting.Play();
       rb = player.GetComponent<Rigidbody2D>();
       subStart1 = subLayer1.transform.position;
       subStart2 = subLayer2.transform.position;

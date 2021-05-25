@@ -210,9 +210,9 @@ public class PlayerMovement : MonoBehaviour
       PickUp.Play();
     }
 
-    if(col.tag == "door"){
-      OpenDoor.Play();
-    }
+    //if(col.tag == "door"){
+      //OpenDoor.Play();
+    //}
 
     // if collide with trap
     if(col.tag == "Trap"){
