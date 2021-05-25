@@ -157,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Check if Space is pressed down and touching the ground at the same time
-    if((stepOnEnemy || jumpCount == 0) &&
+    if((stepOnEnemy || jumpCount == 0) && IsGrounded() &&
       Input.GetButtonDown("Jump") && cam.orthographicSize == 10f &&
        !(rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation))){
       ++jumpCount;
@@ -221,19 +221,19 @@ public class PlayerMovement : MonoBehaviour
     // if collide with trap
     if(col.tag == "Trap"){
       Debug.Log("CPA = "+ checkPointActive);
-      if(checkPointActive == 0 || respawnPoint1 == null){
+      //if(checkPointActive == 0 || respawnPoint1 == null){
         // if no checkpoint activated
         // reload the scene when dead
         Scene scene;
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-      }else if(checkPointActive == 1){    // respawn to the lastest saved check point
-        Instantiate(this.gameObject, respawnPoint1.position, Quaternion.identity);
-      }else if(checkPointActive == 2){
-        Instantiate(this.gameObject, respawnPoint2.position, Quaternion.identity);
-      }else if(checkPointActive == 3){
-        Instantiate(this.gameObject, respawnPoint3.position, Quaternion.identity);
-      }
+      // }else if(checkPointActive == 1){    // respawn to the lastest saved check point
+      //   Instantiate(this.gameObject, respawnPoint1.position, Quaternion.identity);
+      // }else if(checkPointActive == 2){
+      //   Instantiate(this.gameObject, respawnPoint2.position, Quaternion.identity);
+      // }else if(checkPointActive == 3){
+      //   Instantiate(this.gameObject, respawnPoint3.position, Quaternion.identity);
+      // }
     }
 
   }

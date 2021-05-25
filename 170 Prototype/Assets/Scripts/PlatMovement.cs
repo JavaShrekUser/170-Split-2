@@ -49,14 +49,14 @@ public class PlatMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.collider.tag == "Player")
+        if(col.collider.tag == "Player" || col.collider.tag == "Enemy")
         {
           col.collider.GetComponent<Collider2D>().transform.SetParent(transform);
         }
     }
     void OnCollisionExit2D(Collision2D col)
     {
-        if(col.collider.tag == "Player")
+        if(col.collider.tag == "Player" || col.collider.tag == "Enemy")
         {
           col.collider.GetComponent<Collider2D>().transform.SetParent(null);
         }
