@@ -14,6 +14,10 @@ public class SubLayerMove9 : MonoBehaviour
     public GameObject subLayer2Edge;
     public GameObject Manual;
 
+    public AudioSource OpenMap;
+    public AudioSource CloseMap;
+    public AudioSource MoveRoom;
+
     //for standing on platform alert use
     public bool colorChange = false;
     public int blinkTime = 5;
@@ -77,6 +81,7 @@ public class SubLayerMove9 : MonoBehaviour
 
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
+            OpenMap.Play();
             saveVelocity = rb.velocity;
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             zoomOut = true;
@@ -85,6 +90,7 @@ public class SubLayerMove9 : MonoBehaviour
         }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
         {
+            CloseMap.Play();
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity = saveVelocity;
@@ -99,6 +105,7 @@ public class SubLayerMove9 : MonoBehaviour
             if (subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1)
             {
                 move1 = 0f;
+                MoveRoom.Stop();
             }
         }
         if (move2 != 0f)
@@ -108,6 +115,7 @@ public class SubLayerMove9 : MonoBehaviour
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
             {
                 move2 = 0f;
+                MoveRoom.Stop();
             }
         }
     }
@@ -117,15 +125,18 @@ public class SubLayerMove9 : MonoBehaviour
         {
             if (subLayer1.transform.position == mainScene && !IsGrounded(subLayer1))
             {
+                MoveRoom.Play();
                 move1 = -0.25f;
             }
             else if(subLayer1.transform.position == subStart1)
             {
+                MoveRoom.Play();
                 move1 = 0.25f;
             }
             else if (subLayer1.transform.position == mainScene && IsGrounded(subLayer1))
             {
                 //if standing on and try clicking, reset the blink timer
+                MoveRoom.Play();
                 blinkTime = 5;
                 blinkDuration = .25f;
                 colorChange = true;
@@ -138,14 +149,17 @@ public class SubLayerMove9 : MonoBehaviour
         {
             if (subLayer2.transform.position == mainScene && !IsGrounded(subLayer2))
             {
+                MoveRoom.Play();
                 move2 = 0.25f;
             }
             else if(subLayer2.transform.position == subStart2)
             {
+                MoveRoom.Play();
                 move2 = -0.25f;
             }
             else if (subLayer2.transform.position == mainScene && IsGrounded(subLayer2))
             {
+                MoveRoom.Play();
                 //if standing on and try clicking, reset the blink timer
                 blinkTime = 5;
                 blinkDuration = .25f;
