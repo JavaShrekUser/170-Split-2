@@ -12,12 +12,12 @@ public class MainMenu : MonoBehaviour
 
   public void Start()//for playtest purpose
   {
-    MenuBgm.Play();
+    //MenuBgm.Play();
   }
 
     public void Update()
     {
-        MenuBgm.volume = volume_slider;
+        //MenuBgm.volume = volume_slider;
     }
     public void PlayGame()
   {

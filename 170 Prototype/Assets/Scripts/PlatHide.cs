@@ -9,10 +9,16 @@ public class PlatHide : MonoBehaviour {
   public float hideTimer = 0.5f;
   public float showTimer = 2f;
 
+  //void OnCollisionEnter2D (Collision2D col) {
+    //if (playerMovement.IsGrounded() && col.gameObject.tag == "Player") {
+      //Invoke ("HidePlatform", hideTimer);
+    //}
+  //}
+
   void OnCollisionEnter2D (Collision2D col) {
-    if (playerMovement.IsGrounded() && col.gameObject.tag == "Player") {
-      Invoke ("HidePlatform", hideTimer);
-    }
+    if (col.gameObject.tag == "Player") {
+            plat.SetActive(false);
+        }
   }
 
   void OnCollisionExit2D(Collision2D col) {

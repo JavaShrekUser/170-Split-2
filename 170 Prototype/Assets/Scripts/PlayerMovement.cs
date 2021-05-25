@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
   public AudioSource hitIceSound;
   public AudioSource OpenDoor;
   public AudioSource ButtonPress;
+  public AudioSource IceCrack;
 
   private void Start() {
 
@@ -244,6 +245,10 @@ public class PlayerMovement : MonoBehaviour
     }
     if(col.gameObject.tag == "Ice"){
       hitIceSound.Play();
+            if(col.gameObject.layer == 14)
+            {
+                IceCrack.Play();
+            }
     }
     else if(IsGrounded()){
       onIce = false;
