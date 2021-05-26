@@ -249,13 +249,13 @@ public class PlayerMovement : MonoBehaviour
     }
     if(col.gameObject.tag == "Enemy") Debug.Log("touching enemy test");
 
-    if(col.gameObject.tag == "Ice"){
+    if(col.gameObject.tag == "Ice" || col.gameObject.tag == "ICE"){
       hitIceSound.Play();
     }
   }
   void OnCollisionStay2D(Collision2D col)
   {
-    if(col.gameObject.tag == "Ice"){
+    if(col.gameObject.tag == "Ice" || col.gameObject.tag == "ICE"){
       onIce = true;
     }
   }
