@@ -4251,7 +4251,7 @@ PrefabInstance:
     - target: {fileID: 641894726943010225, guid: 091e4cda65f4ff84b878200272905ce2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 641894726943010231, guid: 091e4cda65f4ff84b878200272905ce2,
         type: 3}
@@ -6089,7 +6089,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1983145625}
     - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: Jumping
@@ -6233,6 +6233,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37f1b5ddbbe8f412380fd7fb29b42b16, type: 3}
+--- !u!58 &1983145625 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2875831362735718809, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1983145624}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2058850951
 GameObject:
   m_ObjectHideFlags: 0

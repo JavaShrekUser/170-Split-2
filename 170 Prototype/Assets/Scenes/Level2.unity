@@ -1039,12 +1039,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!61 &469006361 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7347695654931689909, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
-    type: 3}
-  m_PrefabInstance: {fileID: 2012575552}
-  m_PrefabAsset: {fileID: 0}
 --- !u!50 &469006362 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 550801119941301771, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
@@ -4208,7 +4202,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 469006361}
+      objectReference: {fileID: 2012575553}
     - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: Jumping
@@ -4357,6 +4351,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37f1b5ddbbe8f412380fd7fb29b42b16, type: 3}
+--- !u!58 &2012575553 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2875831362735718809, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+    type: 3}
+  m_PrefabInstance: {fileID: 2012575552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2035336369
 GameObject:
   m_ObjectHideFlags: 0
