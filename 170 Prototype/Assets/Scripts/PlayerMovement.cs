@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
   public bool ceilCheck = false;
   public bool crouching = false;
   bool isMoving = false;
+  bool mapOpening = false;
 
   //Check Box Collider Use
   public CircleCollider2D stand;
@@ -106,6 +107,12 @@ public class PlayerMovement : MonoBehaviour
     //}
     //check for if crouch is pressed
     IsCrouching();
+
+    //check for map open
+    mapOpened();
+
+    //animation detection for if map is opening
+    animator.SetBool("mapIsOpen", mapOpening);
 
     //animation detection for if crouching
     animator.SetBool("crouchAnimation", crouching);
@@ -328,6 +335,20 @@ public class PlayerMovement : MonoBehaviour
     else if(Input.GetAxisRaw("Crouch") == 0 && ceilCheck == false){
       crouching = false;
     }
+
+  }
+
+  //check if the map is opened up
+  public void mapOpened()
+  {
+    if(rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation))
+    {
+      mapOpening = true;
+    }
+    else{
+      mapOpening = false;
+    }
+
 
   }
 
