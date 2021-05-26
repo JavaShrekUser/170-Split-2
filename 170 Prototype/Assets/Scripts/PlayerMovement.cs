@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
   bool isMoving = false;
 
   //Check Box Collider Use
-  public BoxCollider2D stand;
-  public BoxCollider2D crouch;
+  public CircleCollider2D stand;
+  public CircleCollider2D crouch;
 
   //Platform Collision Variables
   public Transform feet;

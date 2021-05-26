@@ -41,7 +41,8 @@ GameObject:
   - component: {fileID: 550801119941301772}
   - component: {fileID: 550801119941301773}
   - component: {fileID: 550801119941301771}
-  - component: {fileID: 7347695654931689909}
+  - component: {fileID: 2875831362735718809}
+  - component: {fileID: 8205961327656784331}
   - component: {fileID: 314061492142952910}
   - component: {fileID: 550801119941301769}
   - component: {fileID: 4700254549719431081}
@@ -83,6 +84,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -139,8 +141,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &7347695654931689909
-BoxCollider2D:
+--- !u!58 &2875831362735718809
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -152,19 +154,25 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.34, y: 3.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0.594}
   serializedVersion: 2
-  m_Size: {x: 2.34, y: 3.32}
-  m_EdgeRadius: 0
+  m_Radius: 1.0653921
+--- !u!58 &8205961327656784331
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550801119941301774}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.49}
+  serializedVersion: 2
+  m_Radius: 1.1682751
 --- !u!61 &314061492142952910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,15 +214,19 @@ MonoBehaviour:
   sr: {fileID: 550801119941301773}
   rb: {fileID: 550801119941301771}
   animator: {fileID: 4700254549719431081}
+  Starting: {fileID: 0}
+  Loop: {fileID: 0}
+  volume_slider: 0.5
   movementSpeed: 1
   horizontalDampBasic: 0.3
   horizontalDampWhenStopping: 0.5
   horizontalDampWhenTurning: 0.5
   jumpForce: 20
   jumpHeightReduce: 0.5
+  ceilCheck: 0
   crouching: 0
-  stand: {fileID: 7347695654931689909}
-  crouch: {fileID: 314061492142952910}
+  stand: {fileID: 2875831362735718809}
+  crouch: {fileID: 8205961327656784331}
   feet: {fileID: 550801119511591543}
   head: {fileID: 3043049912334558008}
   groundLayers:
@@ -227,6 +239,17 @@ MonoBehaviour:
   collectible2: {fileID: 0}
   collectible3: {fileID: 0}
   cam: {fileID: 0}
+  respawnPoint1: {fileID: 0}
+  respawnPoint2: {fileID: 0}
+  respawnPoint3: {fileID: 0}
+  Jumping: {fileID: 0}
+  WalkGrass: {fileID: 0}
+  PickUp: {fileID: 0}
+  StepOnMonsta: {fileID: 0}
+  hitIceSound: {fileID: 0}
+  OpenDoor: {fileID: 0}
+  ButtonPress: {fileID: 0}
+  IceCrack: {fileID: 0}
 --- !u!95 &4700254549719431081
 Animator:
   serializedVersion: 3
