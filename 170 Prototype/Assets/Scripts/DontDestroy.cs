@@ -6,8 +6,8 @@ public class DontDestroy : MonoBehaviour
     public AudioSource Starting;
     public AudioClip Loop;
 
-    [Range(0, 1)]
-    public float volume_slider = 0.5f;
+    //[Range(0, 1)]
+    //public float volume_slider = 0.5f;
 
     private static DontDestroy instance = null;
     public static DontDestroy Instancey
@@ -29,7 +29,7 @@ public class DontDestroy : MonoBehaviour
     }
     public void Update()
     {
-        Starting.volume = volume_slider;
+        //Starting.volume = volume_slider;
 
         if (!Starting.isPlaying)
         {

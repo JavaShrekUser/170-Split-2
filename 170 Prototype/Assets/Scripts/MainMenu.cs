@@ -7,8 +7,8 @@ public class MainMenu : MonoBehaviour
 {
   public AudioSource MenuBgm;
 
-  [Range(0, 1)]
-  public float volume_slider = 0.5f;
+  //[Range(0, 1)]
+  //public float volume_slider = 0.5f;
 
   public void Start()//for playtest purpose
   {
