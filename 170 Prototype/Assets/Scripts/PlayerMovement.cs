@@ -256,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
     }
     if(col.gameObject.tag == "Enemy") Debug.Log("touching enemy test");
 
-    if(col.gameObject.tag == "Ice" || col.gameObject.tag == "ICE"){
+    if(col.gameObject.tag == "Ice"){
       hitIceSound.Play();
     }
   }
