@@ -169,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
        !(rb.constraints == (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation))){
       ++jumpCount;
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+      Jumping.pitch *= Random.Range(0.9f, 1.1f);
       Jumping.Play();
       stepOnEnemy = false;
       //comment out for future need --- Access from playerMovement code to enemyMovement variable
