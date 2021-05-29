@@ -46,5 +46,12 @@ public class SwitchAnimation : MonoBehaviour
         }
 
     }
+    // check if the collison is still hapening
+    private void OnTriggerStay2D (Collider2D col) {
+        if (col.tag == "Player" || col.tag == "Enemy" || col.tag == "Trap") {
+            buttonTouch = true;
+            cdTimer = timer;
+        }
+    }
    
 }
