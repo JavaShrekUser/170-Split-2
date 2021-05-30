@@ -6663,6 +6663,7 @@ GameObject:
   - component: {fileID: 1588604061}
   - component: {fileID: 1588604060}
   - component: {fileID: 1588604063}
+  - component: {fileID: 1588604064}
   m_Layer: 0
   m_Name: Wind
   m_TagString: Untagged
@@ -6685,7 +6686,7 @@ AreaEffector2D:
     m_Bits: 1024
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
-  m_ForceMagnitude: 10
+  m_ForceMagnitude: 0
   m_ForceVariation: 0
   m_ForceTarget: 0
   m_Drag: 0
@@ -6724,7 +6725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588604059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -36.77, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1574755485}
@@ -6785,6 +6786,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1588604064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588604059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18486480d52e3b48829affb60978992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1810136469}
 --- !u!1 &1663228584
 GameObject:
   m_ObjectHideFlags: 0
