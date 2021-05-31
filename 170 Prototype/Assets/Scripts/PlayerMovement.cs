@@ -309,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
       rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
     else{
-      print("not on ice");
+    //  print("not on ice");
       rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
 
