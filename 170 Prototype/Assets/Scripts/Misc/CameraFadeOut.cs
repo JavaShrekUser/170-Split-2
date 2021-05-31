@@ -26,6 +26,7 @@ public class CameraFadeOut : MonoBehaviour
 
       _texture.SetPixel(0, 0, new Color(0, 0, 0, _alpha));
       _texture.Apply();
+      print(_alpha);
 
       _time += Time.deltaTime/1.5f;
       _alpha = 1-FadeCurve.Evaluate(_time);
@@ -33,7 +34,6 @@ public class CameraFadeOut : MonoBehaviour
 
       if (_alpha >= 1){
          _done = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
   }
 }

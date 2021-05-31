@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class DialogNew : MonoBehaviour
 {
@@ -16,6 +16,13 @@ public class DialogNew : MonoBehaviour
   private bool next = false;
   private bool start = true;
   private bool end = false;
+
+  private AsyncOperation load;
+
+  void Start(){
+    load = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    load.allowSceneActivation = false;
+  }
 
   void Update()
   {
@@ -46,6 +53,11 @@ public class DialogNew : MonoBehaviour
     }
     next = true;
   }
+  IEnumerator Wait()
+  {
+    yield return new WaitForSeconds(0.65f);
+    load.allowSceneActivation = true;
+  }
 
   public void NextSentence()
   {
@@ -54,6 +66,8 @@ public class DialogNew : MonoBehaviour
       end = true;
       textDisplay.text = "";
       cam.GetComponent<CameraFadeOut>().Reset();
+      StartCoroutine(Wait());
+      return;
     }
     else if (index < sentences.Length - 1)
     {

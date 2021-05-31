@@ -26,6 +26,8 @@ public class NLevel5_Scene : MonoBehaviour
 
     float move1 = 0f;
     float move2 = 0f;
+    bool zoomOut = false;
+    bool zoomIn = false;
 
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
@@ -54,25 +56,37 @@ public class NLevel5_Scene : MonoBehaviour
             SceneManager.LoadScene(lastScene);//for playtest purpose
         }
 
+        if(zoomOut){
+          if(cam.orthographicSize == 35f){
+            Manual.SetActive(true);
+            zoomOut = false;
+          }
+          else{
+            cam.orthographicSize += 0.5f;
+          }
+        }
+        else if(zoomIn){
+          if(cam.orthographicSize == 10f){
+            zoomIn = false;
+          }
+          else{
+            Manual.SetActive(false);
+            cam.orthographicSize -= 0.5f;
+          }
+        }
+
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
             OpenMap.Play();
-            if (!onIce)
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            }
-            cam.orthographicSize = 35f;
-            Manual.SetActive(true);
-
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            zoomOut = true;
         }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
         {
             CloseMap.Play();
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            cam.orthographicSize = 10f;
-            Manual.SetActive(false);
-
+            zoomIn = true;
         }
         if (move1 != 0f)
         {
