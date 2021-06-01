@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 52998266}
   - component: {fileID: 52998268}
   - component: {fileID: 52998267}
+  - component: {fileID: 52998269}
   m_Layer: 8
   m_Name: Plat4
   m_TagString: Untagged
@@ -303,6 +304,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &52998269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52998265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &60020125
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,8 +472,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1419749278}
-        m_TargetAssemblyTypeName: NLevelAdd2, Assembly-CSharp
+      - m_Target: {fileID: 1419749277}
+        m_TargetAssemblyTypeName: SubLayerMove6, Assembly-CSharp
         m_MethodName: MoveSubroom1
         m_Mode: 1
         m_Arguments:
@@ -516,6 +533,7 @@ GameObject:
   - component: {fileID: 75423934}
   - component: {fileID: 75423936}
   - component: {fileID: 75423935}
+  - component: {fileID: 75423937}
   m_Layer: 8
   m_Name: Plat3
   m_TagString: Untagged
@@ -628,6 +646,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &75423937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75423933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &94861779
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +949,7 @@ GameObject:
   - component: {fileID: 242282934}
   - component: {fileID: 242282936}
   - component: {fileID: 242282935}
+  - component: {fileID: 242282937}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Trap
@@ -1035,6 +1070,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &242282937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242282933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &253691190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1097,7 @@ GameObject:
   - component: {fileID: 253691191}
   - component: {fileID: 253691193}
   - component: {fileID: 253691192}
+  - component: {fileID: 253691194}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Trap
@@ -1166,6 +1218,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &253691194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253691190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &258480116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1245,7 @@ GameObject:
   - component: {fileID: 258480117}
   - component: {fileID: 258480119}
   - component: {fileID: 258480118}
+  - component: {fileID: 258480120}
   m_Layer: 8
   m_Name: Plat5
   m_TagString: Untagged
@@ -1289,6 +1358,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &258480120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258480116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &283428978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,14 +1398,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283428978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 152580465}
   - {fileID: 1948487612}
   - {fileID: 664734403}
-  m_Father: {fileID: 1938788183}
+  m_Father: {fileID: 957482471}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &283428980
@@ -1466,6 +1551,7 @@ GameObject:
   - component: {fileID: 302253657}
   - component: {fileID: 302253659}
   - component: {fileID: 302253658}
+  - component: {fileID: 302253660}
   m_Layer: 0
   m_Name: Trap (2)
   m_TagString: Trap
@@ -1586,6 +1672,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &302253660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302253656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &345284550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,7 +1713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345284550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.06, y: 1.1, z: 2.9267788}
+  m_LocalPosition: {x: -12.61, y: 1.1, z: 2.9267788}
   m_LocalScale: {x: 1, y: 22.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1566803687}
@@ -1999,7 +2101,6 @@ Transform:
   - {fileID: 953125787}
   - {fileID: 302253657}
   - {fileID: 1716282141}
-  - {fileID: 1335411717}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2645,6 +2746,7 @@ GameObject:
   - component: {fileID: 533773989}
   - component: {fileID: 533773991}
   - component: {fileID: 533773990}
+  - component: {fileID: 533773992}
   m_Layer: 8
   m_Name: Plat3
   m_TagString: Untagged
@@ -2757,6 +2859,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &533773992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533773988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &567549844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,6 +3227,7 @@ GameObject:
   - component: {fileID: 660744954}
   - component: {fileID: 660744956}
   - component: {fileID: 660744955}
+  - component: {fileID: 660744957}
   m_Layer: 8
   m_Name: Plat2
   m_TagString: Untagged
@@ -3221,6 +3340,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &660744957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660744953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &662357743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,6 +3813,7 @@ GameObject:
   - component: {fileID: 735704012}
   - component: {fileID: 735704014}
   - component: {fileID: 735704013}
+  - component: {fileID: 735704015}
   m_Layer: 8
   m_Name: Plat2
   m_TagString: Untagged
@@ -3790,6 +3926,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &735704015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735704011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &760336690
 GameObject:
   m_ObjectHideFlags: 0
@@ -4254,6 +4406,7 @@ Transform:
   - {fileID: 881922493}
   - {fileID: 670239203}
   - {fileID: 1518434139}
+  - {fileID: 1335411717}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4512,6 +4665,7 @@ MonoBehaviour:
   rightlimit: 9
   leftlimit: 4
   edgelimit: 8.6
+  button: 0
 --- !u!50 &941295483
 Rigidbody2D:
   serializedVersion: 4
@@ -4710,7 +4864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952064833}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.77, y: 0.5, z: 2.9267788}
+  m_LocalPosition: {x: 23.23, y: 0.5, z: 2.9267788}
   m_LocalScale: {x: 1, y: 23.59, z: 1}
   m_Children: []
   m_Father: {fileID: 1566803687}
@@ -4753,6 +4907,7 @@ GameObject:
   - component: {fileID: 953125787}
   - component: {fileID: 953125789}
   - component: {fileID: 953125788}
+  - component: {fileID: 953125790}
   m_Layer: 0
   m_Name: Trap (1)
   m_TagString: Trap
@@ -4873,6 +5028,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &953125790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953125786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &957482470
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,6 +5075,7 @@ Transform:
   - {fileID: 2043978025}
   - {fileID: 817854526}
   - {fileID: 1472541162}
+  - {fileID: 283428979}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6008,6 +6180,7 @@ MonoBehaviour:
   rightlimit: -7
   leftlimit: -11
   edgelimit: 8.6
+  button: 0
 --- !u!50 &1281371557
 Rigidbody2D:
   serializedVersion: 4
@@ -6322,8 +6495,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335411716}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1382877100}
@@ -6334,8 +6507,8 @@ Transform:
   - {fileID: 859845940}
   - {fileID: 1247356411}
   - {fileID: 1386296942}
-  m_Father: {fileID: 405926615}
-  m_RootOrder: 9
+  m_Father: {fileID: 889206511}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1335411718
 MonoBehaviour:
@@ -6883,7 +7056,7 @@ CircleCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 1419749274}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1419749278
+--- !u!114 &1419749277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6892,18 +7065,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1419749275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 922546486dded1b4d8911efb57c5f92c, type: 3}
+  m_Script: {fileID: 11500000, guid: 486179df136e6234fb44109e5592e646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1419749275}
-  rb2: {fileID: 941295483}
   cam: {fileID: 1815490477}
   subLayer1: {fileID: 1938788181}
+  subLayer1Edge: {fileID: 283428978}
   subLayer2: {fileID: 405926613}
+  subLayer2Edge: {fileID: 1335411716}
   ButtonCanvas: {fileID: 942239014}
+  colorChange: 0
+  blinkTime: 5
+  blinkDuration: 0.25
+  Starting: {fileID: 1451442278}
   OpenMap: {fileID: 662357745}
   CloseMap: {fileID: 585235690}
   MoveRoom: {fileID: 1630847189}
+  PickUp: {fileID: 508379961}
 --- !u!82 &1419749279
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7235,8 +7414,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1419749278}
-        m_TargetAssemblyTypeName: NLevelAdd2, Assembly-CSharp
+      - m_Target: {fileID: 1419749277}
+        m_TargetAssemblyTypeName: SubLayerMove6, Assembly-CSharp
         m_MethodName: MoveSubroom2
         m_Mode: 1
         m_Arguments:
@@ -8600,6 +8779,7 @@ GameObject:
   - component: {fileID: 1716282141}
   - component: {fileID: 1716282143}
   - component: {fileID: 1716282142}
+  - component: {fileID: 1716282144}
   m_Layer: 0
   m_Name: DoorPad (1)
   m_TagString: Untagged
@@ -8710,6 +8890,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1716282144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716282140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b6e65541c1aa3448ffe0f8a72883f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMove: {fileID: 1419749277}
+  standOn: 0
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  alertColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1731827961
 GameObject:
   m_ObjectHideFlags: 0
@@ -9403,7 +9599,6 @@ Transform:
   - {fileID: 253691191}
   - {fileID: 660744954}
   - {fileID: 533773989}
-  - {fileID: 283428979}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

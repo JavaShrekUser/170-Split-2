@@ -16,7 +16,12 @@ public class PlatMovement : MonoBehaviour
     public float edgelimit;
     private float move = 0f;
     private float savem;
+    public bool button = true;
 
+    void Start(){
+      if(button)
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
 
     // Update is called once per frame
     void FixedUpdate()

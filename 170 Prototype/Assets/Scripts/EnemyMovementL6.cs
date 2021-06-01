@@ -123,9 +123,11 @@ public class EnemyMovementL6 : MonoBehaviour
 
         if (col.tag == "Switch")
         {
-
-            dubplat.SetActive(false);
-            ghost.SetActive(false);
+            if(dubplat){
+              dubplat.SetActive(false);
+            }
+            if(ghost)
+              ghost.SetActive(false);
         }
     }
 
