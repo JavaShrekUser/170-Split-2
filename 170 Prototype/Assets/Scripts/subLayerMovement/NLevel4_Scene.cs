@@ -9,7 +9,6 @@ public class NLevel4_Scene : MonoBehaviour
     public GameObject player;
     public Camera cam;
     public GameObject subLayer2;
-    public GameObject subLayer2Edge;
     public GameObject Button2;
     public GameObject collect3;
     public GameObject door;
@@ -101,7 +100,6 @@ public class NLevel4_Scene : MonoBehaviour
         if (move2 != 0f)
         {
             subLayer2.transform.Translate(0, move2 / 2f, 0);
-            subLayer2Edge.transform.Translate(0, move2 / 2f, 0);
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
             {
                 move2 = 0f;

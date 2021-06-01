@@ -13,18 +13,18 @@ public class EdgeCreate : MonoBehaviour
       for(int i = 0; i < 4; i++){
         Edge = Instantiate(main, transform);
         if(i == 0){
-          Edge.transform.Translate(new Vector3(-0.175f, 0f, 0f));
+          Edge.transform.Translate(new Vector3(-0.125f, 0f, 0f));
         }
         else if(i == 1){
-          Edge.transform.Translate(new Vector3(0.175f, 0f, 0f));
+          Edge.transform.Translate(new Vector3(0.125f, 0f, 0f));
         }
         else if(i == 2){
-          Edge.transform.Translate(new Vector3(0f, -0.175f, 0f));
+          Edge.transform.Translate(new Vector3(0f, -0.2f, 0f));
         }
         else{
-          Edge.transform.Translate(new Vector3(0f, 0.175f, 0f));
+          Edge.transform.Translate(new Vector3(0f, 0.2f, 0f));
         }
-
+        Edge.transform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
         Edge.GetComponent<SpriteRenderer>().color = color;
         Edge.GetComponent<SpriteRenderer>().sortingOrder = Edge.GetComponent<SpriteRenderer>().sortingOrder-1;
         Destroy(Edge.GetComponent<Collider2D>());
