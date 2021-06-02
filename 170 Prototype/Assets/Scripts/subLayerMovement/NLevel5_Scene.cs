@@ -47,16 +47,16 @@ public class NLevel5_Scene : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))//for playtest purpose
+        if (Input.GetKeyDown(KeyCode.K))//for playtest purpose
         {
             SceneManager.LoadScene(nextScene);//for playtest purpose
         }
-        else if (Input.GetKeyDown(KeyCode.Q))//for playtest purpose
+        else if (Input.GetKeyDown(KeyCode.J))//for playtest purpose
         {
             SceneManager.LoadScene(lastScene);//for playtest purpose
         }
 
-        if(zoomOut){
+        if (zoomOut){
           if(cam.orthographicSize == 35f){
             Manual.SetActive(true);
             zoomOut = false;

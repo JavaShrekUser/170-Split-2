@@ -38,11 +38,11 @@ public class SubLayerMove8 : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))//for playtest purpose
+        if (Input.GetKeyDown(KeyCode.K))//for playtest purpose
         {
             SceneManager.LoadScene(nextScene);//for playtest purpose
         }
-        else if (Input.GetKeyDown(KeyCode.Q))//for playtest purpose
+        else if (Input.GetKeyDown(KeyCode.J))//for playtest purpose
         {
             SceneManager.LoadScene(lastScene);//for playtest purpose
         }
