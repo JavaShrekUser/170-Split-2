@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
   public bool crouching = false;
   bool isMoving = false;
   bool mapOpening = false;
+  bool jumpPress = false;
 
   //Check Box Collider Use
   public CircleCollider2D stand;
@@ -97,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
 
   private void Update(){
+
     //Starting.volume = volume_slider;
 
     //if (!Starting.isPlaying)
@@ -120,16 +122,22 @@ public class PlayerMovement : MonoBehaviour
     //animation detection for if moving
     animator.SetBool("movingAnimation", movingNow);
 
+    //animation detection for if in air
+    animator.SetBool("onGround", IsGrounded());
+    animator.SetBool("jumpPressed", jumpPress);
+
     //if so, change the collision mask
     if(crouching == true)
     {
       stand.enabled = false;
       crouch.enabled = true;
+      movementSpeed = 0.85f;
     }
     else
     {
       stand.enabled = true;
       crouch.enabled = false;
+      movementSpeed = 1f;
     }
     //*************************************************************************************************************
 
@@ -150,6 +158,15 @@ public class PlayerMovement : MonoBehaviour
     {
       movingNow = false;
       WalkGrass.Stop();
+    }
+
+    if(Input.GetButton("Jump"))
+    {
+      jumpPress = true;
+    }
+    else
+    {
+      jumpPress = false;
     }
 
     if (movingNow)
