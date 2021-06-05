@@ -1350,7 +1350,6 @@ GameObject:
   m_Component:
   - component: {fileID: 206639849}
   - component: {fileID: 206639851}
-  - component: {fileID: 206639850}
   m_Layer: 8
   m_Name: Plat (6)
   m_TagString: Untagged
@@ -1372,41 +1371,6 @@ Transform:
   m_Father: {fileID: 429643593}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &206639850
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206639848}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -4.7323184, y: -0.6664229}
-  - {x: -5.939679, y: -0.5957955}
-  - {x: -6.6510973, y: -0.6437212}
-  - {x: -9.4514475, y: -0.8886721}
-  - {x: -9.96068, y: -0.49942282}
-  - {x: -11.527389, y: 0.8715993}
-  - {x: 10.898953, y: 0.8524759}
-  - {x: 10.01452, y: 0.25917456}
-  - {x: 9.960315, y: -0.4823795}
-  - {x: 8.904047, y: -0.9590177}
-  - {x: 7.9908295, y: -0.81874526}
-  - {x: 5.3742595, y: -0.9435231}
-  - {x: 0.93333805, y: -0.8515364}
-  - {x: -3.815405, y: -0.9524931}
-  - {x: -4.7319665, y: -0.65930414}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &206639851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3929,7 +3893,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 94cc0b25135bffa4c81a4d8411ab5b4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
