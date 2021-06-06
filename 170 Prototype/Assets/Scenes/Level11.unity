@@ -8887,7 +8887,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1810136468}
+      objectReference: {fileID: 1810136475}
     - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: Jumping
@@ -8941,12 +8941,12 @@ PrefabInstance:
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.13
+      value: -12.04
       objectReference: {fileID: 0}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.63
+      value: -7.82
       objectReference: {fileID: 0}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
@@ -8996,12 +8996,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 550801119941301768, guid: 37f1b5ddbbe8f412380fd7fb29b42b16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37f1b5ddbbe8f412380fd7fb29b42b16, type: 3}
---- !u!58 &1810136468 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2875831362735718809, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
-    type: 3}
-  m_PrefabInstance: {fileID: 1810136466}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1810136469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 550801119941301774, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
@@ -9131,6 +9125,12 @@ MonoBehaviour:
   CloseMap: {fileID: 2131811690}
   MoveRoom: {fileID: 1765678178}
   PickUp: {fileID: 1507540311}
+--- !u!61 &1810136475 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 314061492142952910, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810136466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1814519692
 GameObject:
   m_ObjectHideFlags: 0
