@@ -131,7 +131,15 @@ public class PlayerMovement : MonoBehaviour
     {
       stand.enabled = false;
       crouch.enabled = true;
-      movementSpeed = 0.85f;
+      if(IsGrounded())
+      {
+        movementSpeed = 0.85f;
+      }
+      else
+      {
+        movementSpeed = 1f;
+      }
+      
     }
     else
     {
