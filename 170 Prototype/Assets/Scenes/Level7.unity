@@ -2098,6 +2098,7 @@ GameObject:
   - component: {fileID: 649034820}
   - component: {fileID: 649034819}
   - component: {fileID: 649034818}
+  - component: {fileID: 649034821}
   m_Layer: 9
   m_Name: MemFrag1
   m_TagString: Collect
@@ -2207,6 +2208,18 @@ Transform:
   m_Father: {fileID: 936263624}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &649034821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649034817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e0dd92032dcac49a050a3b6056aec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &717037957
 GameObject:
   m_ObjectHideFlags: 0
@@ -3025,6 +3038,7 @@ GameObject:
   - component: {fileID: 887263166}
   - component: {fileID: 887263168}
   - component: {fileID: 887263167}
+  - component: {fileID: 887263169}
   m_Layer: 9
   m_Name: MemFrag3
   m_TagString: Collect
@@ -3134,6 +3148,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &887263169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887263165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e0dd92032dcac49a050a3b6056aec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &898785870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3733,6 +3759,7 @@ GameObject:
   - component: {fileID: 1121573462}
   - component: {fileID: 1121573464}
   - component: {fileID: 1121573463}
+  - component: {fileID: 1121573465}
   m_Layer: 9
   m_Name: MemFrag2
   m_TagString: Collect
@@ -3842,6 +3869,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1121573465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121573461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e0dd92032dcac49a050a3b6056aec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1123635914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,7 +4324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44fb634840d07c45acb98cabd9153e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChangeDoor: {fileID: 1897369781}
 --- !u!61 &1255839033
 BoxCollider2D:
   m_ObjectHideFlags: 0

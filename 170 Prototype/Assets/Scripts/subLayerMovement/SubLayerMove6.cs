@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;//for playtest purpose
 public class SubLayerMove6 : MonoBehaviour
 {
     public GameObject player;
+    public GameObject enemy;
     Rigidbody2D rb;
     public Camera cam;
     public GameObject subLayer1;
@@ -24,16 +25,16 @@ public class SubLayerMove6 : MonoBehaviour
     Vector3 subStart2;
     Vector2 saveVelocity;
 
-    public AudioSource Starting;
     public AudioSource OpenMap;
     public AudioSource CloseMap;
     public AudioSource MoveRoom;
-    public AudioSource PickUp;
 
     float move1 = 0f;
     float move2 = 0f;
     bool zoomOut = false;
     bool zoomIn = false;
+
+    Collider2D enemyCol = null;
 
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
@@ -42,17 +43,38 @@ public class SubLayerMove6 : MonoBehaviour
 
     private void Start()//for playtest purpose
     {
-        //Starting.Play();
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
         rb = player.GetComponent<Rigidbody2D>();
         subStart1 = subLayer1.transform.position;
         subStart2 = subLayer2.transform.position;
-
+        if(enemy){
+          enemyCol = enemy.GetComponent<Collider2D>();
+        }
       }
+    private void Update(){
+      if(!player.GetComponent<PlayerMovement>().IsGrounded()){
+        return;
+      }
+      else if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
+      {
+          OpenMap.Play();
+          saveVelocity = rb.velocity;
+          rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+          rb.velocity = saveVelocity;
+          zoomOut = true;
+      }
+      else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
+      {
+          CloseMap.Play();
+          rb.constraints = RigidbodyConstraints2D.None;
+          rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+          zoomIn = true;
+      }
+    }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.K))//for playtest purpose
         {
@@ -68,7 +90,7 @@ public class SubLayerMove6 : MonoBehaviour
             zoomOut = false;
           }
           else{
-            cam.orthographicSize += 0.5f;
+            cam.orthographicSize += 2.5f;
           }
         }
         else if(zoomIn){
@@ -77,33 +99,13 @@ public class SubLayerMove6 : MonoBehaviour
           }
           else{
             ButtonCanvas.SetActive(false);
-            cam.orthographicSize -= 0.5f;
+            cam.orthographicSize -= 2.5f;
           }
-        }
-
-        if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
-        {
-            OpenMap.Play();
-            saveVelocity = rb.velocity;
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            rb.velocity = saveVelocity;
-            zoomOut = true;
-
-
-        }
-        else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
-        {
-            CloseMap.Play();
-            rb.constraints = RigidbodyConstraints2D.None;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            zoomIn = true;
-
-
         }
         if (move1 != 0f)
         {
-            subLayer1.transform.Translate(0, move1 / 2f, 0);
-            subLayer1Edge.transform.Translate(0,move1/2f,0);
+            subLayer1.transform.Translate(0, move1, 0);
+            subLayer1Edge.transform.Translate(0,move1,0);
             if (subLayer1.transform.position == mainScene || subLayer1.transform.position == subStart1)
             {
                 move1 = 0f;
@@ -112,8 +114,8 @@ public class SubLayerMove6 : MonoBehaviour
         }
         if (move2 != 0f)
         {
-            subLayer2.transform.Translate(0, move2 / 2f, 0);
-            subLayer2Edge.transform.Translate(0,move2/2f,0);
+            subLayer2.transform.Translate(0, move2, 0);
+            subLayer2Edge.transform.Translate(0,move2,0);
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
             {
                 move2 = 0f;
@@ -128,18 +130,18 @@ public class SubLayerMove6 : MonoBehaviour
             if (subLayer1.transform.position == mainScene && !IsGrounded(subLayer1))
             {
                 MoveRoom.Play();
-                move1 = -0.25f;
+                move1 = -0.5f;
             }
             else if(subLayer1.transform.position == subStart1)
             {
                 MoveRoom.Play();
-                move1 = 0.25f;
+                move1 = 0.5f;
             }
             else if (subLayer1.transform.position == mainScene && IsGrounded(subLayer1))
             {
                 //if standing on and try clicking, reset the blink timer
                 blinkTime = 5;
-                blinkDuration = .25f;
+                blinkDuration = .5f;
                 colorChange = true;
             }
         }
@@ -151,18 +153,18 @@ public class SubLayerMove6 : MonoBehaviour
             if (subLayer2.transform.position == mainScene && !IsGrounded(subLayer2))
             {
                 MoveRoom.Play();
-                move2 = 0.25f;
+                move2 = 0.5f;
             }
             else if(subLayer2.transform.position == subStart2)
             {
                 MoveRoom.Play();
-                move2 = -0.25f;
+                move2 = -0.5f;
             }
             else if (subLayer2.transform.position == mainScene && IsGrounded(subLayer2))
             {
                 //if standing on and try clicking, reset the blink timer
                 blinkTime = 5;
-                blinkDuration = .25f;
+                blinkDuration = .5f;
                 colorChange = true;
             }
         }
@@ -190,8 +192,11 @@ public class SubLayerMove6 : MonoBehaviour
           if(Physics2D.IsTouching(t.GetComponent<BoxCollider2D>(), playerCol)) {
             return true;
           }
+        }
+        if(enemy && Physics2D.IsTouching(t.GetComponent<Collider2D>(), enemyCol)){
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
 }

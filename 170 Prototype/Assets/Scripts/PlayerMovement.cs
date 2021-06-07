@@ -12,9 +12,6 @@ public class PlayerMovement : MonoBehaviour
   //Animation movements
   public Animator animator;
 
-  public AudioSource Starting;
-  public AudioClip Loop;
-
   [Range(0, 1)]
   public float volume_slider = 0.5f;
 
@@ -49,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
   public LayerMask groundLayers;
   public Collider2D player;
   public bool stepOnEnemy = false;
-  public GameObject dialogueBox;
   public GameObject collectible;
   public GameObject collectible2;
   public GameObject collectible3;
@@ -62,26 +58,16 @@ public class PlayerMovement : MonoBehaviour
   //public GameObject monster;
   //private EnemyMovement monsterCanMove;
 
-  // Checkpoint variables
-  // Respawn positions
-  public Transform respawnPoint1;
-  public Transform respawnPoint2;
-  public Transform respawnPoint3;
-  private int checkPointActive = 0;
-
   public AudioSource Jumping;
   public AudioSource WalkGrass;
 
   public AudioSource PickUp;
   public AudioSource StepOnMonsta;
   public AudioSource hitIceSound;
-  public AudioSource OpenDoor;
   public AudioSource ButtonPress;
-  public AudioSource IceCrack;
 
   private void Start() {
 
-    //Starting.Play();
     rb = GetComponent<Rigidbody2D>();
     //WalkGrass = GetComponent<AudioSource>();
 
@@ -99,14 +85,6 @@ public class PlayerMovement : MonoBehaviour
 
   private void Update(){
 
-    //Starting.volume = volume_slider;
-
-    //if (!Starting.isPlaying)
-    //{
-       //Starting.clip = Loop;
-       //Starting.loop = true;
-       //Starting.Play();
-    //}
     //check for if crouch is pressed
     IsCrouching();
 
@@ -139,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
       {
         movementSpeed = 1f;
       }
-      
+
     }
     else
     {
@@ -235,15 +213,6 @@ public class PlayerMovement : MonoBehaviour
 
 
   private void OnTriggerEnter2D(Collider2D col){
-    // testing which check point player last saved
-    if(col.tag == "checkP1") checkPointActive = 1;
-    if(col.tag == "checkP2") checkPointActive = 2;
-    if(col.tag == "checkP3") checkPointActive = 3;
-
-
-    if(col.tag == "Collect"){
-      PickUp.Play();
-    }
 
     if(col.tag == "Switch"){
       ButtonPress.Play();
@@ -253,20 +222,10 @@ public class PlayerMovement : MonoBehaviour
 
     // if collide with trap
     if(col.tag == "Trap"){
-      Debug.Log("CPA = "+ checkPointActive);
-      //if(checkPointActive == 0 || respawnPoint1 == null){
-        // if no checkpoint activated
         // reload the scene when dead
         Scene scene;
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-      // }else if(checkPointActive == 1){    // respawn to the lastest saved check point
-      //   Instantiate(this.gameObject, respawnPoint1.position, Quaternion.identity);
-      // }else if(checkPointActive == 2){
-      //   Instantiate(this.gameObject, respawnPoint2.position, Quaternion.identity);
-      // }else if(checkPointActive == 3){
-      //   Instantiate(this.gameObject, respawnPoint3.position, Quaternion.identity);
-      // }
     }
 
   }

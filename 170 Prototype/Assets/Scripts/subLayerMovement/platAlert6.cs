@@ -34,23 +34,22 @@ public class platAlert6 : MonoBehaviour
     //check for condition upon enter and exit
     private void OnCollisionEnter2D(Collision2D col) {
 
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy")
         {
             standOn = true;
         }
-
     }
 
     private void OnCollisionExit2D(Collision2D col) {
 
             standOn = false;
-        
+
     }
 
     //check condition and excecute once meet requirement
     public void AlertChange()
     {
-        
+
         if(standOn == true && subMove.colorChange == true)
         {
             //blink x amount of time
@@ -75,9 +74,9 @@ public class platAlert6 : MonoBehaviour
                         subMove.blinkDuration = .25f;
                         subMove.blinkTime--;
                     }
-                    
+
                 }
-                
+
             }
 
         }
@@ -85,6 +84,6 @@ public class platAlert6 : MonoBehaviour
         {
             rend.material.color = initColor;
         }
-        
+
     }
 }

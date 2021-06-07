@@ -42,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
         Lwall.SetActive(false);
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //animation detection for if crouching
         animator.SetBool("stunned", isStun);
@@ -51,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.velocity = new Vector2(horizontalDirection * enemySpeed, rb.velocity.y);
-            
+
         }
         else //what if it's in stunned state
         {
@@ -99,35 +99,43 @@ public class EnemyMovement : MonoBehaviour
         timeCheck += Time.deltaTime;
     }
     // trigger event
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        // if collide with Air Wall
+        if(col.gameObject.tag == "Air_Wall")
+        {
+            Flip();
+        }
+
+        // if enemy falls down into the lava
+        if(col.gameObject.tag == "Trap"){
+            killPlayer();
+        }
+
+        if (col.gameObject.tag == "speair")
+        {
+            Flip();
+        }
+
+        if (col.gameObject.tag == "speair2")
+        {
+            Flip();
+            Lwall.SetActive(true);
+        }
+
+        if (col.gameObject.tag == "Switch")
+        {
+
+            dubplat.SetActive(false);
+            ghost.SetActive(false);
+        }
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
         // if collide with Air Wall
         if(col.tag == "Air_Wall")
         {
             Flip();
-        }
-
-        // if enemy falls down into the lava
-        if(col.tag == "Trap"){
-            killPlayer();
-        }
-
-        if (col.tag == "speair")
-        {
-            Flip();
-        }
-
-        if (col.tag == "speair2")
-        {
-            Flip();
-            Lwall.SetActive(true);
-        }
-
-        if (col.tag == "Switch")
-        {
-
-            dubplat.SetActive(false);
-            ghost.SetActive(false);
         }
     }
 

@@ -17,12 +17,12 @@ public class PlatMoveUD : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //comment out for raycast code, maybe needed for future movement
         /*RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(horizontalDirection, 0));*/
 
-        rb.velocity = new Vector2(verticalDirection * enemySpeed, rb.velocity.x);
+        transform.Translate(new Vector3(0f,0.05f,0f) * Mathf.Cos(Time.time));
         //rb.constraints = RigidbodyConstraints2D.FreezePositionX;
 
         //Debug.Log(rb.velocity.y);
@@ -35,7 +35,7 @@ public class PlatMoveUD : MonoBehaviour
         {
             Flip();
         }
-        
+
         if(col.tag == "Player")
         {
             col.GetComponent<Rigidbody2D>().transform.SetParent(transform);
