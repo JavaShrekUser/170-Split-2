@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
     private int nextScene;
-    public AudioSource ChangeDoor;
+    //public AudioSource ChangeDoor;
 
     private void Start(){
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;
@@ -13,7 +13,7 @@ public class LoadScene : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collison){
         if(collison.tag == "Player") {
-            ChangeDoor.Play();
+            //ChangeDoor.Play();
             SceneManager.LoadScene(nextScene);
           }
     }

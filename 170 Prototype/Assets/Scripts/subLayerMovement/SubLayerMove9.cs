@@ -43,9 +43,10 @@ public class SubLayerMove9 : MonoBehaviour
     {
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;//for playtest purpose
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
+        rb = player.GetComponent<Rigidbody2D>();
         subStart1 = subLayer1.transform.position;
         subStart2 = subLayer2.transform.position;
-        rb = player.GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -136,7 +137,7 @@ public class SubLayerMove9 : MonoBehaviour
             else if (subLayer1.transform.position == mainScene && IsGrounded(subLayer1))
             {
                 //if standing on and try clicking, reset the blink timer
-                MoveRoom.Play();
+                
                 blinkTime = 5;
                 blinkDuration = .25f;
                 colorChange = true;
@@ -159,7 +160,7 @@ public class SubLayerMove9 : MonoBehaviour
             }
             else if (subLayer2.transform.position == mainScene && IsGrounded(subLayer2))
             {
-                MoveRoom.Play();
+                
                 //if standing on and try clicking, reset the blink timer
                 blinkTime = 5;
                 blinkDuration = .25f;
