@@ -193,25 +193,6 @@ public class PlayerMovement : MonoBehaviour
       //Jumping.Play();
     }
 
-
-
-    // //Check for collectable
-     if (player.IsTouching(collectible.GetComponent<Collider2D>()))
-     {
-       PickUp.Play();
-       collectible.SetActive(false);
-     }
-     if (player.IsTouching(collectible2.GetComponent<Collider2D>()))
-     {
-       PickUp.Play();
-       collectible2.SetActive(false);
-     }
-     if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
-     {
-       PickUp.Play();
-       collectible3.SetActive(false);
-     }
-
   }
 
 
@@ -234,6 +215,18 @@ public class PlayerMovement : MonoBehaviour
         scene = SceneManager.GetActiveScene();
 
         SceneManager.LoadScene(scene.name);
+    }
+    if(col.gameObject == collectible){
+      PickUp.Play();
+      collectible.SetActive(false);
+    }
+    if(col.gameObject == collectible2){
+      PickUp.Play();
+      collectible2.SetActive(false);
+    }
+    if(col.gameObject == collectible3){
+      PickUp.Play();
+      collectible3.SetActive(false);
     }
 
     }
