@@ -53,7 +53,7 @@ public class SubLayerMove6 : MonoBehaviour
         }
       }
     private void Update(){
-      if(!player.GetComponent<PlayerMovement>().IsGrounded()){
+      if(!player.GetComponent<PlayerMovement>().IsGrounded() || player.GetComponent<PlayerMovement>().jumpCount != 0){
         return;
       }
       else if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)

@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
   private int collected = 0;
   private bool onIce = false;
   private float timeCheck = 0;
-  private int jumpCount = 0;
+  public int jumpCount = 0;
   public Camera cam;
   //comment out for future need --- Access from playerMovement code to enemyMovement variable
   //public GameObject monster;
