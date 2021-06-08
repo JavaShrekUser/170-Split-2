@@ -244,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
     if(col.gameObject.tag == "Enemy"){
       StepOnMonsta.Play();
       stepOnEnemy = true;
-    }else if(IsGrounded()){
+    }else if(IsGrounded() && (!crouching || !onIce)){
       onIce = false;
     }
     if(col.gameObject.tag == "Enemy") Debug.Log("touching enemy test");
@@ -301,7 +301,6 @@ public class PlayerMovement : MonoBehaviour
       rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
     else{
-    //  print("not on ice");
       rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
 
