@@ -447,6 +447,198 @@ public class DialogeCharShowHide : MonoBehaviour
             }
         }
 
+        if(dialogueNum == 16)
+        {
+            // if the target is Evra
+            if(Evra == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 0 || dialogue.index == 2 || dialogue.index == 4)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+            // if the target is Cat
+            else if(Cat == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 1 || dialogue.index == 3 || dialogue.index == 5)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+        }
+
+        if(dialogueNum == 17)
+        {
+            // if the target is Evra
+            if(Evra == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 0 || dialogue.index == 2 || dialogue.index == 3 || dialogue.index == 5)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+            // if the target is Cat
+            else if(Cat == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 1 || dialogue.index == 4)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+        }
+
+        if(dialogueNum == 18)
+        {
+            // if the target is Evra
+            if(Evra == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 2 || dialogue.index == 4)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+            // if the target is Cat
+            else if(Cat == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 3 || dialogue.index == 5)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+        }
+
+        if(dialogueNum == 19)
+        {
+            // if the target is Evra
+            if(Evra == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 0 || dialogue.index == 2 || dialogue.index == 3)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+            // if the target is Cat
+            else if(Cat == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 1 || dialogue.index == 4 || dialogue.index == 5)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+        }
+
+        if(dialogueNum == 20)
+        {
+            // if the target is Evra
+            if(Evra == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 1 || dialogue.index == 2 || dialogue.index == 4)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+            // if the target is Cat
+            else if(Cat == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 0 || dialogue.index == 3)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+        }
+
+        if(dialogueNum == 21)
+        {
+            // if the target is Evra
+            if(Evra == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 1 || dialogue.index == 3 || dialogue.index == 5 || dialogue.index == 7 || dialogue.index == 9 || dialogue.index == 10)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+            // if the target is Cat
+            else if(Cat == true)
+            {
+                // change color to light when talking
+                if(dialogue.index == 0 || dialogue.index == 2 || dialogue.index == 4 || dialogue.index == 6 || dialogue.index == 8 || dialogue.index == 11)
+                {
+                    rend.material.color = talkColor;
+                }
+                // dark color when not talking
+                else
+                {
+                    rend.material.color = hideColor;
+                }
+            }
+        }
+
     }
 
 }
