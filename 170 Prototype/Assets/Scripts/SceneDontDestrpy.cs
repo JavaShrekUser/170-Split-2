@@ -6,9 +6,6 @@ public class SceneDontDestrpy : MonoBehaviour
 {
     public AudioSource Transaction;
 
-    [Range(0, 1)]
-    public float volume_slider = 0.5f;
-
     private static SceneDontDestrpy instance = null;
     public static SceneDontDestrpy Instancey
     {

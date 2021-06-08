@@ -1420,7 +1420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd82208b6f58a4dd7860d63def19da47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: {fileID: 283428978}
   cam: {fileID: 1815490477}
 --- !u!1 &302253656
 GameObject:
@@ -4442,7 +4441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd82208b6f58a4dd7860d63def19da47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: {fileID: 889206510}
   cam: {fileID: 1815490477}
 --- !u!1 &912361130
 GameObject:
@@ -5109,7 +5107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd82208b6f58a4dd7860d63def19da47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: {fileID: 957482470}
   cam: {fileID: 1815490477}
 --- !u!1 &976106618
 GameObject:
@@ -6530,6 +6527,148 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1317361391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1317361394}
+  - component: {fileID: 1317361393}
+  - component: {fileID: 1317361392}
+  m_Layer: 0
+  m_Name: injured
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1317361392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317361391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21415bc919a3d084ca57a75b5107552c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Transaction: {fileID: 1317361393}
+--- !u!82 &1317361393
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317361391}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 9372d0a5bdaef7a438888c6c43386552,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: cd72f8261cf84bf4f9c654534ec6312f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1317361394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317361391}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0872784, y: 13.64406, z: -3.0740967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1333813767
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,7 +6856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd82208b6f58a4dd7860d63def19da47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: {fileID: 1335411716}
   cam: {fileID: 1815490477}
 --- !u!1 &1360698745
 GameObject:
@@ -7138,6 +7276,11 @@ PrefabInstance:
       objectReference: {fileID: 1419749276}
     - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
+      propertyPath: Injured
+      value: 
+      objectReference: {fileID: 1317361393}
+    - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
       propertyPath: Jumping
       value: 
       objectReference: {fileID: 1546066073}
@@ -7264,6 +7407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1419749275}
+  enemy: {fileID: 0}
   cam: {fileID: 1815490477}
   subLayer1: {fileID: 1938788181}
   subLayer1Edge: {fileID: 283428978}
@@ -7273,11 +7417,9 @@ MonoBehaviour:
   colorChange: 0
   blinkTime: 5
   blinkDuration: 0.25
-  Starting: {fileID: 1451442278}
   OpenMap: {fileID: 662357745}
   CloseMap: {fileID: 585235690}
   MoveRoom: {fileID: 1630847189}
-  PickUp: {fileID: 508379961}
 --- !u!82 &1419749279
 AudioSource:
   m_ObjectHideFlags: 0

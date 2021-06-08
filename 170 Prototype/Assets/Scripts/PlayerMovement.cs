@@ -66,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
   public AudioSource hitIceSound;
   public AudioSource ButtonPress;
 
+  public AudioSource Injured;
+
   private void Start() {
 
     rb = GetComponent<Rigidbody2D>();
@@ -74,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
     //enable idle sprite
     stand.enabled = true;
     crouch.enabled = false;
+
+    
 
 
     //comment out for future need --- Access from playerMovement code to enemyMovement variable
@@ -218,17 +222,21 @@ public class PlayerMovement : MonoBehaviour
       ButtonPress.Play();
     }
 
-
+    if (col.tag == "Trap")
+            {
+                Injured.Play();
+            }
 
     // if collide with trap
     if(col.tag == "Trap"){
         // reload the scene when dead
         Scene scene;
         scene = SceneManager.GetActiveScene();
+        
         SceneManager.LoadScene(scene.name);
     }
-
-  }
+        
+    }
 
   private void OnCollisionEnter2D(Collision2D col) {
 
