@@ -898,25 +898,6 @@ MonoBehaviour:
   colorChange: 0
   blinkTime: 5
   blinkDuration: 0.25
---- !u!114 &258462892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258462890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbe479049cdfc1469981c4e382ce7da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collect_num: 0
-  Canvas1: {fileID: 0}
-  Canvas2: {fileID: 0}
-  Dialogbox1: {fileID: 0}
-  Dialogbox2: {fileID: 0}
-  Player: {fileID: 258462898}
-  CK: {fileID: 1394749905}
 --- !u!82 &258462893
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1013,12 +994,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!50 &258462898 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 550801119941301771, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
-    type: 3}
-  m_PrefabInstance: {fileID: 1983145624}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &284360640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333766694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 23.5, z: 0}
+  m_LocalPosition: {x: 0, y: 22.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 284360641}

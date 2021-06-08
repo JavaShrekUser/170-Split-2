@@ -20,6 +20,7 @@ public class NLevel4_Scene : MonoBehaviour
     public AudioSource PickUp;
     public AudioSource SomethingHappen; // pick up apple sound for now
     public AudioSource ChangeScene; // open door \
+    public GameObject tutorial;
 
     //for standing on platform alert use
     public bool colorChange = false;
@@ -47,9 +48,27 @@ public class NLevel4_Scene : MonoBehaviour
         lastScene = SceneManager.GetActiveScene().buildIndex - 1;//for playtest purpose
 
     }
+    void Update(){
+      if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
+      {
+          if(tutorial){
+            tutorial.SetActive(false);
+          }
+          OpenMap.Play();
+          rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+          zoomOut = true;
+      }
+      else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
+      {
+          CloseMap.Play();
+          rb.constraints = RigidbodyConstraints2D.None;
+          rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+          zoomIn = true;
+      }
+    }
 
     // Update is called once per frame
-    private void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.K))//for playtest purpose
         {
@@ -68,7 +87,7 @@ public class NLevel4_Scene : MonoBehaviour
             }
             else
             {
-                cam.orthographicSize += 0.5f;
+                cam.orthographicSize += 1f;
             }
         }
         else if (zoomIn)
@@ -80,26 +99,13 @@ public class NLevel4_Scene : MonoBehaviour
             else
             {
                 Button2.SetActive(false);
-                cam.orthographicSize -= 0.5f;
+                cam.orthographicSize -= 1f;
             }
-        }
-        else if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
-        {
-            OpenMap.Play();
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            zoomOut = true;
-        }
-        else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
-        {
-            CloseMap.Play();
-            rb.constraints = RigidbodyConstraints2D.None;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            zoomIn = true;
         }
 
         if (move2 != 0f)
         {
-            subLayer2.transform.Translate(0, move2 / 2f, 0);
+            subLayer2.transform.Translate(0, move2, 0);
             if (subLayer2.transform.position == mainScene || subLayer2.transform.position == subStart2)
             {
                 move2 = 0f;
@@ -130,13 +136,13 @@ public class NLevel4_Scene : MonoBehaviour
             else if (subLayer2.transform.position == mainScene)
             {
                 MoveRoom.Play();
-                move2 = 0.25f;
+                move2 = 0.75f;
                 colorChange = false;
             }
             else if (subLayer2.transform.position == subStart2)
             {
                 MoveRoom.Play();
-                move2 = -0.25f;
+                move2 = -0.75f;
                 colorChange = false;
             }
 

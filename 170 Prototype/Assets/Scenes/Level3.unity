@@ -1513,13 +1513,7 @@ BoxCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 610860848}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &610860851 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 550801119941301771, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
-    type: 3}
-  m_PrefabInstance: {fileID: 610860848}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &610860852
+--- !u!114 &610860851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1528,46 +1522,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 610860849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7055d201f992d44487634825ce25fda, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f8bfa7bee4f24d4592c75001c6160f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 610860849}
   cam: {fileID: 1624750493}
   subLayer2: {fileID: 2129896791}
-  subLayer2Edge: {fileID: 1836621964}
   Button2: {fileID: 1501442368}
   collect3: {fileID: 0}
   door: {fileID: 0}
-  tutorial: {fileID: 1742261424}
   Starting: {fileID: 815097538}
   OpenMap: {fileID: 516792990}
   CloseMap: {fileID: 964323624}
   MoveRoom: {fileID: 2087394752}
   PickUp: {fileID: 850788905}
   SomethingHappen: {fileID: 0}
-  ChangeScene: {fileID: 1283800324}
+  ChangeScene: {fileID: 0}
+  tutorial: {fileID: 1742261424}
   colorChange: 0
   blinkTime: 5
   blinkDuration: 0.25
---- !u!114 &610860853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610860849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbe479049cdfc1469981c4e382ce7da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collect_num: 0
-  Canvas1: {fileID: 0}
-  Canvas2: {fileID: 0}
-  Dialogbox1: {fileID: 0}
-  Dialogbox2: {fileID: 0}
-  Player: {fileID: 610860851}
-  CK: {fileID: 1353684815}
 --- !u!82 &610860854
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2622,7 +2596,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.06
   m_Points:
   - {x: -1.3638493, y: -3.6588352}
   - {x: -2.040499, y: -0.5694355}
@@ -3034,7 +3008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78eb31dc2469e83418015d352769679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subMove: {fileID: 610860852}
+  subMove: {fileID: 0}
   standOn: 0
   initColor: {r: 1, g: 1, b: 1, a: 1}
   alertColor: {r: 0.5019608, g: 0.5019608, b: 0.8, a: 0.50980395}
@@ -3229,7 +3203,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.06
   m_Points:
   - {x: -1.3638493, y: -3.6588352}
   - {x: -2.040499, y: -0.5694355}
@@ -3618,7 +3592,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.06
   m_Points:
   - {x: -1.3638493, y: -3.6588352}
   - {x: -2.040499, y: -0.5694355}
@@ -4505,12 +4479,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1836621964}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1726751475}
           m_TargetAssemblyTypeName: 
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1836621964}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
           m_Arguments:
@@ -4565,8 +4563,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 610860852}
-        m_TargetAssemblyTypeName: NLevel3_Scene, Assembly-CSharp
+      - m_Target: {fileID: 610860851}
+        m_TargetAssemblyTypeName: NLevel4_Scene, Assembly-CSharp
         m_MethodName: MoveSubroom2
         m_Mode: 1
         m_Arguments:
@@ -4970,7 +4968,6 @@ Transform:
   m_Children:
   - {fileID: 73022773}
   - {fileID: 1142042718}
-  - {fileID: 1836621965}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5292,13 +5289,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1836621965}
+  - component: {fileID: 1836621966}
   m_Layer: 8
   m_Name: MovePlats2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1836621965
 Transform:
   m_ObjectHideFlags: 0
@@ -5306,15 +5304,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836621964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 23.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 60574041}
   - {fileID: 2074148682}
-  m_Father: {fileID: 1726751477}
-  m_RootOrder: 2
+  m_Father: {fileID: 2129896793}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836621966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836621964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd82208b6f58a4dd7860d63def19da47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1624750493}
 --- !u!1 &1872596301
 GameObject:
   m_ObjectHideFlags: 0
@@ -5952,7 +5963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78eb31dc2469e83418015d352769679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subMove: {fileID: 610860852}
+  subMove: {fileID: 0}
   standOn: 0
   initColor: {r: 1, g: 1, b: 1, a: 1}
   alertColor: {r: 0.5019608, g: 0.5019608, b: 0.8, a: 0.50980395}
@@ -6078,12 +6089,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129896791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 23.5, z: 0}
+  m_LocalPosition: {x: 0, y: 22.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2124120679}
   - {fileID: 1009162938}
   - {fileID: 1876876503}
+  - {fileID: 1836621965}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
