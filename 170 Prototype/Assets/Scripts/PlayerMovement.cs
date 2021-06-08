@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
   public GameObject collectible2;
   public GameObject collectible3;
   private int collected = 0;
-  private bool onIce = false;
+  public bool onIce = false;
   private float timeCheck = 0;
   public int jumpCount = 0;
   public Camera cam;
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     stand.enabled = true;
     crouch.enabled = false;
 
-    
+
 
 
     //comment out for future need --- Access from playerMovement code to enemyMovement variable
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
     {
       stand.enabled = false;
       crouch.enabled = true;
-      if(IsGrounded())
+      if(IsGrounded() && !onIce)
       {
         movementSpeed = 0.85f;
       }
@@ -232,10 +232,10 @@ public class PlayerMovement : MonoBehaviour
         // reload the scene when dead
         Scene scene;
         scene = SceneManager.GetActiveScene();
-        
+
         SceneManager.LoadScene(scene.name);
     }
-        
+
     }
 
   private void OnCollisionEnter2D(Collision2D col) {

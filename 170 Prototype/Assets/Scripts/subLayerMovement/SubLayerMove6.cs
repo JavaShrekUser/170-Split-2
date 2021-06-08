@@ -61,7 +61,6 @@ public class SubLayerMove6 : MonoBehaviour
           OpenMap.Play();
           saveVelocity = rb.velocity;
           rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-          rb.velocity = saveVelocity;
           zoomOut = true;
       }
       else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
@@ -95,6 +94,9 @@ public class SubLayerMove6 : MonoBehaviour
         }
         else if(zoomIn){
           if(cam.orthographicSize == 10f){
+            if(player.GetComponent<PlayerMovement>().onIce){
+              rb.velocity = saveVelocity;
+            }
             zoomIn = false;
           }
           else{
@@ -130,12 +132,12 @@ public class SubLayerMove6 : MonoBehaviour
             if (subLayer1.transform.position == mainScene && !IsGrounded(subLayer1))
             {
                 MoveRoom.Play();
-                move1 = -0.5f;
+                move1 = -.75f;
             }
             else if(subLayer1.transform.position == subStart1)
             {
                 MoveRoom.Play();
-                move1 = 0.5f;
+                move1 = .75f;
             }
             else if (subLayer1.transform.position == mainScene && IsGrounded(subLayer1))
             {
@@ -153,12 +155,12 @@ public class SubLayerMove6 : MonoBehaviour
             if (subLayer2.transform.position == mainScene && !IsGrounded(subLayer2))
             {
                 MoveRoom.Play();
-                move2 = 0.5f;
+                move2 = .75f;
             }
             else if(subLayer2.transform.position == subStart2)
             {
                 MoveRoom.Play();
-                move2 = -0.5f;
+                move2 = -.75f;
             }
             else if (subLayer2.transform.position == mainScene && IsGrounded(subLayer2))
             {
