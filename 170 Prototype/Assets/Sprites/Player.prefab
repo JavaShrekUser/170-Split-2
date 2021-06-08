@@ -154,7 +154,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.8312669}
+  m_Offset: {x: -0.13430038, y: -0.8312669}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.34, y: 1.6574659}
+  m_Size: {x: 1.1719098, y: 1.6574659}
   m_EdgeRadius: 0
 --- !u!58 &2875831362735718809
 CircleCollider2D:
@@ -214,8 +214,6 @@ MonoBehaviour:
   sr: {fileID: 550801119941301773}
   rb: {fileID: 550801119941301771}
   animator: {fileID: 4700254549719431081}
-  Starting: {fileID: 0}
-  Loop: {fileID: 0}
   volume_slider: 0.5
   movementSpeed: 1
   horizontalDampBasic: 0.3
@@ -234,22 +232,19 @@ MonoBehaviour:
     m_Bits: 256
   player: {fileID: 314061492142952910}
   stepOnEnemy: 0
-  dialogueBox: {fileID: 0}
   collectible: {fileID: 0}
   collectible2: {fileID: 0}
   collectible3: {fileID: 0}
+  onIce: 0
+  jumpCount: 0
   cam: {fileID: 0}
-  respawnPoint1: {fileID: 0}
-  respawnPoint2: {fileID: 0}
-  respawnPoint3: {fileID: 0}
   Jumping: {fileID: 0}
   WalkGrass: {fileID: 0}
   PickUp: {fileID: 0}
   StepOnMonsta: {fileID: 0}
   hitIceSound: {fileID: 0}
-  OpenDoor: {fileID: 0}
   ButtonPress: {fileID: 0}
-  IceCrack: {fileID: 0}
+  Injured: {fileID: 0}
 --- !u!95 &4700254549719431081
 Animator:
   serializedVersion: 3

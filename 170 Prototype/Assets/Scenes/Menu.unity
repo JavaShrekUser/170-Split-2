@@ -4792,9 +4792,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Press J & K to skip level\n \n                       "
+  m_text: "Tracing Memory is a 2D puzzle platformer game about helping  Evra find
+    her memory and help her buddy, Sara fulfill his destiny.\r\n\r\n\n                       "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4802,7 +4803,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4826,8 +4827,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4858,7 +4859,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &848832005
@@ -7340,7 +7341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transaction: {fileID: 1421595471}
-  volume_slider: 0.845
 --- !u!82 &1421595471
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9029,7 +9029,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -618.4213, y: 246}
+  m_AnchoredPosition: {x: 0, y: -252}
   m_SizeDelta: {x: 517.0723, y: 129.5539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715884462
@@ -9397,7 +9397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -15}
+  m_AnchoredPosition: {x: 171, y: 30}
   m_SizeDelta: {x: 1075.6182, y: 723.727}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1739228405
@@ -9420,7 +9420,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Producer\nArtist \nNarrative\nProgrammer\nSFX\n \n                       "
+  m_text: "Logan Park -  Producer / Gameplay Designer  / Level Designer\r\n\r\nSaif 
+    Kausar - Lead Programmer\r\n\r\nBowen Zhao \u2013 Programmer / Animator\r\n\r\nAbudula
+    Aisikaer - Programmer / Sound Editor\r\n\r\nZihan Guo \u2013 Programmer / Artist\r\n\r\nJia
+    Wei \u2013 Programmer\r\n\r\nRiley Dix \u2013 Narrative Designer\r\n\r\nYuda
+    Kuang - Concept Artist\r\n\r\nYongbo Wang \u2013 Background Artist\r\n\r\nZhenglin
+    Feng \u2013 Character Artist / Animator\r\n\r\nZiqi Fang \u2013 Artist\n                       "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -9430,7 +9435,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9447,19 +9452,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -28
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
