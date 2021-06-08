@@ -90,7 +90,7 @@ public class SubLayerMove6 : MonoBehaviour
             zoomOut = false;
           }
           else{
-            cam.orthographicSize += 2.5f;
+            cam.orthographicSize += 1f;
           }
         }
         else if(zoomIn){
@@ -99,7 +99,7 @@ public class SubLayerMove6 : MonoBehaviour
           }
           else{
             ButtonCanvas.SetActive(false);
-            cam.orthographicSize -= 2.5f;
+            cam.orthographicSize -= 1f;
           }
         }
         if (move1 != 0f)

@@ -7,7 +7,6 @@ public class EnemyMovement : MonoBehaviour
 {
     //rigid body is rigid body
     public Rigidbody2D rb;
-    public GameObject Lwall;
     public GameObject dubplat;
     public GameObject ghost;
 
@@ -36,11 +35,6 @@ public class EnemyMovement : MonoBehaviour
     public Animator animator;
 
     float timeCheck;
-
-    private void Start()
-    {
-        Lwall.SetActive(false);
-    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -115,12 +109,6 @@ public class EnemyMovement : MonoBehaviour
         if (col.gameObject.tag == "speair")
         {
             Flip();
-        }
-
-        if (col.gameObject.tag == "speair2")
-        {
-            Flip();
-            Lwall.SetActive(true);
         }
 
         if (col.gameObject.tag == "Switch")

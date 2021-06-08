@@ -13,6 +13,9 @@ public class PlatMoveUD : MonoBehaviour
     public int verticalDirection;
 
     //condition and timer
+    void Start(){
+
+    }
 
 
 
@@ -22,7 +25,7 @@ public class PlatMoveUD : MonoBehaviour
         //comment out for raycast code, maybe needed for future movement
         /*RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(horizontalDirection, 0));*/
 
-        transform.Translate(new Vector3(0f,0.05f,0f) * Mathf.Cos(Time.time));
+        transform.Translate(new Vector3(0f,0.05f,0f) * Mathf.Cos(Time.timeSinceLevelLoad));
         //rb.constraints = RigidbodyConstraints2D.FreezePositionX;
 
         //Debug.Log(rb.velocity.y);
