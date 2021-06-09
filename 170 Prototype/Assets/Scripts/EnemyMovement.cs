@@ -33,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
 
     //Animation movements
     public Animator animator;
+    public GameObject player;
 
     float timeCheck;
     // Update is called once per frame
@@ -131,6 +132,7 @@ public class EnemyMovement : MonoBehaviour
     {
 
         // reload the scene
+            player.GetComponent<PlayerMovement>().Injured.Play();
             Scene scene;
             scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);

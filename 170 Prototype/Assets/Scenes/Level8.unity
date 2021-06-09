@@ -436,7 +436,6 @@ GameObject:
   m_Component:
   - component: {fileID: 42823303}
   - component: {fileID: 42823305}
-  - component: {fileID: 42823304}
   m_Layer: 8
   m_Name: Ground (1)
   m_TagString: Untagged
@@ -458,41 +457,6 @@ Transform:
   m_Father: {fileID: 334488814}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &42823304
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42823302}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -4.6934986, y: -2.1433442}
-  - {x: -8.336854, y: -2.0902362}
-  - {x: -12.95798, y: -1.9483321}
-  - {x: -14.954307, y: -0.84658}
-  - {x: -14.711641, y: 0.45499113}
-  - {x: -14.59556, y: 0.48684603}
-  - {x: 15.017675, y: 0.47679642}
-  - {x: 15.427196, y: -0.09088257}
-  - {x: 15.433478, y: -0.9605045}
-  - {x: 14.173083, y: -1.5305222}
-  - {x: 12.738246, y: -1.8389716}
-  - {x: 8.4551115, y: -2.0513527}
-  - {x: 2.302228, y: -1.6931287}
-  - {x: -1.4219674, y: -1.6858786}
-  - {x: -4.6799984, y: -2.1362154}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &42823305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8482,7 +8446,7 @@ GameObject:
   - component: {fileID: 1877676710}
   - component: {fileID: 1877676709}
   - component: {fileID: 1877676708}
-  - component: {fileID: 1877676707}
+  - component: {fileID: 1877676712}
   - component: {fileID: 1877676711}
   m_Layer: 0
   m_Name: Monster2
@@ -8509,42 +8473,6 @@ Transform:
   m_Father: {fileID: 334488814}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1877676707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877676705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7b28bc95842634a974d8386e5a5ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1877676708}
-  Lwall: {fileID: 0}
-  dubplat: {fileID: 0}
-  ghost: {fileID: 0}
-  enemySpeed: 3
-  horizontalDirection: -1
-  isStun: 0
-  stunTimer: 5
-  head: {fileID: 249082138}
-  leftHand: {fileID: 1654603434}
-  rightHand: {fileID: 578465483}
-  feet: {fileID: 783252371}
-  playerCheck:
-    serializedVersion: 2
-    m_Bits: 1024
-  headHitFeet: 0
-  headSize: 0.7
-  harmPlayerLeft: 0
-  harmPlayerRight: 0
-  harmSize: 0.5
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  animator: {fileID: 1877676711}
 --- !u!50 &1877676708
 Rigidbody2D:
   serializedVersion: 4
@@ -8662,6 +8590,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1877676712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877676705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923fe618eddb2d44c91b97c08e9b2dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1877676708}
+  dubplat: {fileID: 0}
+  ghost: {fileID: 0}
+  enemySpeed: 3
+  horizontalDirection: -1
+  isStun: 0
+  stunTimer: 5
+  head: {fileID: 249082138}
+  leftHand: {fileID: 1654603434}
+  rightHand: {fileID: 578465483}
+  feet: {fileID: 783252371}
+  playerCheck:
+    serializedVersion: 2
+    m_Bits: 1024
+  headHitFeet: 0
+  headSize: 0.7
+  harmPlayerLeft: 0
+  harmPlayerRight: 0
+  harmSize: 0.5
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  animator: {fileID: 1877676711}
+  player: {fileID: 391969385}
 --- !u!1 &1918751273
 GameObject:
   m_ObjectHideFlags: 0
