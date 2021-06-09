@@ -34,7 +34,7 @@ public class SubLayerMove6 : MonoBehaviour
     bool zoomOut = false;
     bool zoomIn = false;
 
-    Collider2D enemyCol = null;
+    Collider2D enemyCol = new Collider2D();
 
     private int nextScene;//for playtest purpose
     private int lastScene;//for playtest purpose
@@ -70,19 +70,20 @@ public class SubLayerMove6 : MonoBehaviour
           rb.constraints = RigidbodyConstraints2D.FreezeRotation;
           zoomIn = true;
       }
+      if (Input.GetKeyDown(KeyCode.K))//for playtest purpose
+      {
+          SceneManager.LoadScene(nextScene);//for playtest purpose
+      }
+      else if (Input.GetKeyDown(KeyCode.J))//for playtest purpose
+      {
+          SceneManager.LoadScene(lastScene);//for playtest purpose
+      }
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.K))//for playtest purpose
-        {
-            SceneManager.LoadScene(nextScene);//for playtest purpose
-        }
-        else if (Input.GetKeyDown(KeyCode.J))//for playtest purpose
-        {
-            SceneManager.LoadScene(lastScene);//for playtest purpose
-        }
+
         if (zoomOut){
           if(cam.orthographicSize == 35f){
             ButtonCanvas.SetActive(true);
@@ -195,8 +196,10 @@ public class SubLayerMove6 : MonoBehaviour
             return true;
           }
         }
-        if(enemy && Physics2D.IsTouching(t.GetComponent<Collider2D>(), enemyCol)){
-          return true;
+        if(t.GetComponent<EdgeCollider2D>()){
+          if(enemy && Physics2D.IsTouching(t.GetComponent<EdgeCollider2D>(), enemyCol)){
+            return true;
+          }
         }
       }
       return false;
